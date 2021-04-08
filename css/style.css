@@ -1,0 +1,23 @@
+:root {
+    --color-dark: black;
+    --color-light: white;
+    --color-gray: gray;
+}
+
+.container{
+    border: 2px outset gray;        
+}
+
+.button {
+    background-color:gray;
+    border: 2px solid gray;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 2px 2px;
+    cursor: pointer;
+  }
