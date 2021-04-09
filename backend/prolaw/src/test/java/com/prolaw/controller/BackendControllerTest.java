@@ -16,6 +16,7 @@ import static io.restassured.RestAssured.when;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest( classes = ProlawApplication.class , webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class BackendControllerTest {
@@ -104,5 +105,37 @@ public class BackendControllerTest {
 			.assertThat()
 				.body(is(equalTo(BackendController.SECURED_TEXT)));
 	}
+
+    @Test
+    public void loginUserTest() {
+        User gustavoMojica = new User(1192894877L,"Gustavo","Mojica","3228056671","gmojica@unal.edu.co","1234");
+        Long userId = 
+            given()
+                .pathParam("idUser", gustavoMojica.getIdUser())
+                .pathParam("nameUser", gustavoMojica.getNameUser())
+                .pathParam("lastNameUser", gustavoMojica.getLastNameUser())
+                .pathParam("celUser", gustavoMojica.getCelUser())
+                .pathParam("emailUser", gustavoMojica.getEmailUser())
+                .pathParam("passUser", gustavoMojica.getPassUser())
+            .when()
+                .post("api/user/{idUser}/{nameUser}/{lastNameUser}/{celUser}/{emailUser}/{passUser}")
+            .then()
+                .statusCode(is(HttpStatus.SC_CREATED))
+                .extract()
+                    .body().as(Long.class);
+               
+        boolean responseLogin =
+            given()
+                .pathParam("emailUser", gustavoMojica.getEmailUser())
+                .pathParam("passUser", gustavoMojica.getPassUser())
+            .when()
+                .get("api/user/{emailUser}/{passUser}")
+            .then()
+                .statusCode(HttpStatus.SC_OK)
+                .assertThat()
+                    .extract().as(boolean.class);
+        
+        assertTrue(responseLogin);
+    }
     
 }

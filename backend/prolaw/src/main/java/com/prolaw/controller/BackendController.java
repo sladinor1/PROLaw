@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.*;
+
+
 @RestController
 @RequestMapping("/api")
 public class BackendController {
@@ -24,6 +27,8 @@ public class BackendController {
 	   
 	public static final String HELLO_TEXT = "Hello from Spring Boot Backend!";
     public static final String SECURED_TEXT = "Hello from the secured resource!";
+	public static final String LOGIN_DONE = "Loggin done";
+	public static final String LOGIN_ERROR = "Loggin error";
 
 	@Autowired
 	private UserRepository userRepository;
@@ -61,24 +66,22 @@ public class BackendController {
 		}).orElseThrow(() -> new UserNotFoundException("The user with the id "+idUser+ " couldn't be found in the database."));
 	}
 
-	/*
-	Tambien hacer el test en BackendControllerTest
-	Usar findByEmailUser y findByPassUser para comprobar que sean los mismos de las tablas 
-	Name: Login
-	(OPCIONAL PARA HACERLO)
-	Input: PathVariables: Email y Password
-	Variables internas: UsuarioEmail y UsuarioPass
-	if comparador entre UsuarioEmail.getId y UsuarioPass.getId
-	Output: Boolean 
 	@ResponseBody
-	@GetMapping(path = "/user/{idUser}")
-	public User getUserById(@PathVariable("idUser") long idUser){
-		return userRepository.findById(idUser).map(user -> {
-			LOG.info("Reading user with id " + idUser+ " from database.");
-			return user;
-		}).orElseThrow(() -> new UserNotFoundException("The user with the id "+idUser+ " couldn't be found in the database."));
+	@RequestMapping(path = "/user/{emailUser}/{passUser}", method = RequestMethod.GET)
+	public boolean loginConfirmation(@PathVariable("emailUser") String emailUser,@PathVariable("passUser")  String passUser ){
+		List<User> usersEmail = userRepository.findByEmailUser(emailUser); 
+		LOG.info("TAMAÑO ARREGLO: " +String.valueOf(usersEmail.size()));
+		for(User userEmail: usersEmail){
+		//List<User> usersPassword = userRepository.findByPassUser(passUser); //User userPassword = usersPassword.get(0);		
+		boolean result = userEmail.getPassUser().equals(passUser);
+		if(result){
+			LOG.info(LOGIN_DONE);
+			return result;
+		}}
+		LOG.warn(LOGIN_ERROR);
+		return false;
 	}
-	*/
+
 
     @ResponseBody
 	@RequestMapping(path = "/secured", method = RequestMethod.GET)

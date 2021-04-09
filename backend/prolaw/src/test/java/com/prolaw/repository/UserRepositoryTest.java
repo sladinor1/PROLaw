@@ -39,7 +39,7 @@ public class UserRepositoryTest {
         //Search specific User in DB according to lastname
         List<User> userWithLasstNameMojica = users.findByLastNameUser("Mojica");
         //assertThat(userWithLasstNameMojica,contains(gustavoMojica.toString()));
-        assertTrue(userWithLasstNameMojica.contains(camiloCardona));
+        assertTrue(userWithLasstNameMojica.contains(gustavoMojica));
     }
 
     @Test
