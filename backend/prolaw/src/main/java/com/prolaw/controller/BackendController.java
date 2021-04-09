@@ -31,6 +31,7 @@ public class BackendController {
 	@ResponseBody
 	@RequestMapping(path = "/hello")
 	public String sayHello(){
+		
 		LOG.info("GET called on /hello resource");
 		return HELLO_TEXT;
 	}
@@ -59,6 +60,25 @@ public class BackendController {
 			return user;
 		}).orElseThrow(() -> new UserNotFoundException("The user with the id "+idUser+ " couldn't be found in the database."));
 	}
+
+	/*
+	Tambien hacer el test en BackendControllerTest
+	Usar findByEmailUser y findByPassUser para comprobar que sean los mismos de las tablas 
+	Name: Login
+	(OPCIONAL PARA HACERLO)
+	Input: PathVariables: Email y Password
+	Variables internas: UsuarioEmail y UsuarioPass
+	if comparador entre UsuarioEmail.getId y UsuarioPass.getId
+	Output: Boolean 
+	@ResponseBody
+	@GetMapping(path = "/user/{idUser}")
+	public User getUserById(@PathVariable("idUser") long idUser){
+		return userRepository.findById(idUser).map(user -> {
+			LOG.info("Reading user with id " + idUser+ " from database.");
+			return user;
+		}).orElseThrow(() -> new UserNotFoundException("The user with the id "+idUser+ " couldn't be found in the database."));
+	}
+	*/
 
     @ResponseBody
 	@RequestMapping(path = "/secured", method = RequestMethod.GET)

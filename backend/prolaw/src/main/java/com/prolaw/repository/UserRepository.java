@@ -5,7 +5,8 @@ import com.prolaw.domain.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import antlr.collections.List;
+//import antlr.collections.List;
+import java.util.*;
 
 /* Atributos
 private String nameUser;
