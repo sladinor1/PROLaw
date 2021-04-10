@@ -51,7 +51,7 @@ public class BackendController {
 	@ResponseBody
 	@RequestMapping(path = "/user/{idUser}/{nameUser}/{lastNameUser}/{celUser}/{emailUser}/{passUser}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public long addNewUser(@PathVariable("idUser") long idUser,@PathVariable("nameUser") String nameUser, @PathVariable("lastNameUser") String lastNameUser, @PathVariable("celUser") String celUser,@PathVariable("emailUser") String emailUser, @PathVariable("passUser") String passUser){
+	public String addNewUser(@PathVariable("idUser") String idUser,@PathVariable("nameUser") String nameUser, @PathVariable("lastNameUser") String lastNameUser, @PathVariable("celUser") String celUser,@PathVariable("emailUser") String emailUser, @PathVariable("passUser") String passUser){
 		User savedUser = userRepository.save(new User(idUser,nameUser, lastNameUser, celUser, emailUser, passUser));
 		LOG.info(savedUser.toString() + " successfully saved into DB.");
 		return savedUser.getIdUser();
@@ -59,7 +59,7 @@ public class BackendController {
 
 	@ResponseBody
 	@GetMapping(path = "/user/{idUser}")
-	public User getUserById(@PathVariable("idUser") long idUser){
+	public User getUserById(@PathVariable("idUser") String idUser){
 		return userRepository.findById(idUser).map(user -> {
 			LOG.info("Reading user with id " + idUser+ " from database.");
 			return user;

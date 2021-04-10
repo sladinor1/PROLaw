@@ -16,9 +16,9 @@ private String nameUser;
     private String passUser;
 */
 
-public interface UserRepository extends CrudRepository<User,Long> {
+public interface UserRepository extends CrudRepository<User,String> {
 
-    List<User> findByIdUser(@Param("idUser") Long idUser);
+    List<User> findByIdUser(@Param("idUser") String idUser);
     List<User> findByNameUser(@Param("nameUser") String nameUser);
     List<User> findByLastNameUser(@Param("lastNameUser") String lastNameUser); 
     List<User> findByCelUser(@Param("celUser") String celUser);

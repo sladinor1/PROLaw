@@ -1,5 +1,8 @@
 package com.prolaw.domain;
 
+//import java.io.Serializable;
+
+import javax.imageio.ImageIO;
 import javax.persistence.*;
 
 /* Atributos
@@ -13,23 +16,28 @@ foto usuario
 */
 
 @Entity
-@Table(name="USUARIO")
+@Table(name="usuario")
 public class User {
     //Primary Key
     @Id
-    private Long idUser;
-
+    private String idUser;
+    @Column(name = "nameUser")
     private String nameUser;
+    @Column(name = "lastNameUser")
     private String lastNameUser;
+    @Column(name = "celUser")
     private String celUser;
+    @Column(name =  "emailUser")
     private String emailUser;
+    @Column(name = "passUser")
     private String passUser;
+    //@Column(name = "photoUser")
     //private ImageIO photoUser;
     
     protected User() {
     }
 
-    public User(Long idUser ,String nameUser, String lastNameUser, String celUser, String emailUser, String passUser) {
+    public User(String idUser ,String nameUser, String lastNameUser, String celUser, String emailUser, String passUser) {
         this.idUser = idUser;
         this.nameUser = nameUser;
         this.lastNameUser = lastNameUser;
@@ -46,11 +54,11 @@ public class User {
         this.passUser = passUser;
     }
 
-    public Long getIdUser() {
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(Long idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 

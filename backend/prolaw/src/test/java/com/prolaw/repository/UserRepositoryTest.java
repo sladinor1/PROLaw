@@ -22,8 +22,8 @@ public class UserRepositoryTest {
     @Autowired
     private UserRepository users;
 
-    private final User gustavoMojica = new User(1192894877L,"Gustavo","Mojica","3228056671","gmojica@unal.edu.co","1234");
-    private final User camiloCardona = new User(1010012720L,"Camilo","Cardona","3208612601","ancardonac@unal.edu.co","1234");
+    private final User gustavoMojica = new User("1192894877","Gustavo","Mojica","3228056671","gmojica@unal.edu.co","1234");
+    private final User camiloCardona = new User("10100127202","Camilo","Cardona","3208612601","ancardonac@unal.edu.co","1234");
     
 		
 

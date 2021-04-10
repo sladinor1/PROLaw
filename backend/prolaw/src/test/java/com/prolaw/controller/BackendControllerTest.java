@@ -43,21 +43,21 @@ public class BackendControllerTest {
     @Test
     public void addUserAndRetriveItBack() {
         //User gustavoMojica = new User("Gustavo","Mojica","3228056671","gmojica@unal.edu.co","1234");
-        User gustavoMojica = new User(1192894877L,"Gustavo","Mojica","3228056671","gmojica@unal.edu.co","1234");
-        Long userId = 
+        //User gustavoMojica = new User("1192894877","Gustavo","Mojica","3228056671","gmojica@unal.edu.co","1234");
+        String userId = 
             given()
-                .pathParam("idUser", gustavoMojica.getIdUser())
-                .pathParam("nameUser", gustavoMojica.getNameUser())
-                .pathParam("lastNameUser", gustavoMojica.getLastNameUser())
-                .pathParam("celUser", gustavoMojica.getCelUser())
-                .pathParam("emailUser", gustavoMojica.getEmailUser())
-                .pathParam("passUser", gustavoMojica.getPassUser())
+                .pathParam("idUser", "1010012720")
+                .pathParam("nameUser", "Camilo")
+                .pathParam("lastNameUser", "Cardona")
+                .pathParam("celUser", "3208")
+                .pathParam("emailUser", "ancardonac@unal.edu.co")
+                .pathParam("passUser", "1234")
             .when()
                 .post("api/user/{idUser}/{nameUser}/{lastNameUser}/{celUser}/{emailUser}/{passUser}")
             .then()
                 .statusCode(is(HttpStatus.SC_CREATED))
                 .extract()
-                    .body().as(Long.class);
+                    .body().as(String.class);
             
         User responseUser =
             given()
@@ -69,8 +69,7 @@ public class BackendControllerTest {
                 .assertThat()
                     .extract().as(User.class);
         
-        assertThat(responseUser.getLastNameUser(), is("Mojica"));
-        assertThat(responseUser.getEmailUser(), is("gmojica@unal.edu.co"));
+        assertThat(responseUser.getLastNameUser(), is("Cardona"));
     }
 
     @Test
@@ -108,8 +107,8 @@ public class BackendControllerTest {
 
     @Test
     public void loginUserTest() {
-        User gustavoMojica = new User(1192894877L,"Gustavo","Mojica","3228056671","gmojica@unal.edu.co","1234");
-        Long userId = 
+        //User gustavoMojica = new User("1192894877","Gustavo","Mojica","3228056671","gmojica@unal.edu.co","1234");
+        /*String userId = 
             given()
                 .pathParam("idUser", gustavoMojica.getIdUser())
                 .pathParam("nameUser", gustavoMojica.getNameUser())
@@ -122,12 +121,12 @@ public class BackendControllerTest {
             .then()
                 .statusCode(is(HttpStatus.SC_CREATED))
                 .extract()
-                    .body().as(Long.class);
-               
+                    .body().as(String.class);
+         */      
         boolean responseLogin =
             given()
-                .pathParam("emailUser", gustavoMojica.getEmailUser())
-                .pathParam("passUser", gustavoMojica.getPassUser())
+                .pathParam("emailUser", "gmojica@unal.edu.co")
+                .pathParam("passUser", "1234")
             .when()
                 .get("api/user/{emailUser}/{passUser}")
             .then()
