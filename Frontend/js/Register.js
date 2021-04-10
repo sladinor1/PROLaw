@@ -1,12 +1,14 @@
 const app = new Vue({
     el: '#form',
     data: {
+        id:'',
         names:'',
         lastnames:'',
         phone:'',
         email:'',
         pass:'',
         passc:'',
+        vid: false,
         vn: false,
         vl: false,
         vp: false,
@@ -14,6 +16,14 @@ const app = new Vue({
         vpc: false
     },
     methods: {
+        validarId: function(){
+            if (!/^\d+$/.test(this.id)) {
+                this.id = false;
+                return 'El número de identificacion debe tener solamente valores de caracter numerico (0-9)';
+            }else {
+                return '';
+            }
+        },
         validarNombres: function(){
             if (/\d/.test(this.names)) {
                 this.vn = false;
@@ -29,7 +39,6 @@ const app = new Vue({
                 return 'Los apellidos solo aceptan valores del abecedario (a-b)';
             }
             if(!/\d/.test(this.lastnames)){
-                this.vl = true;
                 return '';
             }
         },
@@ -38,14 +47,12 @@ const app = new Vue({
                 this.vp = false;
                 return 'El número de telefono debe tener solamente valores de caracter numerico (0-9)';
             }else {
-                this.vp = true;
                 return '';
             }
         },
         validarContraseña: function(){
             if (this.pass.length > 7 && this.pass.length < 16){
                 if (/\d/.test(this.pass)) {
-                    this.vps = true;
                     return '';
                 }else {
                     this.vps = false;
@@ -58,7 +65,6 @@ const app = new Vue({
         },
         validarContraseñac: function(){
             if (this.pass === this.passc) {
-                this.vpc = true;
                 return '';
             }else{
                 this.vpc = false;
