@@ -9,10 +9,13 @@
   },
   "dependencies": {
     "@braid/vue-formulate": "^2.5.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "postcss": "^8.2.9",
     "postcss-reporter": "^7.0.2",
+    "primevue": "^3.3.5",
     "vue": "^3.0.0",
+    "vue-axios": "^3.2.4",
     "vue-router": "^4.0.6"
   },
   "devDependencies": {
@@ -36,7 +39,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-console": "off"
+    }
   },
   "browserslist": [
     "> 1%",
