@@ -4,8 +4,8 @@ export default class UserController {
 
     ulr= "http://localhost:8080/api/";
 
-    getFirst(){
-        return axios.get();
+    getFirst(id){
+        return axios.get(this.ulr + 'user/{'+id+'}');
     }
 
     insert(usuario){
