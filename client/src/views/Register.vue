@@ -43,6 +43,7 @@
       <div class="p-field p-col-12 p-md-6">
         <label for="email">Correo eléctronico<span class="text-danger">*</span></label>
         <InputText id="email" type="email" v-model="usuario.email" placeholder="Tu dirección de correo electónico"/>
+        <label class="text-danger" v-if="!ve && usuario.email">{{validarEmail()}}</label>
       </div>
       <div>
         <label>Contraseña<span class="text-danger">*</span></label>
@@ -115,6 +116,7 @@ export default {
       vp: false,
       vps: false,
       vpc: false,
+      ve: false,
       usuario: {
         id: null,
         names: '',
@@ -169,6 +171,11 @@ export default {
         return '';
       }
     },
+    validarEmail: function() {
+      if (!/^([\da-z_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/.test(this.usuario.email)){
+        return "Por favor ingresar una direccion de correo valida";
+      }
+    }, 
     validarContraseña: function(){
       if (this.usuario.pass.length > 7 && this.usuario.pass.length < 16){
         if (/\d/.test(this.usuario.pass)) {
