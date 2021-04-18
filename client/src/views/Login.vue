@@ -24,7 +24,9 @@
     </div>
     <div v-if="inside">
         <label>Bienvenido {{usuario.email}}</label><br><br>
-        <button v-on:click="logOut">Cerrar Sesion</button>
+        <router-link to="">
+            <span v-on:click="logOut">Cerrar sesion</span>
+        </router-link>
     </div> 
   </div>
 </template>
@@ -38,27 +40,29 @@ export default{
             usuario: {
                 email: '',
                 password: ''
-        },
-        inside : false
+            },
         }
     },
     userController : null,
     created () {
         this.userController = new UserController();
+        console.log(this.$root.inside);
     },
     methods: {
         getLogin: function() {
             try{ this.userController.login(this.usuario).then(data => {
-                 console.log(data.data);
-                 if(data.data == true){this.inside = true}
+                if(data.data == true){
+                    this.$root.inside = true;
+                    this.$root.user = this.usuario.email;
+                }
             })}catch{console.log("Error Connection");}
         },
         logOut: function(){
             this.usuario.email ='';
             this.usuario.password='';
-            this.inside = false
+            this.$root.inside = false;
         }
-    }
+    },
 }
 </script>
 
