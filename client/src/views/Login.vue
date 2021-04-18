@@ -46,10 +46,11 @@ export default{
     userController : null,
     created () {
         this.userController = new UserController();
-        console.log(this.$root.inside);
     },
     methods: {
         getLogin: function() {
+            this.$root.inside = true;
+            console.log(this.$root.inside);
             try{ this.userController.login(this.usuario).then(data => {
                 if(data.data == true){
                     this.$root.inside = true;
@@ -57,11 +58,6 @@ export default{
                 }
             })}catch{console.log("Error Connection");}
         },
-        logOut: function(){
-            this.usuario.email ='';
-            this.usuario.password='';
-            this.$root.inside = false;
-        }
     },
 }
 </script>

@@ -16,23 +16,26 @@ export default {
   name: 'App',
   data(){
     return {
-      inside: true,
+      inside: false,
       user: '',
       items: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
         {label: 'Registrarse', icon: 'pi pi-fw pi-user-plus', to: '/Register'},
-        {label: 'Iniciar sesion', icon: 'pi pi-fw pi-user', to: '/login'},
+        {label: 'Iniciar sesion', icon: 'pi pi-fw pi-sign-in', to: '/login'},
       ],
       itemins: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
         {label: 'Registrarse', icon: 'pi pi-fw pi-user-plus', to: '/Register'},
         {label: 'Iniciar sesion', icon: 'pi pi-fw pi-sign-in', to: '/login'},
         {label: this.user, icon: 'pi pi-fw pi-user', to: ''},
-        {label: 'Logout', icon: 'pi pi-fw pi-sign-out', to: '/login'},
+        {label: 'Logout', icon: 'pi pi-fw pi-sign-out', command: () => {this.inside=false;}},
       ]
     }
   },
   methods: {
+    logout: function(){
+      this.inside=false;
+    }
   },
   components: {
   }
