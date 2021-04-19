@@ -1,11 +1,25 @@
 <template>
   <div >
     <div v-if="!inside">
-      <TabMenu :model="items" />
+      <Menubar :model="items">
+        <template #start>
+          <img alt="logo" src="../src/assets/logo.jpg" height="40" class="p-mr-2">
+        </template>
+        <template #end>
+
+        </template>
+      </Menubar>
       <router-view />
     </div>
     <div v-else>
-      <TabMenu :model="itemins" />
+      <Menubar :model="itemins">
+        <template #start>
+          <img alt="logo" src="../src/assets/logo.jpg" height="40" class="p-mr-2">
+        </template>
+        <template #end>
+
+        </template>
+      </Menubar>
       <router-view />
     </div>
   </div>
@@ -33,9 +47,7 @@ export default {
     }
   },
   methods: {
-    logout: function(){
-      this.inside=false;
-    }
+
   },
   components: {
   }

@@ -23,37 +23,37 @@
       <div class="p-field p-col-12 p-md-6">
         <label for="id">Identificacion<span class="text-danger">*</span></label>
         <InputText id="id" type="text" v-model="usuario.id" placeholder="Tu numero de Identificacion"/>
-        <label class="text-danger" v-if="!vid && usuario.id">{{validarId()}}</label>
+        <label class="text-danger" v-if="usuario.id">{{validarId()}}</label>
       </div>
       <div class="p-field p-col-12 p-md-6">
         <label for="name">Nombres<span class="text-danger">*</span></label>
         <InputText id="name" type="text" v-model="usuario.names" placeholder="Tu(s) nombre(s)"/>
-        <label class="text-danger" v-if="!vn && usuario.names">{{validarNombres()}}</label>
+        <label class="text-danger" v-if="usuario.names">{{validarNombres()}}</label>
       </div>
       <div class="p-field p-col-12 p-md-6">
         <label for="ln">Apellidos<span class="text-danger">*</span></label>
         <InputText id="ln" type="text" v-model="usuario.lastnames" placeholder="Tus apellidos"/>
-        <label class="text-danger" v-if="!vl && usuario.lastnames">{{validarApellidos()}}</label>
+        <label class="text-danger" v-if="usuario.lastnames">{{validarApellidos()}}</label>
       </div>
       <div class="p-field p-col-12 p-md-6">
         <label for="phone">Teléfono<span class="text-danger">*</span></label>
         <InputText id="phone" type="text" v-model="usuario.phone" placeholder="Tu número de teléfono"/>
-        <label class="text-danger" v-if="!vp && usuario.phone">{{validarTelefono()}}</label>
+        <label class="text-danger" v-if="usuario.phone">{{validarTelefono()}}</label>
       </div>
       <div class="p-field p-col-12 p-md-6">
         <label for="email">Correo eléctronico<span class="text-danger">*</span></label>
         <InputText id="email" type="email" v-model="usuario.email" placeholder="Tu dirección de correo electónico"/>
-        <label class="text-danger" v-if="!ve && usuario.email">{{validarEmail()}}</label>
+        <label class="text-danger" v-if="usuario.email">{{validarEmail()}}</label>
       </div>
       <div>
         <label>Contraseña<span class="text-danger">*</span></label>
         <Password v-model="usuario.pass" toggleMask></Password>
-        <label class="text-danger" v-if="!vps && usuario.pass">{{validarContraseña()}}</label>
+        <label class="text-danger" v-if="usuario.pass">{{validarContraseña()}}</label>
       </div>
       <div> 
         <label>Confirmar Contraseña<span class="text-danger">*</span></label>
         <Password v-model="usuario.passc" toggleMask></Password>
-        <label class="text-danger" v-if="!vpc && passc">{{validarContraseñac()}}</label>
+        <label class="text-danger" v-if="passc">{{validarContraseñac()}}</label>
       </div>
       <div class="">
         <button class="btn btn-primary" v-on:click="registrar">Registrarse</button>
@@ -133,15 +133,20 @@ export default {
   },
   methods: {
     registrar (){
-      this.userController.insert(this.usuario).then(data => {
-        console.log(data);
-      })
+      if (this.vid && this.vn && this.vl && this.ve && this.vp && this.vps && this.vpc 
+          && this.usuario.id && this.usuario.names && this.usuario.lastnames && this.usuario.phone 
+          && this.usuario.email && this.usuario.pass){
+            this.userController.insert(this.usuario).then(data => {
+              console.log(data);
+            })
+      }
     },
     validarId: function(){
       if (!/^\d+$/.test(this.usuario.id)) {
         this.vid = false;
         return 'El número de identificacion debe tener solamente valores de caracter numerico (0-9)';
       }else {
+        this.vid = true;
         return '';
       }
     },
@@ -150,7 +155,7 @@ export default {
         this.vn = false;
         return 'El nombre solo acepta valores del abecedario (a-b)';
       }else {
-                
+        this.vn = true;
         return '';
       }
       },
@@ -160,6 +165,7 @@ export default {
         return 'Los apellidos solo aceptan valores del abecedario (a-b)';
       }
       if(!/\d/.test(this.usuario.lastnames)){
+        this.vl = true;
         return '';
       }
     },
@@ -168,17 +174,23 @@ export default {
         this.vp = false;
         return 'El número de telefono debe tener solamente valores de caracter numerico (0-9)';
       }else {
+        this.vp = true;
         return '';
       }
     },
     validarEmail: function() {
       if (!/^([\da-z_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/.test(this.usuario.email)){
+        this.ve = false;
         return "Por favor ingresar una direccion de correo valida";
+      }else {
+        this.ve = true;
+        return "";
       }
     }, 
     validarContraseña: function(){
       if (this.usuario.pass.length > 7 && this.usuario.pass.length < 16){
         if (/\d/.test(this.usuario.pass)) {
+          this.vps = true;
           return '';
         }else {
           this.vps = false;
@@ -191,6 +203,7 @@ export default {
     },
     validarContraseñac: function(){
       if (this.usuario.pass === this.passc) {
+        this.vpc = true;
         return '';
       }else{
         this.vpc = false;

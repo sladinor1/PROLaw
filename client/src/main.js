@@ -10,13 +10,15 @@ import 'primevue/resources/themes/bootstrap4-light-blue/theme.css'
 import Password from 'primevue/password';
 import Dropdown from 'primevue/dropdown';
 import 'primeicons/primeicons.css'
-import TabMenu from 'primevue/tabmenu';
+import Menubar from 'primevue/menubar';
+//import GoogleLogin from 'vue-google-login';
 //import VueFormulate from '@braid/vue-formulate'
 
 const app = createApp(App)
 
 app.use(PrimeVue);
-app.component("TabMenu", TabMenu);
+//app.use(GoogleLogin);
+app.component("Menubar", Menubar);
 app.component("Dropdown", Dropdown);
 app.component("Password", Password);
 app.component("InputText", InputText);

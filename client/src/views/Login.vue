@@ -22,12 +22,6 @@
     <div class="d-grid gap-2">
         <button class="btn btn-primary" v-on:click="getLogin">Iniciar Sesión</button>
     </div>
-    <div v-if="inside">
-        <label>Bienvenido {{usuario.email}}</label><br><br>
-        <router-link to="">
-            <span v-on:click="logOut">Cerrar sesion</span>
-        </router-link>
-    </div> 
   </div>
 </template>
 
