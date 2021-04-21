@@ -33,6 +33,10 @@ public class User {
     private String passUser;
     //@Column(name = "photoUser")
     //private ImageIO photoUser;
+    @Enumerated(EnumType.STRING)
+    @Column(name="auth_provider")
+    private AutenticationProvider autpProvider;
+
     
     protected User() {
     }
@@ -100,6 +104,14 @@ public class User {
 
     public void setPassUser(String passUser) {
         this.passUser = passUser;
+    }
+
+    public AutenticationProvider getAutpProvider() {
+        return autpProvider;
+    }
+
+    public void setAutpProvider(AutenticationProvider autpProvider) {
+        this.autpProvider = autpProvider;
     }
 
     @Override
