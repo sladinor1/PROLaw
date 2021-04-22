@@ -1,19 +1,9 @@
 package com.prolaw.domain;
 
-//import java.io.Serializable;
-
-import javax.imageio.ImageIO;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.*;
 
-/* Atributos
-id usuario long
-nombre usuario
-apellido usuario
-telefono usuario
-email usuario
-contraeña usuario
-foto usuario
-*/
 
 @Entity
 @Table(name="usuario")
@@ -21,6 +11,8 @@ public class User {
     //Primary Key
     @Id
     private String idUser;
+    @Column(name = "typeIdUser")
+    private String typeIdUser;
     @Column(name = "nameUser")
     private String nameUser;
     @Column(name = "lastNameUser")
@@ -31,13 +23,30 @@ public class User {
     private String emailUser;
     @Column(name = "passUser")
     private String passUser;
-    //@Column(name = "photoUser")
-    //private ImageIO photoUser;
-    
-    protected User() {
+    @Column(name = "idCity")
+    private String idCity;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="auth_provider")
+    private Provider provider;
+
+
+    public User() {
     }
 
-    public User(String idUser ,String nameUser, String lastNameUser, String celUser, String emailUser, String passUser) {
+    public User(String idUser, String typeIdUser, String nameUser, String lastNameUser, String celUser, String emailUser, String passUser, String idCity, Provider provider) {
+        this.idUser = idUser;
+        this.typeIdUser = typeIdUser;
+        this.nameUser = nameUser;
+        this.lastNameUser = lastNameUser;
+        this.celUser = celUser;
+        this.emailUser = emailUser;
+        this.passUser = passUser;
+        this.idCity = idCity;
+        this.provider = provider;
+    }
+
+    public User(String idUser , String nameUser, String lastNameUser, String celUser, String emailUser, String passUser) {
         this.idUser = idUser;
         this.nameUser = nameUser;
         this.lastNameUser = lastNameUser;
@@ -102,15 +111,32 @@ public class User {
         this.passUser = passUser;
     }
 
+    public Provider getProvider() {        return provider;    }
+
+    public void setProvider(Provider provider) {        this.provider = provider;    }
+
+    public String getTypeIdUser() {        return typeIdUser;    }
+
+    public void setTypeIdUser(String typeIdUser) {        this.typeIdUser = typeIdUser;    }
+
+    public String getIdCity() {        return idCity;    }
+
+    public void setIdCity(String idCity) {        this.idCity = idCity;    }
+
     @Override
     public String toString() {
-        return "User [celUser=" + celUser + ", emailUser=" + emailUser + ", idUser=" + idUser + ", identificationUser="
-                 + ", lastNameUser=" + lastNameUser + ", nameUser=" + nameUser + ", passUser="
-                + passUser + "]";
+        return "User{" +
+                "idUser='" + idUser + '\'' +
+                ", typeIdUser='" + typeIdUser + '\'' +
+                ", nameUser='" + nameUser + '\'' +
+                ", lastNameUser='" + lastNameUser + '\'' +
+                ", celUser='" + celUser + '\'' +
+                ", emailUser='" + emailUser + '\'' +
+                ", passUser='" + passUser + '\'' +
+                ", idCity='" + idCity + '\'' +
+                ", provider=" + provider +
+                '}';
     }
-    
-    
 
-    
 
 };
