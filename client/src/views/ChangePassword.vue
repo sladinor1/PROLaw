@@ -29,7 +29,7 @@ export default{
     methods: {
         newPass: function() {
             try {
-                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target,'YOUR_USER_ID', {
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this.email,'YOUR_USER_ID', {
             })
             } catch(error) {
                 console.log({error});

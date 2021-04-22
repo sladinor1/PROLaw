@@ -37,9 +37,9 @@ export default{
     },
     methods: {
         changePassword: function() {
-            if (this.vps && this.vpc){
-            
-            }
+            //if (this.vps && this.vpc){
+                
+            //}
         },
         validarContraseña: function(){
             if (this.password.length > 7 && this.password.length < 16){
