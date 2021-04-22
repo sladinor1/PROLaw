@@ -11,9 +11,9 @@
 </template>
 
 <script>
+/*
 import UserController from "../controller/UserController.js";
 import emailjs from 'emailjs-com';
-
 export default{
     name: 'Change',
     data () {
@@ -37,4 +37,5 @@ export default{
         },
     },
 }
+*/
 </script>

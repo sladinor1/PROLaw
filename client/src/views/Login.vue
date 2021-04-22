@@ -1,26 +1,51 @@
 <template>
-  <div class="p-fluid p-formgrid p-grid">
-    <h2>Iniciar sesión</h2>
-    <p>Ingresa la siguiente información para acceder</p>
-    <div class="p-field p-col-12 p-md-6">
-        <label for="email">Correo eléctronico<span class="text-danger">*</span></label>
-        <InputText id="email" type="email" v-model="usuario.email" placeholder="Tu dirección de correo electónico"/>
-    </div>
-    <div>
-        <label>Contraseña<span class="text-danger">*</span></label>
-        <Password v-model="usuario.password" toggleMask></Password>
-    </div>
-    <p><router-link to="/Register" tag="button" class="btn btn-primary" type="submit">¿Olvidaste tu contraseña?</router-link></p>
-    <a>¿No tienes cuenta? </a><router-link to="/Register" tag="button" class="btn btn-primary" type="submit">Registrarse</router-link> 
-    <div class="col-12 bg-light">
-        <router-view />
-    </div>
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Recordarme</label>
-    </div>
-    <div class="d-grid gap-2">
-        <button class="btn btn-primary" v-on:click="getLogin">Iniciar Sesión</button>
+  <div class="form-container">
+    <h2>Crear cuenta</h2>
+
+    <div id='form' class="p-fluid p-formgrid p-grid">
+
+      <div class="p-field p-col-12 p-md-6">
+        <InputText id="email" type="email" v-model="usuario.email" placeholder="Correo Electrónico"/>
+        <label class="text-danger" v-if="usuario.email">{{validarEmail()}}</label>
+      </div>
+      <br>
+      <div>
+        <Password v-model="usuario.pass" placeholder="Contraseña" toggleMask></Password>
+        <label class="text-danger" v-if="usuario.pass">{{validarContraseña()}}</label>
+      </div>
+      <br>
+      <div>
+        <Dropdown v-model="selectedid" :options="idtypes" optionLabel="name" placeholder="Tipo de documento"></Dropdown>
+      </div>
+      <br>
+      <div class="p-field p-col-12 p-md-6">
+        <InputText id="id" type="text" v-model="usuario.id" placeholder="Número de documento"/>
+        <label class="text-danger" v-if="usuario.id">{{validarId()}}</label>
+      </div>
+      <br>
+      <div class="p-field p-col-12 p-md-6">
+        <InputText id="name" type="text" v-model="usuario.names" placeholder="Nombre(s)"/>
+        <label class="text-danger" v-if="usuario.names">{{validarNombres()}}</label>
+      </div>
+      <br>
+      <div class="p-field p-col-12 p-md-6">
+        <InputText id="ln" type="text" v-model="usuario.lastnames" placeholder="Apellidos"/>
+        <label class="text-danger" v-if="usuario.lastnames">{{validarApellidos()}}</label>
+      </div>
+      <br>
+      <div class="p-field p-col-12 p-md-6">
+        <InputText id="phone" type="text" v-model="usuario.phone" placeholder="Número de teléfono"/>
+        <label class="text-danger" v-if="usuario.phone">{{validarTelefono()}}</label>
+      </div>
+      <br>
+      <div>
+        <Dropdown v-model="selected" :options="cities" optionLabel="label" optionGroupLabel="label" 
+        optionGroupChildren="items" placeholder="Departamento y Ciudad"></Dropdown>
+      </div>  
+      <br>
+      <div class="">
+        <button class="botonRegistro" v-on:click="registrar">Registrarse</button>
+      </div>
     </div>
   </div>
 </template>

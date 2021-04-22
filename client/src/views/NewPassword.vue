@@ -18,8 +18,8 @@
 </template>
 
 <script>
+/*
 import UserController from "../controller/UserController.js";
-
 export default{
     name: 'Login',
     data () {
@@ -65,5 +65,5 @@ export default{
             } 
         }
     },
-}
+}*/
 </script>
