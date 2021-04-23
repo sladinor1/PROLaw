@@ -1,6 +1,7 @@
 package com.prolaw.controller;
 
 
+import com.prolaw.domain.Provider;
 import com.prolaw.domain.User;
 import com.prolaw.exception.UserNotFoundException;
 import com.prolaw.repository.UserRepository;
@@ -53,10 +54,10 @@ public class BackendController {
     */
 	//@CrossOrigin(origins = "http://localhost:8080")
 	@ResponseBody
-	@RequestMapping(path = "/user/{idUser}/{nameUser}/{lastNameUser}/{celUser}/{emailUser}/{passUser}", method = RequestMethod.POST)
+	@RequestMapping(path = "/user/{typeId}/{idUser}/{nameUser}/{lastNameUser}/{celUser}/{emailUser}/{passUser}/{idCity}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addNewUser(@PathVariable("idUser") String idUser,@PathVariable("nameUser") String nameUser, @PathVariable("lastNameUser") String lastNameUser, @PathVariable("celUser") String celUser,@PathVariable("emailUser") String emailUser, @PathVariable("passUser") String passUser){
-		User savedUser = userRepository.save(new User(idUser,nameUser, lastNameUser, celUser, emailUser, passUser));
+	public String addNewUser(@PathVariable("typeId") String typeId,@PathVariable("idUser") String idUser,@PathVariable("idCity") String idCity,@PathVariable("nameUser") String nameUser, @PathVariable("lastNameUser") String lastNameUser, @PathVariable("celUser") String celUser,@PathVariable("emailUser") String emailUser, @PathVariable("passUser") String passUser){
+		User savedUser = userRepository.save(new User(idUser,typeId,nameUser, lastNameUser, celUser, emailUser, passUser,idCity, Provider.LOCAL));
 		LOG.info(savedUser.toString() + " successfully saved into DB.");
 		return savedUser.getIdUser();
 	}
@@ -71,17 +72,14 @@ public class BackendController {
 	}
 
 	@ResponseBody
-	@RequestMapping(path = "/user/{emailUser}/{passUser}", method = RequestMethod.GET)
+	@RequestMapping(path = "/user/login/{emailUser}/{passUser}", method = RequestMethod.GET)
 	public boolean loginConfirmation(@PathVariable("emailUser") String emailUser,@PathVariable("passUser")  String passUser ){
-		List<User> usersEmail = userRepository.findByEmailUser(emailUser); 
-		LOG.info("TAMAÑO ARREGLO: " +String.valueOf(usersEmail.size()));
-		for(User userEmail: usersEmail){
-		//List<User> usersPassword = userRepository.findByPassUser(passUser); //User userPassword = usersPassword.get(0);		
+		User userEmail = userRepository.findByEmailUser(emailUser);
 		boolean result = userEmail.getPassUser().equals(passUser);
 		if(result){
 			LOG.info(LOGIN_DONE);
 			return result;
-		}}
+		}
 		LOG.warn(LOGIN_ERROR);
 		return false;
 	}

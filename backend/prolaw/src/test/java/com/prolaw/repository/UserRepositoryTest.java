@@ -37,17 +37,17 @@ public class UserRepositoryTest {
     @Test
     public void testFindByLastName() throws Exception {
         //Search specific User in DB according to lastname
-        List<User> userWithLasstNameMojica = users.findByLastNameUser("Mojica");
+        User userWithLasstNameMojica = users.findByLastNameUser("Mojica");
         //assertThat(userWithLasstNameMojica,contains(gustavoMojica.toString()));
-        assertTrue(userWithLasstNameMojica.contains(gustavoMojica));
+        assertTrue(userWithLasstNameMojica.equals(gustavoMojica));
     }
 
     @Test
     public void testFindByEmailUser() throws Exception {
         //Search specific User in DB according to email
-        List<User> userWithEmailUser = users.findByEmailUser("ancardonac@unal.edu.co");
+        User userWithEmailUser = users.findByEmailUser("ancardonac@unal.edu.co");
         //assertThat(userWithEmailUser.contains(camiloCardona));
-        assertTrue(userWithEmailUser.contains(camiloCardona));
+        assertTrue(userWithEmailUser.equals(camiloCardona));
     }
 
 }
