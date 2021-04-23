@@ -23,16 +23,6 @@ public class User {
     private String emailUser;
     @Column(name = "passUser")
     private String passUser;
-<<<<<<< HEAD
-    //@Column(name = "photoUser")
-    //private ImageIO photoUser;
-    @Enumerated(EnumType.STRING)
-    @Column(name="auth_provider")
-    private AutenticationProvider autpProvider;
-
-    
-    protected User() {
-=======
     @Column(name = "idCity")
     private String idCity;
 
@@ -54,7 +44,6 @@ public class User {
         this.passUser = passUser;
         this.idCity = idCity;
         this.provider = provider;
->>>>>>> 1de1c97f8fa4bb8b4343081376ac189ea9560d9b
     }
 
     public User(String idUser , String nameUser, String lastNameUser, String celUser, String emailUser, String passUser) {
@@ -122,15 +111,6 @@ public class User {
         this.passUser = passUser;
     }
 
-<<<<<<< HEAD
-    public AutenticationProvider getAutpProvider() {
-        return autpProvider;
-    }
-
-    public void setAutpProvider(AutenticationProvider autpProvider) {
-        this.autpProvider = autpProvider;
-    }
-=======
     public Provider getProvider() {        return provider;    }
 
     public void setProvider(Provider provider) {        this.provider = provider;    }
@@ -142,7 +122,6 @@ public class User {
     public String getIdCity() {        return idCity;    }
 
     public void setIdCity(String idCity) {        this.idCity = idCity;    }
->>>>>>> 1de1c97f8fa4bb8b4343081376ac189ea9560d9b
 
     @Override
     public String toString() {

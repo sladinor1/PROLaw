@@ -5,6 +5,8 @@ import com.prolaw.domain.Provider;
 import com.prolaw.domain.User;
 import com.prolaw.exception.UserNotFoundException;
 import com.prolaw.repository.UserRepository;
+
+import org.apache.pulsar.shade.org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,11 +59,12 @@ public class BackendController {
 	@RequestMapping(path = "/user/{typeId}/{idUser}/{nameUser}/{lastNameUser}/{celUser}/{emailUser}/{passUser}/{idCity}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public String addNewUser(@PathVariable("typeId") String typeId,@PathVariable("idUser") String idUser,@PathVariable("idCity") String idCity,@PathVariable("nameUser") String nameUser, @PathVariable("lastNameUser") String lastNameUser, @PathVariable("celUser") String celUser,@PathVariable("emailUser") String emailUser, @PathVariable("passUser") String passUser){
+		passUser = DigestUtils.sha256Hex(passUser);
 		User savedUser = userRepository.save(new User(idUser,typeId,nameUser, lastNameUser, celUser, emailUser, passUser,idCity, Provider.LOCAL));
 		LOG.info(savedUser.toString() + " successfully saved into DB.");
 		return savedUser.getIdUser();
 	}
-
+	
 	@ResponseBody
 	@GetMapping(path = "/user/{idUser}")
 	public User getUserById(@PathVariable("idUser") String idUser){
@@ -75,6 +78,7 @@ public class BackendController {
 	@RequestMapping(path = "/user/login/{emailUser}/{passUser}", method = RequestMethod.GET)
 	public boolean loginConfirmation(@PathVariable("emailUser") String emailUser,@PathVariable("passUser")  String passUser ){
 		User userEmail = userRepository.findByEmailUser(emailUser);
+		passUser = DigestUtils.sha256Hex(passUser);
 		boolean result = userEmail.getPassUser().equals(passUser);
 		if(result){
 			LOG.info(LOGIN_DONE);
