@@ -15,6 +15,7 @@ import VueCookies from 'vue3-cookies';
 //import GoogleLogin from 'vue-google-login';
 //import VueFormulate from '@braid/vue-formulate'
 
+
 const app = createApp(App)
 
 app.use(PrimeVue);

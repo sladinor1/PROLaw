@@ -126,6 +126,11 @@ export default {
       //if (this.vid && this.vn && this.vl && this.ve && this.vp && this.vps
         //  && this.usuario.id && this.usuario.names && this.usuario.lastnames && this.usuario.phone 
           //&& this.usuario.email && this.usuario.pass){
+<<<<<<< HEAD
+=======
+            this.usuario.typeId = this.usuario.typeId.code;
+            this.usuario.city = this.usuario.city.code;
+>>>>>>> aba8eb87382c1ab9739c4912111e65d40b0601b3
             this.userController.insert(this.usuario).then(data => {
               console.log(data);
             })

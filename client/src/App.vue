@@ -39,10 +39,17 @@ export default {
       ],
       itemins: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
+<<<<<<< HEAD
         {label: 'Registrarse', icon: 'pi pi-fw pi-user-plus', to: '/Register'},
         {label: 'Iniciar sesion', icon: 'pi pi-fw pi-sign-in', to: '/login'},
         {label: this.user, icon: 'pi pi-fw pi-user', to: ''},
         {label: 'Logout', icon: 'pi pi-fw pi-sign-out', command: () => {this.inside=false;}},
+=======
+        {label: this.user , icon: 'pi pi-fw pi-user', to: ''},
+        {label: 'Logout', icon: 'pi pi-fw pi-sign-out', command: () => {
+          this.user = '';
+          this.inside=false;}},
+>>>>>>> aba8eb87382c1ab9739c4912111e65d40b0601b3
       ]
     }
   },

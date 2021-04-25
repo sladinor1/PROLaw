@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="usuario")
 public class User {
+    
     //Primary Key
     @Id
     private String idUser;
@@ -30,11 +31,12 @@ public class User {
     @Column(name="auth_provider")
     private Provider provider;
 
-
-    public User() {
-    }
-
-    public User(String idUser, String typeIdUser, String nameUser, String lastNameUser, String celUser, String emailUser, String passUser, String idCity, Provider provider) {
+    //U -> Usuario  ; A -> Administrador
+    @Column(name="rol")
+    private String rol;
+   
+    public User(String idUser, String typeIdUser, String nameUser, String lastNameUser, String celUser,
+            String emailUser, String passUser, String idCity, Provider provider, String rol) {
         this.idUser = idUser;
         this.typeIdUser = typeIdUser;
         this.nameUser = nameUser;
@@ -44,7 +46,15 @@ public class User {
         this.passUser = passUser;
         this.idCity = idCity;
         this.provider = provider;
+        this.rol = rol;
     }
+
+    
+
+    public User() {
+    }
+
+    
 
     public User(String idUser , String nameUser, String lastNameUser, String celUser, String emailUser, String passUser) {
         this.idUser = idUser;
@@ -123,19 +133,21 @@ public class User {
 
     public void setIdCity(String idCity) {        this.idCity = idCity;    }
 
+    public String getRol() {
+        return rol;
+    }
+
+
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
-                "idUser='" + idUser + '\'' +
-                ", typeIdUser='" + typeIdUser + '\'' +
-                ", nameUser='" + nameUser + '\'' +
-                ", lastNameUser='" + lastNameUser + '\'' +
-                ", celUser='" + celUser + '\'' +
-                ", emailUser='" + emailUser + '\'' +
-                ", passUser='" + passUser + '\'' +
-                ", idCity='" + idCity + '\'' +
-                ", provider=" + provider +
-                '}';
+        return "User [celUser=" + celUser + ", emailUser=" + emailUser + ", idCity=" + idCity + ", idUser=" + idUser
+                + ", lastNameUser=" + lastNameUser + ", nameUser=" + nameUser + ", passUser=" + passUser + ", provider="
+                + provider + ", rol=" + rol + ", typeIdUser=" + typeIdUser + "]";
     }
 
 
