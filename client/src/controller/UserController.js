@@ -21,8 +21,8 @@ export default class UserController {
     }
 
     getData(usuario){
-        return '/user/{'+usuario.id+'}/'+'{'+usuario.names+'}/'+'{'+usuario.lastnames+'}/'+'{'+usuario.phone+'}/'
-        +'{'+usuario.email+'}/'+'{'+usuario.pass+'}/'
+        return 'user/'+usuario.typeId+'/'+usuario.id+'/'+usuario.names+'/'+usuario.lastnames+'/'+usuario.phone+'/'
+        +usuario.email+'/'+usuario.pass+'/'+usuario.city+'/'
     }
 
     login(usuario){
@@ -30,7 +30,7 @@ export default class UserController {
     }
 
     getLogin(usuario){
-        return '/user/'+usuario.email+'/'+usuario.password+'/'
+        return '/user/login/'+usuario.email+'/'+usuario.password+'/'
     }
 
 }
