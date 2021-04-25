@@ -88,16 +88,7 @@ public class BackendController {
 			return null;
 		}).orElseThrow(() -> new UserNotFoundException("The email: "+emailUser+ " and password are not correct"));
 	}
-	/**
-	 passUser = DigestUtils.sha256Hex(passUser);
-		boolean result = userEmail.getPassUser().equals(passUser);
-		if(result){
-			LOG.info(LOGIN_DONE);
-			return userEmail;
-		}
-		LOG.warn(LOGIN_ERROR);
-		return null;	
-	 */
+
 
 
     @ResponseBody
