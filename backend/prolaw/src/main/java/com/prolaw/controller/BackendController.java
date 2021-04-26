@@ -3,8 +3,10 @@ package com.prolaw.controller;
 
 import com.prolaw.domain.Provider;
 import com.prolaw.domain.User;
+import com.prolaw.domain.Lawyer;
 import com.prolaw.exception.UserNotFoundException;
 import com.prolaw.repository.UserRepository;
+import com.prolaw.repository.LawyerRepository;
 
 import org.apache.pulsar.shade.org.apache.commons.codec.digest.*;
 
@@ -36,6 +38,9 @@ public class BackendController {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private LawyerRepository lawyerRepository;
+
 	@ResponseBody
 	@RequestMapping(path = "/hello")
 	public String sayHello(){
@@ -63,6 +68,17 @@ public class BackendController {
 		LOG.info(savedUser.toString() + " successfully saved into DB.");
 		return savedUser.getIdUser();
 	}
+	//(String espeLaw, String idFirma, User user)
+	@ResponseBody
+	@RequestMapping(path = "/lawyer/{idUser}/{espeLaw}/{idFirma}", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	public void addNewLawyer(@PathVariable("idUser") String idUser,@PathVariable("espeLaw") String espeLaw,@PathVariable("idFirma") String idFirma){
+		String idSec = DigestUtils.sha256Hex(idUser);
+		User savedUser = userRepository.findByIdUser(idSec);
+		LOG.info("user: " + savedUser);
+		Lawyer savedLaw = lawyerRepository.save( new Lawyer(espeLaw,idFirma,savedUser.getIdUser()));
+		LOG.info(savedLaw.getIdUser() + " successfully saved into DB.");
+	}
 
 	@ResponseBody
 	@GetMapping(path = "/user/{idUser}")
@@ -88,7 +104,16 @@ public class BackendController {
 			return null;
 		}).orElseThrow(() -> new UserNotFoundException("The email: "+emailUser+ " and password are not correct"));
 	}
-
+	/**
+	 passUser = DigestUtils.sha256Hex(passUser);
+		boolean result = userEmail.getPassUser().equals(passUser);
+		if(result){
+			LOG.info(LOGIN_DONE);
+			return userEmail;
+		}
+		LOG.warn(LOGIN_ERROR);
+		return null;	
+	 */
 
 
     @ResponseBody
