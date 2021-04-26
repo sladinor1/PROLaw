@@ -70,14 +70,15 @@ public class BackendController {
 	}
 	//(String espeLaw, String idFirma, User user)
 	@ResponseBody
-	@RequestMapping(path = "/lawyer/{idUser}/{espeLaw}/{idFirma}", method = RequestMethod.POST)
+	@RequestMapping(path = "/lawyer/{typeId}/{idUser}/{nameUser}/{lastNameUser}/{celUser}/{emailUser}/{passUser}/{idCity}/{espeLaw}/{idFirma}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void addNewLawyer(@PathVariable("idUser") String idUser,@PathVariable("espeLaw") String espeLaw,@PathVariable("idFirma") String idFirma){
+	public void addNewLawyer(@PathVariable("typeId") String typeId,@PathVariable("idUser") String idUser,@PathVariable("idCity") String idCity,@PathVariable("nameUser") String nameUser, @PathVariable("lastNameUser") String lastNameUser, @PathVariable("celUser") String celUser,@PathVariable("emailUser") String emailUser, @PathVariable("passUser") String passUser,@PathVariable("espeLaw") String espeLaw,@PathVariable("idFirma") String idFirma){
+		String passSec = DigestUtils.sha256Hex(passUser);
 		String idSec = DigestUtils.sha256Hex(idUser);
-		User savedUser = userRepository.findByIdUser(idSec);
-		LOG.info("user: " + savedUser);
-		Lawyer savedLaw = lawyerRepository.save( new Lawyer(espeLaw,idFirma,savedUser.getIdUser()));
-		LOG.info(savedLaw.getIdUser() + " successfully saved into DB.");
+		String celSec = DigestUtils.sha256Hex(celUser);
+		User savedUser = userRepository.save(new User(idSec,typeId,nameUser, lastNameUser, celSec, emailUser, passSec,idCity, Provider.LOCAL,"U"));
+		Lawyer savedLaw = lawyerRepository.save( new Lawyer(espeLaw,idFirma,idUser));
+		LOG.info( savedUser.toString() + savedLaw.toString() + " successfully saved into DB.");
 	}
 
 	@ResponseBody
