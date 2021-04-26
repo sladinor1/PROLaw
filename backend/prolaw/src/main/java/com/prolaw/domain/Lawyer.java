@@ -3,33 +3,46 @@ package com.prolaw.domain;
 import javax.persistence.*;
 
 @Entity
-@Table( name = "Abogado")
-public class Lawyer extends User{
+@Table( name = "abogado")
+public class Lawyer{
 
-    
     @Id
-    private String idLaw;
+    @SequenceGenerator(name ="GRADE_GRADEID_GENERATOR", sequenceName = "public.grade_grade_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GRADE_GRADEID_GENERATOR")
+    @Column(name="idLawyer")
+    private Long idLaw;
     @Column(name="especialidades")
     private String espeLaw;
     @Column(name="firma")
     private String idFirma;
+    //@OneToOne
+    //@JoinColumn(name ="idUser")
+    @Column(name="idUser")
+    private String idUser;
     
-    public Lawyer(String idUser, String typeIdUser, String nameUser, String lastNameUser, String celUser,
-    String emailUser, String passUser, String idCity, Provider provider, String rol, String idLaw,
-    String espeLaw, String idFirma) {
-        super(idUser, typeIdUser, nameUser, lastNameUser, celUser, emailUser, passUser, idCity, provider, rol);
-        this.idLaw = idLaw;
+    public Lawyer(){
+
+    }
+
+    public Lawyer(String espeLaw, String idFirma, String user) {
         this.espeLaw = espeLaw;
         this.idFirma = idFirma;
+        this.idUser = user;
     }
-    
-    
 
-    public String getIdLaw() {
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String user) {
+        this.idUser = user;
+    }
+
+    public Long getIdLaw() {
         return idLaw;
     }
 
-    public void setIdLaw(String idLaw) {
+    public void setIdLaw(Long idLaw) {
         this.idLaw = idLaw;
     }
 
@@ -51,6 +64,6 @@ public class Lawyer extends User{
 
     @Override
     public String toString() {
-        return "Lawyer [espeLaw=" + espeLaw + ", idFirma=" + idFirma + ", idLaw=" + idLaw + "]";
+        return "Lawyer [espeLaw=" + espeLaw + ", idFirma=" + idFirma + ", idLaw=" + idLaw + ", user=" + idUser + "]";
     }
 }
