@@ -15,7 +15,7 @@
       </div>
       <br>
       <div>
-        <Dropdown v-model="selectedid" :options="idtypes" optionLabel="name" placeholder="Tipo de documento"></Dropdown>
+        <Dropdown v-model="usuario.typeId" :options="idtypes" optionLabel="name" placeholder="Tipo de documento"></Dropdown>
       </div>
       <br>
       <div class="p-field p-col-12 p-md-6">
@@ -39,12 +39,19 @@
       </div>
       <br>
       <div>
-        <Dropdown v-model="selected" :options="cities" optionLabel="label" optionGroupLabel="label" 
+        <Dropdown v-model="usuario.city" :options="cities" optionLabel="label" optionGroupLabel="label" 
         optionGroupChildren="items" placeholder="Departamento y Ciudad"></Dropdown>
       </div>  
       <br>
       <div class="">
         <button class="botonRegistro" v-on:click="registrar">Registrarse</button>
+      </div>
+      <div>
+        <Dialog position="top" :visible="d">
+          <p>Por favor llenar los espacion correctamente</p>
+          <br>
+          <Button label="ok" icon="pi pi-check" @click="close" autofocus/>
+        </Dialog>
       </div>
     </div>
   </div>
@@ -63,10 +70,10 @@ export default {
       selectedid: null,
       idtypes:[
         {name: "C.C", code: "C.C"},
-        {name: "Targeta de identidad", code: "TI"}
+        {name: "Tarjeta de identidad", code: "TI"}
       ],
       cities:[{
-        label: 'Bogota D.C.', code: 'BDC',
+        label: 'Bogota D.C.', code: 'BOG',
         items: [
           {
             label:'Bogota D.C.', value: 'Bogota'
@@ -98,6 +105,7 @@ export default {
       }
       ],
       passc:'',
+      d: false,
       vid: false,
       vn: false,
       vl: false,
@@ -106,12 +114,14 @@ export default {
       vpc: false,
       ve: false,
       usuario: {
+        typeId: '',
         id: null,
         names: '',
         lastnames: '',
         phone: '',
         email: '',
         pass: '',
+        city: '',
       }
     }
   },
@@ -120,14 +130,21 @@ export default {
     this.userController = new UserController();
   },
   methods: {
+    close: function() {
+      this.d = false;
+    },
     registrar (){
-      if (this.vid && this.vn && this.vl && this.ve && this.vp && this.vps && this.vpc 
-          && this.usuario.id && this.usuario.names && this.usuario.lastnames && this.usuario.phone 
-          && this.usuario.email && this.usuario.pass){
+      //if (this.vid && this.vn && this.vl && this.ve && this.vp && this.vps
+        //  && this.usuario.id && this.usuario.names && this.usuario.lastnames && this.usuario.phone 
+          //&& this.usuario.email && this.usuario.pass){
+            this.usuario.typeId = this.usuario.typeId.code;
+            this.usuario.city = this.usuario.city.code;
             this.userController.insert(this.usuario).then(data => {
               console.log(data);
             })
-      }
+      //} else {
+        //this.d = true;
+      //}
     },
     validarId: function(){
       if (!/^\d+$/.test(this.usuario.id)) {

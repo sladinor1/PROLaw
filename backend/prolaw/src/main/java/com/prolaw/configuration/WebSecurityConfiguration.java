@@ -1,36 +1,62 @@
 package com.prolaw.configuration;
 
+
+import com.prolaw.OAuth.CustomOAuth2User;
+import com.prolaw.OAuth.CustomOAuth2UserService;
+import com.prolaw.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    private HttpServletResponse response;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
         http
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // No session will be created or used by spring security
-        .and()
-            .httpBasic()
-        .and()
-            .authorizeRequests()
-                .antMatchers("/api/hello").permitAll()
-                .antMatchers("/api/user/**").permitAll() // allow every URI, that begins with '/api/user/'
-                .antMatchers("/api/secured").authenticated()
-                //.anyRequest().authenticated() // protect all other requests
-        .and()
-            .csrf().disable(); // disable cross site request forgery, as we don't use cookies - otherwise ALL PUT, POST, DELETE will get HTTP 403!
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/api/hello","/api/user/**","/api/lawyer/**","/api/secured").permitAll()
+                .antMatchers("/","/login","/oauth/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().permitAll()
+                .and()
+                .oauth2Login()
+                   .loginPage("/login")
+                   .userInfoEndpoint()
+                        .userService(oauth2UserService)
+                   .and()
+                   .successHandler(new AuthenticationSuccessHandler() {
+                       @Override
+                       public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
+
+                           CustomOAuth2User oAuthUser = (CustomOAuth2User) authentication.getPrincipal();
+                           UserService.processOAuthPostLogin(oAuthUser.getEmail());
+                           response.sendRedirect("/list");
+                       }
+                   })
+                .and()
+                .csrf().disable();
     }
 
-    //@Override
-    //protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    //    auth.inMemoryAuthentication()
-    //            .withUser("foo").password("{noop}bar").roles("USER");
-    //}
+    @Autowired
+    private CustomOAuth2UserService oauth2UserService;
+
 }

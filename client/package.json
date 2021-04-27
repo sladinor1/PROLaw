@@ -18,8 +18,11 @@
     "primevue": "^3.3.5",
     "vue": "^3.0.0",
     "vue-axios": "^3.2.4",
+    "vue-cookies": "^1.7.4",
+    "vue-google-oauth2": "^1.5.8",
     "vue-router": "^4.0.6",
-    "vue3-cookies": "^1.0.1"
+    "vue3-cookies": "^1.0.1",
+    "vue3-google-auth": "0.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

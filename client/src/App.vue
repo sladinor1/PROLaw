@@ -35,14 +35,15 @@ export default {
       items: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
         {label: 'Registrarse', icon: 'pi pi-fw pi-user-plus', to: '/Register'},
+        {label: 'Registrarse como abogado', icon: 'pi pi-fw pi-user-plus', to: '/lawer'},
         {label: 'Iniciar sesion', icon: 'pi pi-fw pi-sign-in', to: '/login'},
       ],
       itemins: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
-        {label: 'Registrarse', icon: 'pi pi-fw pi-user-plus', to: '/Register'},
-        {label: 'Iniciar sesion', icon: 'pi pi-fw pi-sign-in', to: '/login'},
-        {label: this.user, icon: 'pi pi-fw pi-user', to: ''},
-        {label: 'Logout', icon: 'pi pi-fw pi-sign-out', command: () => {this.inside=false;}},
+        {label: 'Edit' , icon: 'pi pi-fw pi-user', to: ''},
+        {label: 'Logout', icon: 'pi pi-fw pi-sign-out', command: () => {
+          this.user = '';
+          this.inside=false;}},
       ]
     }
   },

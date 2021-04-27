@@ -106,23 +106,7 @@ public class BackendControllerTest {
 	}
 
     @Test
-    public void loginUserTest() {
-        //User gustavoMojica = new User("1192894877","Gustavo","Mojica","3228056671","gmojica@unal.edu.co","1234");
-        /*String userId = 
-            given()
-                .pathParam("idUser", gustavoMojica.getIdUser())
-                .pathParam("nameUser", gustavoMojica.getNameUser())
-                .pathParam("lastNameUser", gustavoMojica.getLastNameUser())
-                .pathParam("celUser", gustavoMojica.getCelUser())
-                .pathParam("emailUser", gustavoMojica.getEmailUser())
-                .pathParam("passUser", gustavoMojica.getPassUser())
-            .when()
-                .post("api/user/{idUser}/{nameUser}/{lastNameUser}/{celUser}/{emailUser}/{passUser}")
-            .then()
-                .statusCode(is(HttpStatus.SC_CREATED))
-                .extract()
-                    .body().as(String.class);
-         */      
+    public void loginUserTest() {     
         boolean responseLogin =
             given()
                 .pathParam("emailUser", "gmojica@unal.edu.co")

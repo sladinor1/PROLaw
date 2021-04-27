@@ -1,5 +1,6 @@
 package com.prolaw.configuration;
 
+
 import org.springframework.context.annotation.Configuration;
 
 import org.slf4j.Logger;
@@ -50,5 +51,4 @@ public class SpaRedirectFilterConfiguration {
                 }
             }
         };
-    }
-}
+    }}

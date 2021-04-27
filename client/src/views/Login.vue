@@ -6,12 +6,11 @@
 
         <div class="p-field p-col-12 p-md-6">
             <InputText id="email" type="email" v-model="usuario.email" placeholder="Correo Electrónico"/>
-            <label class="text-danger" v-if="usuario.email">{{validarEmail()}}</label>
+            <label class="text-danger" v-if="usuario.email"></label>
         </div>
         <br>
         <div>
-            <Password v-model="usuario.pass" placeholder="Contraseña" toggleMask></Password>
-            <label class="text-danger" v-if="usuario.pass">{{validarContraseña()}}</label>
+            <Password v-model="usuario.password" placeholder="Contraseña" :feedback="false" />
         </div>
 
             <p><router-link to="/Register" tag="button" class="btn btn-primary" type="submit">¿Olvidaste tu contraseña?</router-link></p>
@@ -19,12 +18,8 @@
         <div class="d-grid gap-2">
             <button class="botonInicioSesion" v-on:click="getLogin">Iniciar Sesión</button>
         </div>
-        <div v-if="inside">
-            <label>Bienvenido {{usuario.email}}</label><br><br>
-            <router-link to="">
-                <span v-on:click="logOut">Cerrar sesion</span>
-            </router-link>
-        </div>
+        
+        <a href="{@/oauth2/authorization/google}">Login with Google</a>
       
     </div>
   </div>
@@ -49,12 +44,15 @@ export default{
     },
     methods: {
         getLogin: function() {
-            this.$root.inside = true;
-            console.log(this.$root.inside);
+            //this.$root.inside = true;
+            //console.log(this.$root.inside);
             try{ this.userController.login(this.usuario).then(data => {
-                if(data.data == true){
+                //console.log(data.data);
+                if(data.data != null){
                     this.$root.inside = true;
-                    this.$root.user = this.usuario.email;
+                    this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
+                    console.log(data.data.nameUser +' '+ data.data.lastNameUser);
+                    console.log(this.$root.user);
                 }
             })}catch{console.log("Error Connection");}
         },
