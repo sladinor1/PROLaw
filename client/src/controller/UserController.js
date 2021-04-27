@@ -1,5 +1,5 @@
 import axios from 'axios'
-import lawer from '../controller/LawerController.js'
+import lawer from '../controller/LawyerController.js'
 const axiosI = axios.create({
     baseURL: '/api',
     //timeout: 1000
@@ -15,7 +15,7 @@ export default class UserController {
     }
 
     insert(usuario){
-        console.log(this.getData(usuario))
+        //console.log(this.getData(usuario))
         return axiosI.post(this.getData(usuario));
     }
 
@@ -32,7 +32,7 @@ export default class UserController {
         return '/user/login/'+usuario.email+'/'+usuario.password+'/'
     }
 
-    insertLawer(){
-        lawer.insert();
+    insertLawyer(user){
+        lawer.insert(user);
     }
 }

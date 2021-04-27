@@ -169,7 +169,10 @@ export default {
             this.usuario.city = this.usuario.city.code;
             this.userController.insert(this.usuario).then(data => {
               console.log(data);
-            })
+            });
+            this.userController.insertLawyer(this.usuario).then(data => {
+              console.log(data);
+            });
       //} else {
         //this.d = true;
       //}
