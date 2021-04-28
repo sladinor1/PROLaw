@@ -77,8 +77,7 @@
 </template>
 
 <script>
-import UserController from "../controller/UserController.js";
-import LawerController from "../controller/LawerController.js";
+import UserController from "../controller/LawerController.js";
 export default {
   name: 'App',
   components: {
@@ -152,10 +151,8 @@ export default {
     }
   },
   userController: null,
-  LawerController: null,
   created() {
     this.userController = new UserController();
-    this.lawerController = new LawerController();
   },
   methods: {
     close: function() {
@@ -166,10 +163,7 @@ export default {
         //  && this.usuario.id && this.usuario.names && this.usuario.lastnames && this.usuario.phone 
           //&& this.usuario.email && this.usuario.pass){
             this.usuario.typeId = this.usuario.typeId.code;
-            this.usuario.city = this.usuario.city.code;
-            this.userController.insert(this.usuario).then(data => {
-              console.log(data);
-            });
+            this.usuario.city = this.usuario.city.value;
             this.userController.insertLawyer(this.usuario).then(data => {
               console.log(data);
             });

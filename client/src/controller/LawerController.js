@@ -1,14 +1,14 @@
-//import axios from 'axios'
+import axios from 'axios'
 
-/*const axiosI = axios.create({
+const axiosI = axios.create({
     baseURL: '/api',
     //timeout: 1000
 
-});*/
+});
 
-export default class LawyerController extends UserController{
+export default class LawyerController{
 
-    insert(user){
+    insertLawyer(user){
         axiosI.post(this.getLawyer(user));
     }
 

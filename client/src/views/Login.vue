@@ -18,7 +18,15 @@
         <div class="d-grid gap-2">
             <button class="botonInicioSesion" v-on:click="getLogin">Iniciar Sesión</button>
         </div>
-        
+        <div>
+
+        <Dialog position="top" :visible="display">
+          <p>Usuario no encontrado, por favor Registrarse</p>
+          <br>
+          <Button label="ok" icon="pi pi-check" @click="close" autofocus/>
+        </Dialog>
+      </div>
+
         <a href="{@/oauth2/authorization/google}">Login with Google</a>
       
     </div>
@@ -36,6 +44,7 @@ export default{
                 email: '',
                 password: ''
             },
+            display: false,
         }
     },
     userController : null,
@@ -43,6 +52,9 @@ export default{
         this.userController = new UserController();
     },
     methods: {
+        close: function() {
+            this.display = false;
+        },
         getLogin: function() {
             //this.$root.inside = true;
             //console.log(this.$root.inside);
@@ -53,6 +65,8 @@ export default{
                     this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
                     console.log(data.data.nameUser +' '+ data.data.lastNameUser);
                     console.log(this.$root.user);
+                }else{
+                    this.display = true;
                 }
             })}catch{console.log("Error Connection");}
         },
