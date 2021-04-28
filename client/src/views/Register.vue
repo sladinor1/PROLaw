@@ -141,7 +141,7 @@ export default {
             this.usuario.city = this.usuario.city.code;
             this.userController.insert(this.usuario).then(data => {
               console.log(data);
-              window.location.replace("http://localhost:8081/login"); 
+              this.$router.push('/login');
             })
       //} else {
         //this.d = true;

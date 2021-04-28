@@ -19,16 +19,12 @@
             <button class="botonInicioSesion" v-on:click="getLogin">Iniciar Sesión</button>
         </div>
         <div>
-
-        <Dialog position="top" :visible="display">
-          <p>Datos de inicio de sesión incorrectos</p>
-          <br>
-          <Button label="ok" icon="pi pi-check" @click="close" autofocus/>
-        </Dialog>
-      </div>
-
-        <a href="{@/oauth2/authorization/google}">Login with Google</a>
-      
+            <Dialog position="top" :visible="display">
+                <p>Usuario no encontrado, por favor Registrarse</p>
+                <br>
+                <Button label="ok" icon="pi pi-check" @click="close"/>
+            </Dialog>
+        </div>      
     </div>
   </div>
 
@@ -59,18 +55,21 @@ export default{
             //this.$root.inside = true;
             //console.log(this.$root.inside);
             try{ this.userController.login(this.usuario).then(data => {
+                console.log(data.data.status);
                 if(data.data != null){
-                this.$root.inside = true;
-                this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
-                console.log(this.$root.user);
-                window.location.replace("http://localhost:8081");   
-                }
-                if(this.$root.inside == false){
-                    this.display = true;
-                }
+                    this.$root.inside = true;
+                    this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
+                    this.$router.push('/');   
+                }                
+            }).catch( error => {
+                this.display = true;
+                //console.log(this.display = true);
+                console.log(error);
+                //throw error;
+                //if(error == 'Request failed with status code 404'){
                 
-            })}catch{this.$root.user = ""}
-             
+                //}
+            });}catch{this.$root.user = ""}   
         },
     },
 }
