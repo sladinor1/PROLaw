@@ -3,7 +3,7 @@
     <div v-if="!inside">
       <Menubar :model="items">
         <template #start>
-          <img alt="logo" src="../src/assets/logo.jpg" height="40" class="p-mr-2">
+          <img alt="logo" src="../src/assets/log.png" height="40" class="p-mr-2">
         </template>
         <template #end>
 
@@ -14,7 +14,7 @@
     <div v-else>
       <Menubar :model="itemins">
         <template #start>
-          <img alt="logo" src="../src/assets/logo.jpg" height="40" class="p-mr-2">
+          <img alt="logo" src="../src/assets/log.png" height="40" class="p-mr-2">
         </template>
         <template #end>
 
@@ -35,11 +35,12 @@ export default {
       items: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
         {label: 'Registrarse', icon: 'pi pi-fw pi-user-plus', to: '/Register'},
+        {label: 'Registrarse como abogado', icon: 'pi pi-fw pi-user-plus', to: '/lawer'},
         {label: 'Iniciar sesion', icon: 'pi pi-fw pi-sign-in', to: '/login'},
       ],
       itemins: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
-        {label: this.user , icon: 'pi pi-fw pi-user', to: ''},
+        {label: 'Edit' , icon: 'pi pi-fw pi-user', to: ''},
         {label: 'Logout', icon: 'pi pi-fw pi-sign-out', command: () => {
           this.user = '';
           this.inside=false;}},

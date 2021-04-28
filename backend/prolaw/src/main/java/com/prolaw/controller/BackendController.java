@@ -77,7 +77,7 @@ public class BackendController {
 		String idSec = DigestUtils.sha256Hex(idUser);
 		String celSec = DigestUtils.sha256Hex(celUser);
 		User savedUser = userRepository.save(new User(idSec,typeId,nameUser, lastNameUser, celSec, emailUser, passSec,idCity, Provider.LOCAL,"U"));
-		Lawyer savedLaw = lawyerRepository.save( new Lawyer(espeLaw,idFirma,idUser));
+		Lawyer savedLaw = lawyerRepository.save( new Lawyer(espeLaw,idFirma,idSec));
 		LOG.info( savedUser.toString() + savedLaw.toString() + " successfully saved into DB.");
 	}
 
@@ -85,10 +85,13 @@ public class BackendController {
 	@GetMapping(path = "/user/{idUser}")
 	public User getUserById(@PathVariable("idUser") String idU){
 		String idUser = DigestUtils.sha256Hex(idU);
-		return userRepository.findById(idUser).map(user -> {
+		userRepository.findById(idUser).map(user -> {
 			LOG.info("Reading user with id " + idUser+ " from database.");
 			return user;
-		}).orElseThrow(() -> new UserNotFoundException("The user with the id "+idUser+ " couldn't be found in the database."));
+		});
+		LOG.info("The user with the id "+idUser+ " couldn't be found in the database.");
+        return null;
+		 
 	}
 
 	@ResponseBody

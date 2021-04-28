@@ -46,6 +46,13 @@
       <div class="">
         <button class="botonRegistro" v-on:click="registrar">Registrarse</button>
       </div>
+      <div>
+        <Dialog position="top" :visible="d">
+          <p>Por favor llenar los espacion correctamente</p>
+          <br>
+          <Button label="ok" icon="pi pi-check" @click="close" autofocus/>
+        </Dialog>
+      </div>
     </div>
   </div>
 </template>
@@ -98,6 +105,7 @@ export default {
       }
       ],
       passc:'',
+      d: false,
       vid: false,
       vn: false,
       vl: false,
@@ -122,6 +130,9 @@ export default {
     this.userController = new UserController();
   },
   methods: {
+    close: function() {
+      this.d = false;
+    },
     registrar (){
       //if (this.vid && this.vn && this.vl && this.ve && this.vp && this.vps
         //  && this.usuario.id && this.usuario.names && this.usuario.lastnames && this.usuario.phone 
@@ -130,7 +141,10 @@ export default {
             this.usuario.city = this.usuario.city.code;
             this.userController.insert(this.usuario).then(data => {
               console.log(data);
+              window.location.replace("http://localhost:8081/login"); 
             })
+      //} else {
+        //this.d = true;
       //}
     },
     validarId: function(){

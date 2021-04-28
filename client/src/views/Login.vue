@@ -18,7 +18,15 @@
         <div class="d-grid gap-2">
             <button class="botonInicioSesion" v-on:click="getLogin">Iniciar Sesión</button>
         </div>
-        
+        <div>
+
+        <Dialog position="top" :visible="display">
+          <p>Datos de inicio de sesión incorrectos</p>
+          <br>
+          <Button label="ok" icon="pi pi-check" @click="close" autofocus/>
+        </Dialog>
+      </div>
+
         <a href="{@/oauth2/authorization/google}">Login with Google</a>
       
     </div>
@@ -36,6 +44,7 @@ export default{
                 email: '',
                 password: ''
             },
+            display: false,
         }
     },
     userController : null,
@@ -43,18 +52,25 @@ export default{
         this.userController = new UserController();
     },
     methods: {
+        close: function() {
+            this.display = false;
+        },
         getLogin: function() {
             //this.$root.inside = true;
             //console.log(this.$root.inside);
             try{ this.userController.login(this.usuario).then(data => {
-                //console.log(data.data);
                 if(data.data != null){
-                    this.$root.inside = true;
-                    this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
-                    console.log(data.data.nameUser +' '+ data.data.lastNameUser);
-                    console.log(this.$root.user);
+                this.$root.inside = true;
+                this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
+                console.log(this.$root.user);
+                window.location.replace("http://localhost:8081");   
                 }
-            })}catch{console.log("Error Connection");}
+                if(this.$root.inside == false){
+                    this.display = true;
+                }
+                
+            })}catch{this.$root.user = ""}
+             
         },
     },
 }
