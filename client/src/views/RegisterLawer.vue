@@ -166,6 +166,7 @@ export default {
             this.usuario.city = this.usuario.city.value;
             this.userController.insertLawyer(this.usuario).then(data => {
               console.log(data);
+              this.$router.push('/login');
             });
       //} else {
         //this.d = true;

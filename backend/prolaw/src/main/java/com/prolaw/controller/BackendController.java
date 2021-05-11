@@ -1,15 +1,11 @@
 package com.prolaw.controller;
 
 
-import com.prolaw.domain.Provider;
-import com.prolaw.domain.User;
-import com.prolaw.domain.Lawyer;
+import com.prolaw.domain.*;
 import com.prolaw.exception.UserNotFoundException;
-import com.prolaw.repository.UserRepository;
-import com.prolaw.repository.LawyerRepository;
+import com.prolaw.repository.*;
 
 import org.apache.pulsar.shade.org.apache.commons.codec.digest.*;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,22 +37,15 @@ public class BackendController {
 	@Autowired
 	private LawyerRepository lawyerRepository;
 
+
+    
 	@ResponseBody
 	@RequestMapping(path = "/hello")
 	public String sayHello(){
-		
 		LOG.info("GET called on /hello resource");
 		return HELLO_TEXT;
 	}
 
-	/* Atributos
-    private String nameUser;
-    private String lastNameUser;
-    private Integer celUser;
-    private String emailUser;
-    private String passUser;
-    */
-	//@CrossOrigin(origins = "http://localhost:8080")
 	@ResponseBody
 	@RequestMapping(path = "/user/{typeId}/{idUser}/{nameUser}/{lastNameUser}/{celUser}/{emailUser}/{passUser}/{idCity}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
@@ -108,17 +97,6 @@ public class BackendController {
 			return null;
 		}).orElseThrow(() -> new UserNotFoundException("The email: "+emailUser+ " and password are not correct"));
 	}
-	/**
-	 passUser = DigestUtils.sha256Hex(passUser);
-		boolean result = userEmail.getPassUser().equals(passUser);
-		if(result){
-			LOG.info(LOGIN_DONE);
-			return userEmail;
-		}
-		LOG.warn(LOGIN_ERROR);
-		return null;	
-	 */
-
 
     @ResponseBody
 	@RequestMapping(path = "/secured", method = RequestMethod.GET)
