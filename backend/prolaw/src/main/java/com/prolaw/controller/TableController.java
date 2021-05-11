@@ -9,13 +9,13 @@ import com.prolaw.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+//import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+//import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
@@ -125,6 +125,54 @@ public class TableController {
             return category; 
         }else{
         LOG.info("The procedure with the name "+idC+ " couldn't be found in the database.");
+        return null;
+        }
+        
+	}
+    @ResponseBody
+	@GetMapping(path = "/glossary/word/{nombre_glo}")
+	public Glossary getGlossary(@PathVariable("nombre_glo") String nameGlo){
+		Glossary glo =gloRepository.findByNameGlo(nameGlo);
+        if(!glo.equals(null)){
+            LOG.info("Reading word  with name  " + glo.getNameGlo()+ " from database.");
+            return glo;
+        }
+		LOG.info("The word "+nameGlo+ " couldn't be found in the database.");
+        return null;
+		 
+	}
+
+    @ResponseBody
+	@GetMapping(path = "/glossary/{inicial_glo}")
+	public List<Glossary> getListGlossary(@PathVariable("inicial_glo") char inicial_glo){
+		List<Glossary> glo =gloRepository.findByInitial(inicial_glo);
+        return glo;
+	}
+
+    @ResponseBody
+	@GetMapping(path = "/normativity/{nombre_nor}")
+	public Normativity getNormativityByNombre(@PathVariable("nombre_nor") String nombre_nor){
+		Normativity norm =normRepository.findByNameNor(nombre_nor);
+        if(!norm.equals(null)){
+
+            LOG.info("Reading norm with name  " + norm.getNameNor()+ " from database.");
+            return norm;
+
+        }
+		LOG.info("The norm with thw name "+nombre_nor+ " couldn't be found in the database.");
+        return null;
+		 
+	}
+
+    @ResponseBody
+	@GetMapping(path = "/subcategory/{nombre_sub}")
+	public Subcategory getSubategory(@PathVariable("nombre_sub") String nombre_sub){
+        llenar();
+		Subcategory subcategory = subRepository.findByNameSubcat(nombre_sub);
+        if(!subcategory.equals(null)) {
+            return subcategory; 
+        }else{
+        LOG.info("The category with the name "+nombre_sub+ " couldn't be found in the database.");
         return null;
         }
         
