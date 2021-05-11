@@ -43,6 +43,25 @@
         optionGroupChildren="items" placeholder="Departamento y Ciudad"></Dropdown>
       </div>  
       <br>
+      <div class="p-field p-col-12 p-md-6">
+        <InputText id="esp" type="text" v-model="usuario.especialidad" placeholder="Especialidad"/>
+        <label></label>
+      </div>
+      <br>
+      <div class="p-field-checkbox">
+        <label for="fr">¿Pertene a alguna firma asociada?</label>
+        <Checkbox id="fr" v-model="checked" :binary="true" />
+      </div>
+      <div class="p-field p-col-12 p-md-6" v-if="checked">
+        <Dropdown v-model="usuario.firma" :options="firmas" optionLabel="label" placeholder="Escoja su firma"></Dropdown>
+        <label></label>
+      </div>
+      <br>
+      <div class="p-field p-col-12 p-md-6">
+          <label>Adjunte su diploma</label>
+          <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+      </div>
+      <br>
       <div class="">
         <button class="botonRegistro" v-on:click="registrar">Registrarse</button>
       </div>
@@ -58,7 +77,7 @@
 </template>
 
 <script>
-import UserController from "../controller/UserController.js";
+import UserController from "../controller/LawerController.js";
 export default {
   name: 'App',
   components: {
@@ -68,6 +87,9 @@ export default {
     return {
       selected: null,
       selectedid: null,
+      firmas:[
+
+      ],
       idtypes:[
         {name: "C.C", code: "C.C"},
         {name: "Tarjeta de identidad", code: "TI"}
@@ -105,7 +127,7 @@ export default {
       }
       ],
       passc:'',
-      d: false,
+      checked: false,
       vid: false,
       vn: false,
       vl: false,
@@ -113,6 +135,7 @@ export default {
       vps: false,
       vpc: false,
       ve: false,
+      d:false,
       usuario: {
         typeId: '',
         id: null,
@@ -122,6 +145,8 @@ export default {
         email: '',
         pass: '',
         city: '',
+        especialidad: '',
+        firma: ''
       }
     }
   },
@@ -138,11 +163,11 @@ export default {
         //  && this.usuario.id && this.usuario.names && this.usuario.lastnames && this.usuario.phone 
           //&& this.usuario.email && this.usuario.pass){
             this.usuario.typeId = this.usuario.typeId.code;
-            this.usuario.city = this.usuario.city.code;
-            this.userController.insert(this.usuario).then(data => {
+            this.usuario.city = this.usuario.city.value;
+            this.userController.insertLawyer(this.usuario).then(data => {
               console.log(data);
               this.$router.push('/login');
-            })
+            });
       //} else {
         //this.d = true;
       //}
