@@ -6,7 +6,7 @@
           <img alt="logo" src="../src/assets/logo.jpg" height="40" class="p-mr-2">
         </template>
         <template #end>
-
+          
         </template>
       </Menubar>
       <router-view />
@@ -17,20 +17,54 @@
           <img alt="logo" src="../src/assets/logo.jpg" height="40" class="p-mr-2">
         </template>
         <template #end>
-
+          <div>
+            <div>
+              <img alt="" src="../src/assets/user.png" width="70" class="p-mr-2">
+              bienvenido {{user}}
+            </div>
+          </div>
         </template>
       </Menubar>
       <router-view />
     </div>
+    <v-footer>
+      <br>
+      <div class="footer-container">
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col letter">
+                <div>Carrera 45 #26-85</div>
+                <div>Edif. Uriel Gutierrez</div>
+                <div>Bogota D.C., Colombia</div>
+                <div>(+57 1) 316 50000</div>
+              </div>
+              <div class="col letter">
+                <div>Copyright 2021</div>
+                <div>Algunos derechos reservados</div>
+                <div><router-link to="">Acerca de esta pagina</router-link></div>
+                <div>Contacto: prolaw@unal.edu.co</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <br>
+            <img v-bind:src="image" :style="{ width: '500px' }">
+          </div>
+        </div>
+      </div>
+    </v-footer>
   </div>
 </template>
 
 <script>
+import img from'@/assets/log.png';
 export default {
   name: 'App',
   data(){
     return {
       inside: false,
+      image: img,
       user: '',
       items: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
@@ -56,6 +90,10 @@ export default {
 </script>
 
 <style>
+.letter{
+  color: white;
+}
+
 h2, label {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -83,13 +121,11 @@ a{
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 0px #000;
-
 }
 
 ul{
     font-weight: bold;
     font-size:larger;
-
 }
 
 .botonInicioSesion, .botonRegistro{
@@ -108,4 +144,91 @@ ul{
   margin-left: auto;
   margin-right: auto;
 }
+
+.home-container{
+  margin: auto;
+  width: 90%;
+  height: 610px;
+  margin-top: 2%;
+  top: 150vh;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px #000;
+}
+
+.t-container{
+  margin: auto;
+  width: 90%;
+  height: 450px;
+  margin-top: 2%;
+  top: 150vh;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px #000;
+}
+
+.firma-container{
+  margin: auto;
+  width: 500px;
+  height: 270px;
+  margin-top: 1%;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.footer-container{
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  background: linear-gradient(to bottom, rgb(89, 168, 241), rgb(31, 6, 99));
+}
+
+.p{
+  text-align: justify
+}
+
+.menu-container{
+  left: 50%;
+}
+
+.nav-container{
+  margin: auto;
+  width: 40%;
+  margin-top: 2%;
+  top: 150vh;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.tramite-container{
+  margin: auto;
+  width: 85%;
+  margin-top: 2%;
+  top: 150vh;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.detail-container{
+  margin: auto;
+  width: 70%;
+  margin-top: 2%;
+  top: 150vh;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.cuadro-container{
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  margin-top: 2%;
+  top: 150vh;
+  padding: 30px;
+  border-radius: 5px;
+}
+
 </style>

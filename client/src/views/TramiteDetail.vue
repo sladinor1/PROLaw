@@ -1,0 +1,128 @@
+<template>
+    <div class="detail-container">
+        <TabView ref="tabview1">
+			<TabPanel header="Descripcion">
+				<ScrollPanel style="width: 100%; height: 300px">
+					<p class="p">{{procedures.descripPro}}</p>
+				</ScrollPanel>
+			</TabPanel>
+			<TabPanel header="¿Que hacer?">
+				<ScrollPanel style="width: 100%; height: 300px">
+					<p class="p" v-html="procedures.actionPro"></p>
+				</ScrollPanel>
+			</TabPanel>
+			<TabPanel header="Instituciones">
+				<ScrollPanel style="width: 100%; height: 300px">
+					<p class="p" v-html="procedures.placePro"></p>
+				</ScrollPanel>
+			</TabPanel>
+			<TabPanel header="Normatividad">
+				<ScrollPanel style="width: 100%; height: 300px">
+					<div v-for="item in procedures.normativity" :key="item">
+						<p class="p">{{item.nameNor}}</p>
+						<p><a href=item.link target="_blank" rel="noopener">{{item.link}}</a></p>
+					</div>
+				</ScrollPanel>	
+			</TabPanel>
+		</TabView>
+    </div>
+</template>
+
+<script>
+export default {
+	name: "TramiteDetail",
+	props:{
+		
+	},
+	data() {
+		return {
+			subcategories:{
+            idSubcat: 2,
+            nameSubcat: "Procedimiento especial abreviado",
+            descripSubcat: "La ley del procedimiento penal abreviado y de acusador privado, o Ley 1826, entró en vigencia desde el pasado 13 de julio de 2017 y tiene 44 artículos que pretenden ayudar a que las víctimas tengan un papel más activo en los procesos relacionados con delitos menores, permitiéndoles investigar y acusar con el apoyo de un abogado profesional o estudiantes de consultorio jurídico. ",
+            idsProcedu: "2"
+			},
+            procedures:
+                {
+                    idPro: 2,
+                    namePro: "Violencia Intrafamiliar",
+                    descripPro: "En casos que se presentan amenazas o agresiones (físicas, verbales, psicológicas, económica, etc.) entre miembros de una misma familia, existen mecanismos que buscan proteger a las víctimas de la violencia intrafamiliar y castigar a los responsables.",
+                    actionPro: "1.    Si usted es víctima o conoce de un caso de violencia intrafamiliar, podrá informarlo y recibir asesoría y acompañamiento en la comisaría de familia del municipio donde ocurrieron los hechos o puede acudir a un centro médico u hospital de su municipio, donde se le prestará la asistencia médica de urgencia que sea necesaria, y se informará a la fiscalía para que investigue el delito. <br> 2.    En caso de ser posible, podrá acudir directamente a la Fiscalía General de la Nación, para presentar denuncia (acción penal mediante la cual una persona pone en conocimiento de la autoridad competente un comportamiento que constituye delito) por los hechos ocurridos.  \n Para este tipo de delitos la fiscalía cuenta con los Centros de Atención e Investigación Integral contra la Violencia Intrafamiliar (CAVIF), en los cuales recibirá asesoría y tratamiento psicológico, social, jurídico y médico-legal. En caso de no poder acudir directamente a la Fiscalía General de la Nación, puede dirigirse al cuadrante de la Policía Nacional de su barrio o CAI, quienes lo orientará sobre los pasos a seguir <br> 3.    Para garantizar la integridad y vida de las personas, la víctima del maltrato, el defensor de familia, o quien actué en nombre de aquella, podrán solicitar una medida de protección ante la misma Comisaría de Familia. En caso de no haber Comisario de Familia, la solicitud se podrá hacer ante el juez civil o promiscuo municipal del lugar de residencia del solicitante o de donde fue cometida la agresión.",
+                    placePro: "CASA DE JUSTICIA <br> COMISARÍA DE FAMILIA <br> FISCALÍA GENERAL DE LA NACIÓN.DENUNCIAS <br> POLICÍA NACIONAL",
+                    idsNorma: "1,2,3,4,5,6,7,8,9,10,11,12,13",
+                    normativity: [
+                        {
+                            idNor: 1,
+                            nameNor: "CONSTITUCIÓN POLÍTICA 1991",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Constitucion/1687988"
+                        },
+                        {
+                            idNor: 2,
+                            nameNor: "LEY 599 DE 2000",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1663230"
+                        },
+                        {
+                            idNor: 3,
+                            nameNor: "LEY 1142 DE 2007",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1674732"
+                        },
+                        {
+                            idNor: 4,
+                            nameNor: "LEY 1257 DE 2008",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1676263"
+                        },
+                        {
+                            idNor: 5,
+                            nameNor: "LEY 1098 DE 2006",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1673639"
+                        },
+                        {
+                            idNor: 6,
+                            nameNor: "LEY 1761 DE 2015",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/30019921"
+                        },
+                        {
+                            idNor: 7,
+                            nameNor: "LEY 294 DE 1996",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1657714"
+                        },
+                        {
+                            idNor: 8,
+                            nameNor: "LEY 575 DE 2000",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1662775"
+                        },
+                        {
+                            idNor: 9,
+                            nameNor: "DECRETO 4796 DE 2011",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/1551002"
+                        },
+                        {
+                            idNor: 10,
+                            nameNor: "DECRETO 4799 DE 2011",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/1551034"
+                        },
+                        {
+                            idNor: 11,
+                            nameNor: "DECRETO 2734 DE 2012",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/1485825"
+                        },
+                        {
+                            idNor: 12,
+                            nameNor: "SENTENCIA C-368/14",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?id=20023121"
+                        },
+                        {
+                            idNor: 13,
+                            nameNor: "SENTENCIA C-674/05",
+                            link: "http://www.suin-juriscol.gov.co/viewDocument.asp?id=20036796"
+                        }
+                    ]
+                }
+		}
+	}, 
+}
+</script>
+
+<style>
+    
+</style>

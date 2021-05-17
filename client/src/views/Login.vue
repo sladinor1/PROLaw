@@ -12,6 +12,7 @@
         <div>
             <Password v-model="usuario.password" placeholder="Contraseña" :feedback="false" />
         </div>
+        <br>
 
             <p><router-link to="/Register" tag="button" class="btn btn-primary" type="submit">¿Olvidaste tu contraseña?</router-link></p>
 

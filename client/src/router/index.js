@@ -5,6 +5,9 @@ import Login from "../views/Login.vue";
 import Lawer from "../views/RegisterLawer.vue";
 import Change from "../views/ChangePassword.vue";
 import New from "../views/NewPassword.vue";
+import Tramite from "../views/Tramites.vue";
+import Details from  "../views/TramiteDetail.vue";
+import Sub from "../views/subCat.vue";
 
 const routes = [
   {
@@ -39,6 +42,24 @@ const routes = [
     path: "/new",
     name: "new",
     component: New,
+    props: true
+  },
+  {
+    path: "/tramites",
+    name: "tramite",
+    component: Tramite,
+    props: true
+  },
+  {
+    path: "/details",
+    name: "details",
+    component: Details,
+    props: true
+  },
+  {
+    path: "/sub",
+    name: "sub",
+    component: Sub,
     props: true
   },
 ];
