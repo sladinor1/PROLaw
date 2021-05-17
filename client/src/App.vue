@@ -3,7 +3,7 @@
     <div v-if="!inside">
       <Menubar :model="items">
         <template #start>
-          <img alt="logo" src="../src/assets/logo.jpg" height="40" class="p-mr-2">
+          <img alt="logo" src="../src/assets/log.png" height="40" class="p-mr-2">
         </template>
         <template #end>
           
@@ -14,7 +14,7 @@
     <div v-else>
       <Menubar :model="itemins">
         <template #start>
-          <img alt="logo" src="../src/assets/logo.jpg" height="40" class="p-mr-2">
+          <img alt="logo" src="../src/assets/logo.png" height="40" class="p-mr-2">
         </template>
         <template #end>
           <div>
