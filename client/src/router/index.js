@@ -8,7 +8,7 @@ import New from "../views/NewPassword.vue";
 import Tramite from "../views/Tramites.vue";
 import Details from  "../views/TramiteDetail.vue";
 import Sub from "../views/subCat.vue";
-
+import Glosario from "../views/Glosario.vue";
 const routes = [
   {
     path: "/",
@@ -60,6 +60,12 @@ const routes = [
     path: "/sub",
     name: "sub",
     component: Sub,
+    props: true
+  },
+  {
+    path: "/glosario",
+    name: "glosario",
+    component: Glosario,
     props: true
   },
 ];

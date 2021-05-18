@@ -181,9 +181,9 @@ ul{
 
 .footer-container{
   width: 100%;
-  height: 200px;
+  height: 200px;  
   border-radius: 5px;
-  background: linear-gradient(to bottom, rgb(89, 168, 241), rgb(31, 6, 99));
+  background: linear-gradient(to bottom, rgb(89, 168, 241), rgb(64, 0, 240));
 }
 
 .p{

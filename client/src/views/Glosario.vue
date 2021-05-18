@@ -1,0 +1,372 @@
+<template>
+       <div class="glosario-container">
+     
+        <div class="tramite-container">
+            <Fieldset class="p" legend="Glosario" :toggleable="true" :collapsed="false">
+                
+                <nav aria-label="Page glosary example">
+                    <ul class="pagination justify-content-center">
+                        <li v-for="letra in letras" v-on:click="getDataByLetra(letra)" class="page-item" 
+                            v-bind:class="isActive()" :key="letra"><a class="page-link" href="#">{{letra}}</a></li>                        
+                    </ul>
+                </nav>
+                
+                <table class="table">
+                    <tr v-for="item in palabrasA" :key="item">
+                        <td><strong>{{item.nameGlo}}</strong></td>
+                        <td>{{item.descripGlo}}</td>
+                    </tr>
+                </table>   
+
+                <DataTable :value="data" :paginator="ture" :rows="10">
+                    <Column field="vin" header="Vin"></Column>
+                    <Column field="year" header="Year"></Column>
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="color" header="Color"></Column>
+                </DataTable>
+
+                <Paginator :rows="10" :totalRecords="totalRecords2"></Paginator>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item" v-if="paginaActual != 1" v-on:click="getPreviosPage()"><a class="page-link outline-primary" href="#">Anterior</a></li>
+                        <li v-for="pagina in totalPaginas()" :key="pagina" v-on:click="getDataPagina(pagina)" class="page-item" v-bind:class="isActive(pagina)"><a class="page-link" href="#">{{pagina}}</a></li>
+                        <li class="page-item" v-on:click="getNextPage()"><a class="page-link" href="#">Siguiente</a></li>
+                    </ul>
+                </nav>
+            </Fieldset>       
+            
+        </div>  
+    </div>
+</template>
+
+
+<script>
+export default {
+	name: "Glosario",           
+	data() {   
+        
+        return{ 
+            totalRecords: 120,
+            totalRecords2: 12,
+            paginaActual:1,          
+            elementosPorPagina:10,  
+            datosPaginados:[],     
+            letras:["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
+            //datosPaginadosByLetra: [],   
+			palabrasA: [
+                        {
+      "idGlo": 1,
+      "nameGlo": "A contrario sensu",
+      "descripGlo": "En sentido contrario.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 2,
+      "nameGlo": "A puerta cerrada",
+      "descripGlo": "audiencia que se desarrolla sin público, por razones de seguridad moral o de convivencia.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 3,
+      "nameGlo": "A Quo",
+      "descripGlo": "“Señala un momento procesal anterior. Se utiliza para referirse a un Juez inferior cuando su fallo o providencia ha sido presentada ante el superior”",
+      "initial": "A"
+  },
+  {
+      "idGlo": 4,
+      "nameGlo": "Abandono conyugal",
+      "descripGlo": "Dejación voluntaria de cualquiera de los esposos hacia el otro, en especial de los deberes relacionados con su convivencia en pareja.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 5,
+      "nameGlo": "Abandono de bienes",
+      "descripGlo": "Acto mediante el cual el propietario deja a la suerte o se despoje de sus bienes.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 6,
+      "nameGlo": "Abandono de hijos",
+      "descripGlo": "Interrupción de los deberes, obligaciones, cuidados y vigilancia que tiene un padre o madre sobre sus hijos.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 7,
+      "nameGlo": "Abandono de menores",
+      "descripGlo": "Delito que consiste en desamparar a un niño, niña o adolescente, con indiferencia.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 8,
+      "nameGlo": "Abdicación",
+      "descripGlo": "Renuncia o abandono de un puesto o encargo.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 9,
+      "nameGlo": "Abogado de Oficio",
+      "descripGlo": "Aquella persona que por mandato de una ley se encarga de la defensa en un proceso judicial de una persona que no tiene los recursos suficientes para el pago de un abogado.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 10,
+      "nameGlo": "Abogado",
+      "descripGlo": "Profesional del derecho. Persona que profesionalmente presta servicios de asesoría jurídica y/o representa jurídicamente a una parte en un juicio o proceso ante las autoridades judiciales o administrativas.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 11,
+      "nameGlo": "Abrogar",
+      "descripGlo": "Revocar o abolir un acto.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 12,
+      "nameGlo": "Absolución",
+      "descripGlo": "Definida como la terminación del proceso en el cual se decide en el fallo como al acusado como una persona inocente libre de los cargos formulados en su contra.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 13,
+      "nameGlo": "Absolución",
+      "descripGlo": "Terminación del proceso en el cual se decide y declara inocente al acusado de los cargos de los que se le acusa. ",
+      "initial": "A"
+  },
+  {
+      "idGlo": 14,
+      "nameGlo": "Antijuricidad",
+      "descripGlo": "Supone que la acción que se ha realizado está prohibida, es decir, dicho comportamiento es contrario a derecho (normas)",
+      "initial": "A"
+  },
+  {
+      "idGlo": 15,
+      "nameGlo": "Absolver",
+      "descripGlo": "Sinónimo de liberar, perdonar, declarar inocente.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 16,
+      "nameGlo": "Abstención",
+      "descripGlo": "Privación del ejercicio de un derecho o de la realización de un acto.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 17,
+      "nameGlo": "Abuso de autoridad",
+      "descripGlo": "Acción injusta o aprovechada de un servidor público en relación con el exceso en el ejercicio de sus funciones.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 18,
+      "nameGlo": "Abuso de confianza",
+      "descripGlo": "Delito que consiste en apropiarse, en provecho suyo o de un tercero de una cosa mueble ajena que se le haya confiado y no se devolvió a su verdadero propietario. Este delito puede recaer en manos del arrendatario, depositario o acreedor con prenda.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 19,
+      "nameGlo": "Abuso",
+      "descripGlo": "Es el uso incorrecto, injustificado, indebido o en exceso de un derecho, poder, o facultad, entre otras situaciones o cosas.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 20,
+      "nameGlo": "Acallar",
+      "descripGlo": "Ordenar silencio en el recinto.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 21,
+      "nameGlo": "Acción de grupo",
+      "descripGlo": "Es un mecanismo para reclamar la reparación o pago del daño causado a un derecho de interés de toda una comunidad. El elemento común en este tipo de acción es la causa del daño.  ",
+      "initial": "A"
+  },
+  {
+      "idGlo": 22,
+      "nameGlo": "Acción de inconstitucionalidad",
+      "descripGlo": "Es el mecanismo  por medio del cual los ciudadanos pueden participar en el control del poder político e interponer acciones públicas en defensa de la Constitución y la ley, cuando consideren que una norma o reglamento contrarían la Constitución Política.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 23,
+      "nameGlo": "Acción de tutela",
+      "descripGlo": "Es un mecanismo que tiene toda persona para reclamar la protección judicial inmediata de sus derechos fundamentales (vida, salud, educación, familia, libre desarrollo de la personalidad entre otro). Procede cuando un derecho fundamental haya sido vulnerado o amenazado por la acción u omisión de cualquier autoridad pública.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 24,
+      "nameGlo": "Accion popular",
+      "descripGlo": "Mecanismo mediante el cual se busca la protección de los derechos e intereses colectivos, relacionados con el patrimonio, el espacio, la seguridad y la salubridad públicos, la moral administrativa, el ambiente, la libre competencia económica, entre otros.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 25,
+      "nameGlo": "Acción",
+      "descripGlo": "Derecho de acudir al sistema de justicia y de obtener una decisión, favorable o desfavorable, como culminación del proceso y la disposición para la ejecución de la misma.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 26,
+      "nameGlo": "Acervo",
+      "descripGlo": "Conjunto de bienes que pertenence a varias personas, sean socios, herederos o acreedores. Ejemplo en sucesiones el acervo es el conjunto de bienes muebles o inmuebles",
+      "initial": "A"
+  },
+  {
+      "idGlo": 27,
+      "nameGlo": "Acrededor",
+      "descripGlo": "Persona con el derecho a exigir a la parte deudora el cumplimiento de una obligación o prestación (hacer, entregar, pagar un precio) pactada en un contrato ya sea verbal o escrito.  ",
+      "initial": "A"
+  },
+  {
+      "idGlo": 28,
+      "nameGlo": "Acto Administrativo",
+      "descripGlo": "Es el medio a través del cual la Administración Pública cumple con sus fines y objetivos. Se podría señalar que es una declaración unilateral de la voluntad de la Administración Pública en el ejercicio de sus funciones, que produce efectos jurídicos sobre particulares o de entidades públicas.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 29,
+      "nameGlo": "Acuerdo conciliatorio",
+      "descripGlo": "Es el documento que resulta de una audiencia de conciliación, en el cual se establece de manera clara los compromisos de cada una de las partes que intervinieron en el proceso conciliatorio. ",
+      "initial": "A"
+  },
+  {
+      "idGlo": 30,
+      "nameGlo": "Alegatos",
+      "descripGlo": "Razones por las cuales se defiende a una persona de los hechos que se le acusan. Se trata de una argumentación en defensa del afectado. ",
+      "initial": "A"
+  },
+  {
+      "idGlo": 31,
+      "nameGlo": "Alimentos",
+      "descripGlo": "Es el derecho que tiene toda persona a exigir de un familiar lo necesario para subsistir, dicho monto se le impone al padre (madre) que no conviva con el menor, o algún hijo o hermano del adulto mayor, o al ex esposo (a) entre otros, esto se da por no contar con la posibilidad de proveerse los alimentos por sí mismo.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 32,
+      "nameGlo": "Amojonamiento",
+      "descripGlo": "Derecho que tiene el propietario o titular de un bien de delimitar los linderos de su propiedad y señalizarlos con mojones u otro tipo de señal permanente (cercas, estacas).",
+      "initial": "A"
+  },
+  {
+      "idGlo": 33,
+      "nameGlo": "Amonestacion",
+      "descripGlo": "Es un llamado de atención en privado o en público que se realiza con el objetivo de evitar que se repita un comportamiento indeseable o negativo. ",
+      "initial": "A"
+  },
+  {
+      "idGlo": 34,
+      "nameGlo": "Antijuricidad",
+      "descripGlo": "Supone que la acción que se ha realizado está prohibida, es decir, dicho comportamiento es contrario a derecho (normas)",
+      "initial": "A"
+  },
+  {
+      "idGlo": 35,
+      "nameGlo": "Apelación",
+      "descripGlo": "Recurso que se presenta para que un juez superior, revoque total o parcialmente la decisión del juez inferior, jerárquicamente hablando.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 36,
+      "nameGlo": "Apoderado",
+      "descripGlo": "Persona que ha recibido mandato (poder) de otra para ejercer su representación en nombre de quien la ha otorgado el mandato.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 37,
+      "nameGlo": "ARL",
+      "descripGlo": "Es la sigla para Administradora de Riesgos Laborales.  El Sistema General de Riesgos Laborales es el conjunto de entidades públicas y privadas, normas y procedimientos, destinados a prevenir, proteger y atender a los trabajadores de los efectos de las enfermedades y los accidentes que pueden ocurrirles con ocasión o como consecuencia del trabajo que desarrollan ",
+      "initial": "A"
+  },
+  {
+      "idGlo": 38,
+      "nameGlo": "Arrendador",
+      "descripGlo": "Dueño o administrador de un inmueble y quien se obliga a ceder el uso de ese bien a otra persona.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 39,
+      "nameGlo": "Arrendatario",
+      "descripGlo": "Dueño o administrador de un inmueble y quien se obliga a ceder el uso de ese bien a otra persona.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 40,
+      "nameGlo": "AGCC",
+      "descripGlo": "Es la máxima autoridad del Consejo Comunitario. Está conformada por las personas registradas en el censo interno de la comunidad y reconocidas de manera autónoma por las comunidades, de acuerdo con su organización. En consecuencia, la Asamblea General es la agrupación formal y organizada de las personas que pertenecen a un Consejo Comunitario. De igual forma, es la instancia en la que la comunidad toma decisiones con participación de todos los individuos avalados.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 41,
+      "nameGlo": "Asexual",
+      "descripGlo": "Persona que reconoce y acepta que no siente atracción afectiva, erótica o sexual por otra persona.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 42,
+      "nameGlo": "Audiencia",
+      "descripGlo": "Acto por medio del cual una autoridad administrativa o judicial, en función de juzgar, oye a las partes o recibe las pruebas. Este acto es  necesario en el desarrollo del proceso judicial.",
+      "initial": "A"
+  },
+  {
+      "idGlo": 43,
+      "nameGlo": "Auto",
+      "descripGlo": "Hace referencia a una categoría de providencias (comunicaciones) judiciales motivadas que deciden cuestiones para las que no se requiere sentencia.",
+      "initial": "A"
+  },
+]       
+        }	    
+    },
+    created(){
+        
+    },
+    mounted(){
+        this.getDataPagina(1);
+    },
+    methods:{
+        /*getDataByLetra(letra){
+          //this.paginaActual = letra;
+          //this.datosPaginados = [];
+          for(let i = 0; i < lista.length; i++ == letra){
+            //console.log(letra);
+            console.log(userId);
+            if(userId == letra){
+              console.log(letra);
+              this.datosPaginadosByLetra.push("metido")
+            }
+          }
+          
+        },*/
+        totalPaginas(){
+            console.log(this.palabrasA.length);
+            return Math.ceil(this.palabrasA.length / this.elementosPorPagina)
+        },
+        getDataPagina(noPagina){
+            this.paginaActual = noPagina;
+            this.datosPaginados = [];
+            let ini =(noPagina * this.elementosPorPagina) - this.elementosPorPagina;
+            let fin =(noPagina * this.elementosPorPagina);
+            this.datosPaginados = this.palabrasA.slice(ini,fin);
+        },
+        getPreviosPage(){
+            if(this.paginaActual > 1){
+                this.paginaActual--;
+            }
+            this.getDataPagina(this.paginaActual);
+        },
+        getNextPage(){
+            if(this.paginaActual < this.totalPaginas()){
+                this.paginaActual++;
+            }
+            this.getDataPagina(this.paginaActual);
+        },
+        isActive(numeroPagina){
+            return numeroPagina == this.paginaActual ? 'active':'';
+        }    
+    },
+}
+
+</script>
+
+<style>
+    
+</style>

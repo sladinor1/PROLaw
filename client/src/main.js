@@ -24,6 +24,10 @@ import Fieldset from 'primevue/fieldset';
 import Carousel from 'primevue/carousel';
 import ScrollTop from 'primevue/scrolltop';
 import ScrollPanel from 'primevue/scrollpanel';
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import ColumnGroup from 'primevue/columngroup';  
+import Paginator from 'primevue/paginator';
 
 const app = createApp(App)
 
@@ -45,6 +49,10 @@ app.component("Menubar", Menubar);
 app.component("Dropdown", Dropdown);
 app.component("Password", Password);
 app.component("InputText", InputText);
+app.component("DataTable", DataTable);
+app.component("Column", Column);
+app.component("ColumnGroup", ColumnGroup);
+app.component("Paginator", Paginator);
 app.use(VueAxios, axios);
 app.use(router);
 //app.use($gAuth);
