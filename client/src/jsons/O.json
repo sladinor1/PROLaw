@@ -1,0 +1,27 @@
+{
+    "data":[
+    {
+        "idGlo": 179,
+        "nameGlo": "Ocupante",
+        "descripGlo": "La persona que tiene un predio baldío sin que el mismo aún le haya sido adjudicado, con la expectativa de que el Estado lo haga a su favor.",
+        "initial": "O"
+    },
+    {
+        "idGlo": 180,
+        "nameGlo": "Ocupantes",
+        "descripGlo": "Son las personas que viven o explotan directamente un terreno baldío.",
+        "initial": "O"
+    },
+    {
+        "idGlo": 181,
+        "nameGlo": "Oficio",
+        "descripGlo": "Es la comunicación escrita expedida por los órganos judiciales, que se utiliza para que se comuniquen con las otras entidades.",
+        "initial": "O"
+    },
+    {
+        "idGlo": 182,
+        "nameGlo": "Ordenamiento Jurídico",
+        "descripGlo": "El conjunto de normas que rigen en el Estado.",
+        "initial": "O"
+    }
+]}

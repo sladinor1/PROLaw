@@ -1,0 +1,45 @@
+{
+    "data":[
+    {
+        "idGlo": 133,
+        "nameGlo": "Habeas Corpus",
+        "descripGlo": "Acción consagrada en la Constitución Política que protege el derecho fundamental a la libertad del ser humano. Cuando una persona crea que ha sido privada de la libertad con violación de sus garantías fundamentales puede acudir ante cualquier juez de la República y en 36 horas debe ser resuelta su situación.",
+        "initial": "H"
+    },
+    {
+        "idGlo": 134,
+        "nameGlo": "Heredero Forzoso",
+        "descripGlo": "son aquellos que designa la ley como merecedores de una parte de la herencia ",
+        "initial": "H"
+    },
+    {
+        "idGlo": 135,
+        "nameGlo": "Heredero",
+        "descripGlo": "Es quien recibe los bienes, el dinero o los derechos de una persona cuando esta muere, en cumplimiento de la ley o de las disposiciones señaladas en un testamento.",
+        "initial": "H"
+    },
+    {
+        "idGlo": 136,
+        "nameGlo": "Heterosexual",
+        "descripGlo": "Persona cuya atracción afectiva, erótica o sexual se dirige hacia personas de sexo distinto al suyo.",
+        "initial": "H"
+    },
+    {
+        "idGlo": 137,
+        "nameGlo": "Hipoteca",
+        "descripGlo": "Es la garantía que tiene el banco, caja de ahorros o la persona quien haya hecho el préstamo de que se va a devolver el préstamo, en los plazos pactados, y de no ser así podrá vender en subasta pública el inmueble hipotecado para cobrar lo que se le debe.",
+        "initial": "H"
+    },
+    {
+        "idGlo": 138,
+        "nameGlo": "Hombre",
+        "descripGlo": "personas cuyas características genéticas, morfológicas y endocrinas le identifican como macho, según la clasificación biológica de la especie humana.",
+        "initial": "H"
+    },
+    {
+        "idGlo": 139,
+        "nameGlo": "Homosexual",
+        "descripGlo": "Persona cuya atracción afectiva, erótica o sexual se dirige hacia personas de su mismo sexo.",
+        "initial": "H"
+    }
+]}

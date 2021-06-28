@@ -1,0 +1,183 @@
+{
+    "data":[
+    {
+        "idGlo": 51,
+        "nameGlo": "Cabildo Indígena",
+        "descripGlo": "Es una entidad pública de carácter especial encargada de (i) representar legalmente a una población indígena localizada en un territorio determinado, y de (ii) ejercer las funciones que le atribuyen las leyes, usos, costumbres y el reglamento interno de  la comunidad indígena que representa(Decreto 2001 de 1988).",
+        "initial": "C"
+    },
+    {
+        "idGlo": 52,
+        "nameGlo": "Cadena de custodia",
+        "descripGlo": "Es el procedimiento por el que se establece la conexión directa de la evidencia física con la escena del hecho, es decir, que la evidencia física fue identificada y está allí como producto de un delito.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 53,
+        "nameGlo": "Caducidad querella",
+        "descripGlo": "La querella debe presentarse dentro de los seis meses siguientes a la comisión del delito. No obstante, cuando el querellante legitimo por razones de fuerza mayor o caso fortuito acreditados no hubiere tenido conocimiento de su ocurrencia, el termino se contara a partir del momento en que aquellos desaparezcan, sin que en este caso sea superior a seis meses.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 54,
+        "nameGlo": "Caducidad",
+        "descripGlo": "Es la consecuencia negativa como consecuencia de no interponer una acción o ejercitar un derecho dentro de un término legalmente establecido, con lo cual la persona queda impedida para ejercer la acción correspondiente o reclamar o adquirir un derecho.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 55,
+        "nameGlo": "Calumnia",
+        "descripGlo": "Es una acusación falsa, malintencionada para deshonrar o hacer daño a otra persona. Esta conducta está tipificada en la ley penal colombiana como un delito.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 56,
+        "nameGlo": "Campesino",
+        "descripGlo": "Persona que tiene una relación espiritual, social, cultural y económica, directa con la tierra, a través de la producción de alimentos y otros productos agropecuarios y que su vida cotidiana se desarrolla en un ambiente rural, haciendo de ello su forma de vida.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 57,
+        "nameGlo": "Canon de arrendamiento",
+        "descripGlo": "Es un valor que debe pagar una persona que está usando un bien arrendado. Este pago es periódico, es decir, diario, semanal, quincenal o mensual. ",
+        "initial": "C"
+    },
+    {
+        "idGlo": 58,
+        "nameGlo": "Capitulaciones",
+        "descripGlo": "Acuerdo que se suscribe ante notario entre los futuros esposos o compañeros permanentes, antes de casarse o de cumplir los dos años de convivencia, con el objetivo de definir los bienes que se incluyen o excluyen de la sociedad conyugal o patrimonial.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 59,
+        "nameGlo": "Captura",
+        "descripGlo": "Se ordena cuando en desarrollo de la investigación, se tienen motivos fundados para inferir que una persona participó en una conducta investigada, de acuerdo con los elementos materiales probatorios, evidencia física o la información que presente la fiscalía acompañada de la policía judicial. Una vez la orden sea proferida por el juez de control de garantías será remitida a la Fiscalía General de la Nación para que disponga el organismo de policía judicial encargado de realizar la aprehensión física y se registre en el sistema de información.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 60,
+        "nameGlo": "Casa de Justicia",
+        "descripGlo": "Son centros de información, orientación, referencia y prestación de servicios de resolución de conflictos donde se aplican y ejecutan mecanismos que promueven la tolerancia y la convivencia ciudadana.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 61,
+        "nameGlo": "Causahabiente",
+        "descripGlo": "Se denomina también heredero, y es aquel que está llamado a sustituir en sus derechos y obligaciones a una persona llamada causante (persona fallecida) como titular de derechos u obligaciones.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 62,
+        "nameGlo": "Cesantías",
+        "descripGlo": "Prestación social a la cual tiene derecho todo trabajador con vínculo laboral y también una persona independiente que voluntariamente quiera afiliarse a un Fondo de Cesantías. Tienen como objetivo dar un auxilio monetario cuando la persona termine su relación laboral.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 63,
+        "nameGlo": "Clausula",
+        "descripGlo": "Estipulación de un contrato o cualquier otro documento similar, público o privado, que expresa alguna condición.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 64,
+        "nameGlo": "Compañere permanente",
+        "descripGlo": "Es el título que la ley ha dado a los miembros que conforman una unión marital de hecho declarada.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 65,
+        "nameGlo": "Comparendo",
+        "descripGlo": "Es una orden formal de notificación para que el presunto infractor o implicado se presente ante la autoridad competente por la comisión de una infracción. ",
+        "initial": "C"
+    },
+    {
+        "idGlo": 66,
+        "nameGlo": "Comunidad negra",
+        "descripGlo": "Es el conjunto de familias de ascendencia afrocolombiana que poseen una cultura propia, comparten una historia y tienen sus propias tradiciones y costumbres dentro de la relación campo-poblado, que revelan y conservan conciencia e identidad que las distinguen de otros grupos étnico (En términos del numeral 5º, artículo 2º de la Ley 70 de 1993).",
+        "initial": "C"
+    },
+    {
+        "idGlo": 67,
+        "nameGlo": "CCCN",
+        "descripGlo": "Es una persona jurídica encargada de ejercer la máxima autoridad de administración interna dentro de las tierras de las Comunidades Negras.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 68,
+        "nameGlo": "Contrato a destajo",
+        "descripGlo": "Es aquel contrato en el que el pago se tasa con base a la cantidad de unidades, obras o labores que el trabajador realice en una jornada determinada.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 69,
+        "nameGlo": "Contrato de comodato",
+        "descripGlo": "El comodato o préstamo de uso es un contrato en que una de las partes entrega a la otra de forma gratuita un bien mueble o inmueble, para que haga uso de él y lo restituya en un tiempo determinado. ",
+        "initial": "C"
+    },
+    {
+        "idGlo": 70,
+        "nameGlo": "Contrato de deposito",
+        "descripGlo": " El depósito es un contrato según el cual, a cambio de un precio o de forma gratuita (en algunos casos), una parte se obliga al cuidado y custodia de determinado bien dispuesto por la otra. Por ejemplo: los carros estacionados en parqueaderos, los objetos alojados en cajas fuertes, entre otros.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 71,
+        "nameGlo": "Contrato de mutuo",
+        "descripGlo": "Es llamado también préstamo de consumo y consiste en el préstamo de cosas fungibles (aquellas cosas que con el uso se consumen o destruyen/puede ser dinero) a una persona para que esta los consuma y los restituya en las mismas condiciones (calidad, cantidad, género o tipo) en un tiempo determinado.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 72,
+        "nameGlo": "Contravención",
+        "descripGlo": "Es aquel comportamiento humano que produce un daño social de menor entidad del delito y por eso se conmina con sanciones generalmente leves.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 73,
+        "nameGlo": "Controversia",
+        "descripGlo": "Disputa entre varias personas que plantean y defienden opiniones que son contrarias sobre un mismo asunto",
+        "initial": "C"
+    },
+    {
+        "idGlo": 74,
+        "nameGlo": "Cónyuge supérstite",
+        "descripGlo": "Cónyuge que sobrevive al otro cónyuge, es decir, el cónyuge viudo o viuda.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 75,
+        "nameGlo": "Conyuge superstite",
+        "descripGlo": "cónyuge que sobrevive, es decir, el cónyuge viudo o viuda.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 76,
+        "nameGlo": "Cónyuge",
+        "descripGlo": "Es uno de los dos miembros de una pareja. El término legal que se utiliza para referirse a cada individuo en la institución matrimonial.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 77,
+        "nameGlo": "Conyuge",
+        "descripGlo": "Es uno de los dos miembros de una pareja.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 78,
+        "nameGlo": "Culpa",
+        "descripGlo": "Omisión de la conducta debida, destinada a prever y evitar un daño. Se manifiesta por la imprudencia, negligencia, impericia o inobservancia de reglamentos o deberes.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 79,
+        "nameGlo": "Curador",
+        "descripGlo": "Figura supletoria de la patria potestad que consiste en que una persona natural tenga el cuidado y administración de los bienes de un tercero.",
+        "initial": "C"
+    },
+    {
+        "idGlo": 80,
+        "nameGlo": "Custodia",
+        "descripGlo": "Es el poder que les da la ley a los padres sobre sus hijos, para que hagan cargo de ellos, los cuiden y cumplan sus deberes y obligaciones. Esto implica los deberes de vigilancia, crianza, educación y manutención (vestido, comida, etc.).",
+        "initial": "C"
+    }
+]}

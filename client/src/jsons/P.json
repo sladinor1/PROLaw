@@ -1,0 +1,207 @@
+{
+    "data":[
+    {
+        "idGlo": 183,
+        "nameGlo": "Pagaré",
+        "descripGlo": "Documento en el que una persona (quien lo emite) se obliga a pagarle a otra una suma determinada antes de la fecha de su vencimiento.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 184,
+        "nameGlo": "Parcela",
+        "descripGlo": "Porción de terreno (dentro de uno más grande).",
+        "initial": "P"
+    },
+    {
+        "idGlo": 185,
+        "nameGlo": "Parentesco Civil",
+        "descripGlo": "El parentesco civil es el que nace de la adopción.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 186,
+        "nameGlo": "Parentesco de afinidad",
+        "descripGlo": "es el que se adquiere por el hecho del matrimonio o solemnización de la unión libre, entre la pareja y sus respectivos parientes consanguíneos.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 187,
+        "nameGlo": "Parentesco de consanguinidad",
+        "descripGlo": "es el vínculo entre personas que descienden de un mismo tronco o raíz común (familia), y están unidos por vínculos de sangre.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 188,
+        "nameGlo": "Pensión",
+        "descripGlo": "Es una prestación económica que reciben mensualmente los trabajadores en el momento de su retiro laboral.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 189,
+        "nameGlo": "Perentorio",
+        "descripGlo": "Hace referencia al último plazo que se concede.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 190,
+        "nameGlo": "Perito",
+        "descripGlo": "Es una persona experta en una materia determinada.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 191,
+        "nameGlo": "Permuta",
+        "descripGlo": " Es un contrato que consiste en el cambio de una cosa por otra (por ejemplo: cambiar un vehículo por un apartamento).",
+        "initial": "P"
+    },
+    {
+        "idGlo": 192,
+        "nameGlo": "PDCH",
+        "descripGlo": "Persona que presta servicios del cuidado al propio hogar, a otros hogares o a la comunidad de manera no remunerada.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 193,
+        "nameGlo": "Persona habitante de calle",
+        "descripGlo": "Persona que hace de la calle su lugar de habitación, ya sea de forma permanente o transitoria y, que ha roto vínculos con su entorno familiar.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 194,
+        "nameGlo": "Personalidad Jurídica",
+        "descripGlo": "es la aptitud para ser sujeto de derechos y obligacion.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 195,
+        "nameGlo": "PVPI",
+        "descripGlo": "Son instrumentos formales de planeación, que se construyen a través de un proceso participativo e incluyente de autodiagnóstico. También son instrumentos de política y de gobierno indígena y representan acuerdos sociales que deben surgir del consenso, de la organización y del juicio de las comunidades que los formulan.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 196,
+        "nameGlo": "POPI",
+        "descripGlo": "Son mecanismos diseñados para garantizar el goce efectivo de derechos de los pueblos indígenas, su autonomía política y administrativa y su supervivencia a través de la figura de los Resguardos. Los Planes Organizativos buscan fortalecer la figura del Resguardo Indígena, aclarando las características, afectaciones y necesidades de cada Resguardo y el pueblo indígena que lo compone. Esto para dirigir efectivamente los esfuerzos de las propias comunidades y de entidades externas a ellas, en la solución de las problemáticas que hayan sido identificadas por cada comunidad específica.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 197,
+        "nameGlo": "Poder",
+        "descripGlo": "Es un documento escrito por el cual una persona autoriza a otra a realizar determinadas acciones en su nombre.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 198,
+        "nameGlo": "Pornografía",
+        "descripGlo": "Toda aquella representación de contenido sexual explícito a través de cualquier formato (visual-gráfico) con el fin de despertar en el espectador algún tipo de estimulación sexual.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 199,
+        "nameGlo": "Poseedor",
+        "descripGlo": "Quien está en un predio y se considera dueño de este pese a no tener un título que lo acredite como tal. No reconoce a nadie más como propietario.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 200,
+        "nameGlo": "Posesión",
+        "descripGlo": "Es el disfrute de una cosa determinada (bien, lote, finca) como si fuera dueño. El poseedor no tiene el título o dominio del bien, solo tiene el disfrute. ",
+        "initial": "P"
+    },
+    {
+        "idGlo": 201,
+        "nameGlo": "Posición de Garante",
+        "descripGlo": "Es aquella figura que impone a una persona, natural o jurídica, el deber legal de cuidado frente a otra persona.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 202,
+        "nameGlo": "Preclusión",
+        "descripGlo": "Hace referencia a la extinción o pérdida de derechos procesales por no haber sido ejercidos en la oportunidad de conformidad con la ley.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 203,
+        "nameGlo": "Predio.",
+        "descripGlo": " Inmueble que cuenta con sus límites respectivos.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 204,
+        "nameGlo": "Prescripción",
+        "descripGlo": " Figura mediante la cual se adquieren, se extinguen derechos o se libera de una obligación, con el solo transcurso del tiempo.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 205,
+        "nameGlo": "Presunción de inocencia",
+        "descripGlo": "Principio jurídico penal que establece la inocencia de la persona como regla. Se sostiene mediante dicho principio que solamente a través de un proceso o juicio en el que se demuestre la culpabilidad de la persona podrá aplicarse una pena o sanción.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 206,
+        "nameGlo": "Preterintención",
+        "descripGlo": "Se presenta cuando una persona a pesar de conocer que una conducta es ilegal o constituye delito quiere cometer un acto que no sea de gravedad, pero que resulta siendo mucho más grave de lo que pensó, es decir excede su intención. ",
+        "initial": "P"
+    },
+    {
+        "idGlo": 207,
+        "nameGlo": "Principio de legalidad",
+        "descripGlo": "Las autoridades públicas deben someterse, en su actuación, a la normativa jurídica, la cual debe ser producida en debida forma por el órgano competente. Es el fundamento y límite al poder estatal, razón por la cual el Estado sometido al principio de legalidad, adopta el calificativo de Estado de Derecho.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 208,
+        "nameGlo": "Procedimiento",
+        "descripGlo": "Forma y método de adelantar los procesos ante la justicia, para hacer efectivos los derechos o para imponer las correspondientes penas. Pueden existir distintos procedimientos conforme a las distintas ramas del derecho.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 209,
+        "nameGlo": "Proceso Ejecutivo",
+        "descripGlo": "Es el proceso judicial mediante el cual se pretende el cobro de deudas, cuando aquellas están soportadas de forma clara y expresa en un documento.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 210,
+        "nameGlo": "Proceso monitorio",
+        "descripGlo": "Es un trámite judicial para cobrar una deuda en los casos en los cuales, por diversos motivos, el acreedor no tiene la prueba de esta (no tiene título ejecutivo).",
+        "initial": "P"
+    },
+    {
+        "idGlo": 211,
+        "nameGlo": "Proceso",
+        "descripGlo": "Es el conjunto de actos predeterminados por el legislador, encaminados a resolver en el tiempo un litigio que se presenta en virtud del ejercicio de una acción, a fin de dirimir en derecho, el conflicto que se presenta.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 212,
+        "nameGlo": "PJV",
+        "descripGlo": "Procesos en los que se busca que haya una declaración judicial sin que exista pleito, ni demandado.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 213,
+        "nameGlo": "Promesa de compraventa",
+        "descripGlo": " Es un contrato en el que las partes se comprometen una a vender y otra a comprar un determinado bien.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 214,
+        "nameGlo": "Propietario",
+        "descripGlo": "Aquella persona que acredita un título que lo reconoce como dueño y que a demás se encuentran  inscrito en la Oficina de Registro de Instrumentos Públicos – ORIP.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 215,
+        "nameGlo": "Providencia",
+        "descripGlo": "Las providencias son los pronunciamientos del juez, pueden ser autos o sentencias.",
+        "initial": "P"
+    },
+    {
+        "idGlo": 216,
+        "nameGlo": "pruebaUsuario",
+        "descripGlo": "Esta es una prueba de usuario activo",
+        "initial": "p"
+    }
+]}

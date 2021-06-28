@@ -2,9 +2,9 @@ package com.prolaw.controller;
 
 
 
+import com.google.gson.Gson;
 import com.prolaw.domain.*;
 import com.prolaw.repository.*;
-
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import net.minidev.json.JSONObject;
+
 import java.util.*;
 
 
@@ -115,6 +118,20 @@ public class TableController {
         return null;
         }
         
+	}
+    @ResponseBody
+	@GetMapping(path = "/category/all")
+	public List<Category> getCategory(){
+        llenar();
+		List<Category> cats = null;
+        for(int i = 1; i < 3; i ++){
+            long j = i;
+            Category category = catRepository.findByIdCate(j);
+            if(!category.equals(null)) {
+                cats.add(category);                                          
+                }
+        }
+        return cats;        
 	}
     @ResponseBody
 	@GetMapping(path = "/procedure/{namePro}")

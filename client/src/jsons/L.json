@@ -1,0 +1,51 @@
+{
+    "data":[
+    {
+        "idGlo": 160,
+        "nameGlo": "Laudo Arbitral",
+        "descripGlo": "Decisión proferida por los árbitros que en virtud del principio de la autonomía de la voluntad de las partes, y en derecho dirimen una controversia susceptible de conciliación surgida entre las partes.",
+        "initial": "L"
+    },
+    {
+        "idGlo": 161,
+        "nameGlo": "Legado",
+        "descripGlo": "Acto por medio del cual una persona en su testamento decide repartir sus bienes a personas determinadas.",
+        "initial": "L"
+    },
+    {
+        "idGlo": 162,
+        "nameGlo": "Legislatura",
+        "descripGlo": "Hace referencia al período en el cual funcionan el Congreso de la República.",
+        "initial": "L"
+    },
+    {
+        "idGlo": 163,
+        "nameGlo": "Legitima Defensa",
+        "descripGlo": "Situación que permite eximir, o eventualmente reducir la responsabilidad penal, cuando la comisión de un hecho ilícito, obedece a un fin de defensa en contra de un ataque. Se basa en el derecho natural que tiene una persona de protegerse.",
+        "initial": "L"
+    },
+    {
+        "idGlo": 164,
+        "nameGlo": "Letra de cambio",
+        "descripGlo": "Es un documento que estipula una orden que da una persona a otra, de pagar una suma de dinero a un tercero en una fecha determinada.",
+        "initial": "L"
+    },
+    {
+        "idGlo": 165,
+        "nameGlo": "Licencia ambiental",
+        "descripGlo": "Autorización, con cumplimiento de condiciones y obligaciones, que otorga la autoridad ambiental competente para la ejecución de un proyecto, obra o actividad, que pueda producir deterioro grave a los recursos naturales renovables, o al medio ambiente, o introducir modificaciones considerables o notorias al paisaje.",
+        "initial": "L"
+    },
+    {
+        "idGlo": 166,
+        "nameGlo": "Lindero",
+        "descripGlo": "Línea que separa una propiedad de otra. Límites de un terreno.",
+        "initial": "L"
+    },
+    {
+        "idGlo": 167,
+        "nameGlo": "Loteo",
+        "descripGlo": "Es el proceso de división de un terreno.",
+        "initial": "L"
+    }
+]}

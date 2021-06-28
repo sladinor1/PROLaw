@@ -134,18 +134,15 @@ export default {
       this.d = false;
     },
     registrar (){
-      //if (this.vid && this.vn && this.vl && this.ve && this.vp && this.vps
-        //  && this.usuario.id && this.usuario.names && this.usuario.lastnames && this.usuario.phone 
-          //&& this.usuario.email && this.usuario.pass){
+      if (this.vid && this.vn && this.vl && this.ve && this.vp && this.vps){
             this.usuario.typeId = this.usuario.typeId.code;
             this.usuario.city = this.usuario.city.code;
             this.userController.insert(this.usuario).then(data => {
               console.log(data);
-              this.$router.push('/login');
             })
-      //} else {
-        //this.d = true;
-      //}
+      } else {
+        this.d = true;
+      }
     },
     validarId: function(){
       if (!/^\d+$/.test(this.usuario.id)) {

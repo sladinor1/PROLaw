@@ -1,0 +1,45 @@
+{
+    "data":[
+    {
+        "idGlo": 150,
+        "nameGlo": "Juez",
+        "descripGlo": "Persona válidamente embestida de autoridad para juzgar y sentenciar los asuntos sometidos a su conocimiento conforme al procedimiento legalmente establecido.",
+        "initial": "J"
+    },
+    {
+        "idGlo": 151,
+        "nameGlo": "Junta de Consejo Comunitario",
+        "descripGlo": "Es la autoridad de dirección, coordinación, ejecución y administración interna que ha conformado un Consejo Comunitario. Sus integrantes son miembros del Consejo Comunitario, elegidos y reconocidos por éste a través de la Asamblea General.",
+        "initial": "J"
+    },
+    {
+        "idGlo": 152,
+        "nameGlo": "Juramento",
+        "descripGlo": "Declaración en donde se asegura que todo lo que se está manifestando es verdad, motivo por el cual, se tiene como cierto todo lo expresado por el declarante mientras no se compruebe lo contrario. Tenga en cuenta que faltar a la verdad puede llegar a tener consecuencias legales.",
+        "initial": "J"
+    },
+    {
+        "idGlo": 153,
+        "nameGlo": "Jurisdicción Especial Indígena",
+        "descripGlo": "Es la atribución constitucional, establecida en el Artículo 246 de la Constitución Política, para que los pueblos indígenas, a través de sus autoridades, administren justicia dentro de su ámbito territorial, de acuerdo con sus propias normas y procedimientos, respetando en todo momento el núcleo básico de los derechos fundamentales.",
+        "initial": "J"
+    },
+    {
+        "idGlo": 154,
+        "nameGlo": "Jurisdicción",
+        "descripGlo": " Potestad que tiene el estado para administrar justicia en ejercicio de la soberanía de que es titular, mediante el conocimiento y decisión de las diferentes causas (civiles, penales, laborales, administrativas, etc.).",
+        "initial": "J"
+    },
+    {
+        "idGlo": 155,
+        "nameGlo": "Jurisprudencia",
+        "descripGlo": "Es la fuente del derecho basada en la interpretación sobre la ley que hacen las altas Cortes y los Tribunales por medio de sus decisiones para regular determinada materia en el ámbito jurisdiccional. ",
+        "initial": "J"
+    },
+    {
+        "idGlo": 156,
+        "nameGlo": "Justicia",
+        "descripGlo": "Virtud que consiste en dar a cada uno lo que le corresponde. En sentido jurídico, la justicia consiste en determinar a quién le pertenece alguna cosa conforme a derecho. Implica el deber ser de las cosas.",
+        "initial": "J"
+    }
+]}

@@ -1,0 +1,45 @@
+{
+    "data":[
+    {
+        "idGlo": 122,
+        "nameGlo": "Fallo",
+        "descripGlo": "Acto procesal, consistente en el pronunciamiento de un juez o magistrado o tribunal en el cual se resuelven las pretensiones en un proceso. Por lo general corresponde a la sentencia que es una providencia judicial.",
+        "initial": "F"
+    },
+    {
+        "idGlo": 123,
+        "nameGlo": "Falsa tradición",
+        "descripGlo": "Consiste en que una persona transfiere o vende un derecho o un inmueble a otra persona realiza la inscripción de dicho acto en la oficina de registro de instrumentos públicos donde esté ubicado el bien, sin tener la verdadera calidad de propietario.",
+        "initial": "F"
+    },
+    {
+        "idGlo": 124,
+        "nameGlo": "Fideicomiso",
+        "descripGlo": "Es un encargo que hace una persona a otra, con el fin de que administre ciertos bienes, para que después de cumplida una condición estos sean entregados a otra persona, la cual ha sido escogida previamente por el dueño de los bienes.",
+        "initial": "F"
+    },
+    {
+        "idGlo": 125,
+        "nameGlo": "Fiduciario",
+        "descripGlo": "Es aquella persona a quien se le ha encargado la administración de bienes, hasta el momento en que se verifique el cumplimiento de una condición, la cual le tienen que hacer saber para que este pueda entregar los bienes que le han sido encomendados.",
+        "initial": "F"
+    },
+    {
+        "idGlo": 126,
+        "nameGlo": "Filiación",
+        "descripGlo": "Es la relación jurídica que se da entre padres e hijos y de la cual se derivan derechos y obligaciones, por ejemplo: Apellidos, nacionalidad, entre otros.",
+        "initial": "F"
+    },
+    {
+        "idGlo": 127,
+        "nameGlo": "Fiscal",
+        "descripGlo": "Funcionario que investiga los hechos delictivos para establecer la responsabilidad de una persona en los mismos. Con la implantación del Sistema Acusatorio el fiscal sólo investigará mientras que será el juez quien determine la responsabilidad del sujeto.",
+        "initial": "F"
+    },
+    {
+        "idGlo": 128,
+        "nameGlo": "Flagrancia",
+        "descripGlo": "Se entiende que hay flagrancia cuando: 1.La persona es sorprendida y aprehendida al momento de cometer el delito. 2.La persona es sorprendida o individualizada al momento de cometer el delito, y aprehendida inmediatamente después por persecución o voces de auxilio de quien presencie el hecho y 3.La persona es sorprendida y capturada con objetos, instrumentos o huellas de los cuales parezca fundadamente que momentos antes ha cometido un delito o participado en él.",
+        "initial": "F"
+    }
+]}

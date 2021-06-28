@@ -12,6 +12,7 @@
         <div>
             <Password v-model="usuario.password" placeholder="Contraseña" :feedback="false" />
         </div>
+        <br>
 
             <p><router-link to="/Register" tag="button" class="btn btn-primary" type="submit">¿Olvidaste tu contraseña?</router-link></p>
 
@@ -19,12 +20,16 @@
             <button class="botonInicioSesion" v-on:click="getLogin">Iniciar Sesión</button>
         </div>
         <div>
-            <Dialog position="top" :visible="display">
-                <p>Usuario no encontrado, por favor Registrarse</p>
-                <br>
-                <Button label="ok" icon="pi pi-check" @click="close"/>
-            </Dialog>
-        </div>      
+
+        <Dialog position="top" :visible="display">
+          <p>Usuario no encontrado, por favor Registrarse</p>
+          <br>
+          <Button label="ok" icon="pi pi-check" @click="close" autofocus/>
+        </Dialog>
+      </div>
+
+        <a href="{@/oauth2/authorization/google}">Login with Google</a>
+      
     </div>
   </div>
 
@@ -55,21 +60,18 @@ export default{
             //this.$root.inside = true;
             //console.log(this.$root.inside);
             try{ this.userController.login(this.usuario).then(data => {
-                console.log(data.data.status);
+                //console.log(data.data);
                 if(data.data != null){
                     this.$root.inside = true;
                     this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
-                    this.$router.push('/');   
-                }                
-            }).catch( error => {
-                this.display = true;
-                //console.log(this.display = true);
-                console.log(error);
-                //throw error;
-                //if(error == 'Request failed with status code 404'){
-                
-                //}
-            });}catch{this.$root.user = ""}   
+                    console.log(typeof(data.data));
+                    console.log(data.data);
+                    console.log(data.data.nameUser +' '+ data.data.lastNameUser);
+                    console.log(this.$root.user);
+                }else{
+                    this.display = true;
+                }
+            })}catch{console.log("Error Connection");}
         },
     },
 }

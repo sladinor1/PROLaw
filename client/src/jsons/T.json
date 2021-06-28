@@ -1,0 +1,105 @@
+{
+    "data":[
+    {
+        "idGlo": 248,
+        "nameGlo": "Tacha de testigos",
+        "descripGlo": "Las tachas se refieren a circunstancias personales que concurren en los testigos con relación a las partes que pudieran afectar su credibilidad.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 249,
+        "nameGlo": "Teletrabajador",
+        "descripGlo": "Es aquel trabajador que ha adoptado la modalidad del teletrabajo, mediante la cual puede trabajar fuera de las instalaciones de trabajo.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 250,
+        "nameGlo": "Tenedor",
+        "descripGlo": "Quien está en un predio autorizado por otra persona y reconociendo no ser el propietario. Ejemplo: contratos de arriendo.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 251,
+        "nameGlo": "Tentativa",
+        "descripGlo": "Consiste en comenzar a ejecutar o realizar un hecho calificado como delito por las leyes penales sin llegar a consumarlo o acabarlo, por hechos ajenos a su propia voluntad.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 252,
+        "nameGlo": "TCA",
+        "descripGlo": "un territorio con límites establecidos por la ley, ocupado por una o más comunidades afrodescendientes, negras o palenqueras, con una organización social propia y con títulos de propiedad colectiva, inembargables e intransferibles.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 253,
+        "nameGlo": "Testador",
+        "descripGlo": "Persona que antes de fallecer deja plasmada su última voluntad en un documento llamado testamento, donde específica a quien le corresponden los bienes que deja una vez fallezca.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 254,
+        "nameGlo": "Testamento",
+        "descripGlo": "Documento mediante el cual una persona expresa su voluntad, con el fin de que al momento de fallecer, sus bienes sean adquiridos por una o varias personas determinadas. Los beneficiarios serán éstos serán los legítimos herederos.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 255,
+        "nameGlo": "Testigos",
+        "descripGlo": "Es la persona que tiene conocimiento de la comisión de un delito y que puede aportar información importante y veraz sobre las circunstancias en que se realizó el crimen y de quienes participaron en el mismo.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 256,
+        "nameGlo": "Tipicidad",
+        "descripGlo": "Es la adecuación del acto o acción ejercida de manera voluntario por el sujeto a la figura descrita por la ley como delito. Esto quiere decir que, para que una conducta sea típica, debe constar específica y detalladamente como delito dentro de una ley.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 257,
+        "nameGlo": "Titulo de propiedad",
+        "descripGlo": "Es un documento que acredita a una persona como dueño o propietario de algún bien, principalmente inmueble como una casa o local comercial. ",
+        "initial": "T"
+    },
+    {
+        "idGlo": 258,
+        "nameGlo": "Título Ejecutivo",
+        "descripGlo": "Es todo aquel documento que proviene del deudor, el cual sirve de soporte a una obligación contraída (por ejemplo: contratos, préstamos de dinero, cheques, letras de cambio, sentencias, entre otros). Este documento debe expresar de forma contundente el compromiso adquirido, sin lugar a ambigüedades ni discusiones, y además no puede estar vencida la fecha de su cumplimiento.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 259,
+        "nameGlo": "Trabajador doméstico",
+        "descripGlo": "Persona que, a cambio de una remuneración, presta su servicio de forma personal y directa para realizar actividades de cocina, limpieza, cuidado de personas y demás labores propias del hogar.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 260,
+        "nameGlo": "Tradición",
+        "descripGlo": "Es la manera de adquirir el dominio de las cosas (bienes). Consiste en la entrega que hace el dueño de las cosas a otra persona, debe existir por una parte la intención de transferir o traspasar el dominio y por la otra la intención o capacidad de adquirirlo.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 261,
+        "nameGlo": "Transacción",
+        "descripGlo": " Es un contrato mediante el cual las partes terminan extrajudicialmente un litigio pendiente o evitan un litigio eventual.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 262,
+        "nameGlo": "Transgénero",
+        "descripGlo": "Es la identidad en la que no coincide el sexo biológico con las características inscritas en lo que la expectativa colectiva ha construido social, histórica y culturalmente como femenino o masculino.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 263,
+        "nameGlo": "Tribunal",
+        "descripGlo": "Órgano judicial de jerarquía superior y de integración colegiada, es decir por varios jueces o magistrados.",
+        "initial": "T"
+    },
+    {
+        "idGlo": 264,
+        "nameGlo": "Tutela",
+        "descripGlo": "es un mecanismo consagrado en el artículo 86 de la Constitución Política de 1991, que tiene toda persona para reclamar ante los jueces, en todo momento y lugar, la protección judicial inmediata de sus derechos fundamentales. Soló procede cuando no se dispone de otro medio de defensa judicial.",
+        "initial": "T"
+    }
+]}
