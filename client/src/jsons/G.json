@@ -1,0 +1,27 @@
+{
+    "data":[
+    {
+        "idGlo": 129,
+        "nameGlo": "Gananciales",
+        "descripGlo": "Son los bienes y derechos obtenidos del trabajo obtenido por uno de los cónyuges o por la pareja. ",
+        "initial": "G"
+    },
+    {
+        "idGlo": 130,
+        "nameGlo": "Girador",
+        "descripGlo": "Es la persona que crea la letra de cambio y da la orden de pago. ",
+        "initial": "G"
+    },
+    {
+        "idGlo": 131,
+        "nameGlo": "Gravamen",
+        "descripGlo": "Impuesto u obligación fiscal que se le da a un inmueble o a un bien y al uso que se hace de estos.",
+        "initial": "G"
+    },
+    {
+        "idGlo": 132,
+        "nameGlo": "Guarda",
+        "descripGlo": "Cargo asignado a una persona en favor de quienes no se pueden asistir a sí mismos, y carecen del cuidado de otro.",
+        "initial": "G"
+    }
+]}

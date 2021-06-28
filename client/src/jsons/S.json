@@ -1,0 +1,87 @@
+{
+    "data":[
+    {
+        "idGlo": 234,
+        "nameGlo": "Salario",
+        "descripGlo": "Salario: Es todo lo que recibe el trabajador en dinero o en especie como contraprestación directa del servicio prestado. ",
+        "initial": "S"
+    },
+    {
+        "idGlo": 235,
+        "nameGlo": "Sanción moratoria",
+        "descripGlo": "Es un término usado en derecho laboral, el cual hace referencia a la sanción que ordena la ley para cuando los empleadores están en mora respecto del pago sobre las olbigaciones laborales de sus trabajadores.",
+        "initial": "S"
+    },
+    {
+        "idGlo": 236,
+        "nameGlo": "Saneamiento",
+        "descripGlo": "Consiste en las acciones tendientes a cumplir la obligación de amparar al comprador de una cosa, en su domino y posesión, y de responder de los defectos ocultos de la cosa.",
+        "initial": "S"
+    },
+    {
+        "idGlo": 237,
+        "nameGlo": "SAS",
+        "descripGlo": " Es una forma de sociedad que puede constituirse por una o varias personas o empresas, quienes solo serán responsables hasta el monto de sus respectivos aportes. ",
+        "initial": "S"
+    },
+    {
+        "idGlo": 238,
+        "nameGlo": "Sentencia",
+        "descripGlo": "Las providencias del juez que deciden sobre las pretensiones de la demanda, las excepciones de mérito, cualquiera que fuere la instancia en que se pronuncien, las que deciden el incidente de liquidación de perjuicios, y las que resuelven los recursos de casación y revisión. Con la sentencia se da la culminación del proceso.",
+        "initial": "S"
+    },
+    {
+        "idGlo": 239,
+        "nameGlo": "Seré Romengué",
+        "descripGlo": "Sero Rom (Sere Romengue (plural)) es el hombre que en razón de su posición y  reconocimiento social ejerce como autoridad y representante de un determinado grupo familiar extenso.",
+        "initial": "S"
+    },
+    {
+        "idGlo": 240,
+        "nameGlo": "Servidumbre",
+        "descripGlo": "Las servidumbres son una especie de carga impuesta sobre una propiedad (camino de acceso) en utilidad de otra propiedad con distinto dueño. ",
+        "initial": "S"
+    },
+    {
+        "idGlo": 241,
+        "nameGlo": "Sexo",
+        "descripGlo": "el sexo se refiere a las características genéticas, endocrinas y morfológicas del cuerpo. Las categorías utilizadas para clasificar estas características en los seres humanos son hombre, mujer e intersexual",
+        "initial": "S"
+    },
+    {
+        "idGlo": 242,
+        "nameGlo": "Sexting",
+        "descripGlo": "Envío voluntario de fotos o contenidos eróticos por medio de teléfonos móviles a otra persona.",
+        "initial": "S"
+    },
+    {
+        "idGlo": 243,
+        "nameGlo": "Sociedad Conyugal",
+        "descripGlo": "Debe entenderse como el conjunto de bienes comunes que resultan de la celebración del matrimonio y su debida inscripción en el registro civil. La consecuencia jurídica que se deriva de ello es que todos los bienes que se adquieran en vigencia de dicha sociedad pertenecen a la pareja en partes iguales. La terminación de la sociedad conyugal puede darse por divorcio ante Notaria o Juzgado o por liquidación de la misma por Notaría o Juzgado.",
+        "initial": "S"
+    },
+    {
+        "idGlo": 244,
+        "nameGlo": "Sociedad Patrimonial",
+        "descripGlo": "Es la comunidad de bienes de una pareja, la cual se forma dos (2) años después de la declaración de existencia de la unión marital de hecho.",
+        "initial": "S"
+    },
+    {
+        "idGlo": 245,
+        "nameGlo": "Subsanación de la demanda",
+        "descripGlo": "Consiste en la corrección o reparación de la demanda, por falta de alguno de los requisitos formales establecidos, cuando lo requiere el juez en la oportunidad legal para poder admitir la demanda.",
+        "initial": "S"
+    },
+    {
+        "idGlo": 246,
+        "nameGlo": "Sucesión",
+        "descripGlo": "Es el proceso que hay que seguir ante un juez o notario para traspasar la propiedad de los bienes de la persona difunta a sus herederos o legatarios.",
+        "initial": "S"
+    },
+    {
+        "idGlo": 247,
+        "nameGlo": "Sufragar",
+        "descripGlo": "Es el derecho de participar en una elección a través del voto. El voto es un derecho político y un deber que tiene todo ciudadano de elegir a las personas candidatas para que ocupen cargos en entidades públicas o privadas en la política",
+        "initial": "S"
+    }
+]}

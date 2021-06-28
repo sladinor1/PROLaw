@@ -1,0 +1,45 @@
+{
+    "data":[
+    {
+        "idGlo": 168,
+        "nameGlo": "Magistrado Ponente",
+        "descripGlo": "El juez encargado de proyectar la decisión sobre un proceso y es sometida a votación ante los demás jueces que conforman el tribunal o Corte.",
+        "initial": "M"
+    },
+    {
+        "idGlo": 169,
+        "nameGlo": "Magistrado",
+        "descripGlo": "Juez que hace parte de una corporación judicial colegiada (Tribunal).",
+        "initial": "M"
+    },
+    {
+        "idGlo": 170,
+        "nameGlo": "Medidas cautelares",
+        "descripGlo": "Son aquellas establecidas dentro de un proceso jurídico y que buscan asegurar el cumplimiento de la decisión que se adopte en el futuro. Por ejemplo, el embargo de los bienes de un deudor.",
+        "initial": "M"
+    },
+    {
+        "idGlo": 171,
+        "nameGlo": "Mojón",
+        "descripGlo": "Señales materiales colocadas con carácter permanente en los linderos de los terrenos de propiedad pública o privada para fijar su situación y extensión.",
+        "initial": "M"
+    },
+    {
+        "idGlo": 172,
+        "nameGlo": "Mujer",
+        "descripGlo": "personas cuyas características genéticas, morfológicas y endocrinas le identifican como hembra, según la clasificación biológica de la especie humana.",
+        "initial": "M"
+    },
+    {
+        "idGlo": 173,
+        "nameGlo": "Multa",
+        "descripGlo": "Es una sanción que consiste en pagar una cantidad de dinero, impuesta por haber infringido una ley o haber cometido ciertas faltas o delitos.",
+        "initial": "M"
+    },
+    {
+        "idGlo": 174,
+        "nameGlo": "Municipio",
+        "descripGlo": "entidad territorial fundamental de la división político-administrativa del Estado, con autonomía política, fiscal y administrativa dentro de los límites que le señalen la Constitución y las leyes de la República.",
+        "initial": "M"
+    }
+]}

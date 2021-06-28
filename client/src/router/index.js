@@ -8,6 +8,7 @@ import New from "../views/NewPassword.vue";
 import Tramite from "../views/Tramites.vue";
 import Details from  "../views/TramiteDetail.vue";
 import Sub from "../views/subCat.vue";
+import Prd from "../views/Procedures.vue";
 
 const routes = [
   {
@@ -60,6 +61,12 @@ const routes = [
     path: "/sub",
     name: "sub",
     component: Sub,
+    props: true
+  },
+  {
+    path: "/prd",
+    name: "prd",
+    component: Prd,
     props: true
   },
 ];

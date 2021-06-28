@@ -1,0 +1,63 @@
+{
+    "data":[
+    {
+        "idGlo": 140,
+        "nameGlo": "Identidad de género",
+        "descripGlo": "es el auto reconocimiento que una persona hace de sí misma basada a partir de la construcción social, histórica y cultural de lo que se ha definido lo femenino, lo masculino o la transición entre ambos.",
+        "initial": "I"
+    },
+    {
+        "idGlo": 141,
+        "nameGlo": "Impedimento",
+        "descripGlo": "Es una facultad excepcional otorgada por la ley a las autoridades administrativas o al juez para declinar su competencia en un asunto específico, separándose de su conocimiento, cuando se considere que existen motivos fundados para que su imparcialidad se encuentre seriamente comprometida.",
+        "initial": "I"
+    },
+    {
+        "idGlo": 142,
+        "nameGlo": "Impuesto predial",
+        "descripGlo": "El impuesto predial es un cobro que se realiza a toda persona que sea propietaria de un bien inmueble, que se recauda de forma anual y responde a criterios específicos. Éste dinero será utilizado en servicios públicos e infraestructura que demande el Estado.",
+        "initial": "I"
+    },
+    {
+        "idGlo": 143,
+        "nameGlo": "Impugnación",
+        "descripGlo": "Solicitar la nulidad, sustitución o modificación de un determinado acto de procedimiento afirmando que es injusto o ilegal, siendo ello la causa de un perjuicio en un proceso.",
+        "initial": "I"
+    },
+    {
+        "idGlo": 144,
+        "nameGlo": "Imputado",
+        "descripGlo": "Persona a quien se le atribuye la participación en el hecho contrario a la ley  (delito).",
+        "initial": "I"
+    },
+    {
+        "idGlo": 145,
+        "nameGlo": "IRI",
+        "descripGlo": "Es el derecho que otorga la ley penal a la víctima para que le indemnicen de una manera pronta por los perjuicios sufridos por el actuar del culpable y que debe ser solicitado después del fallo condenatorio en contra del culpable.",
+        "initial": "I"
+    },
+    {
+        "idGlo": 146,
+        "nameGlo": "Indemnización",
+        "descripGlo": "Compensación que se le entrega a una persona como consecuencia de un daño que se haya recibido.",
+        "initial": "I"
+    },
+    {
+        "idGlo": 147,
+        "nameGlo": "Inexequibilidad",
+        "descripGlo": "Es el efecto de una sentencia emitida por la Corte Constitucional en la que se manifiesta que una ley es contraria a la Constitución Nacional.",
+        "initial": "I"
+    },
+    {
+        "idGlo": 148,
+        "nameGlo": "Inmueble",
+        "descripGlo": "Son bienes considerados bienes que no pueden moverse sin causarles daño, toda vez que están unidos de modo inseparable, física o jurídicamente al terreno (parcelas, urbanizadas o no, casas, edificios, terrenos, entre otros.",
+        "initial": "I"
+    },
+    {
+        "idGlo": 149,
+        "nameGlo": "Intersexual",
+        "descripGlo": "Personas que presentan simultáneamente características genéticas, congénitas, endocrinas o morfológicas de hembra y machos.",
+        "initial": "I"
+    }
+]}

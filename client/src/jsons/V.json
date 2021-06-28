@@ -1,0 +1,39 @@
+{
+    "data":[
+    {
+        "idGlo": 268,
+        "nameGlo": "Vencimiento",
+        "descripGlo": "Cumplimiento del plazo.",
+        "initial": "V"
+    },
+    {
+        "idGlo": 269,
+        "nameGlo": "Víctima",
+        "descripGlo": "Aquellas personas o grupo de personas que hayan sufrido un daño por mala acción o el no actuar de otra persona.",
+        "initial": "V"
+    },
+    {
+        "idGlo": 270,
+        "nameGlo": "Violencia de género",
+        "descripGlo": "el uso  o amenaza de la fuerza; coacción física, sexual o psicológica, así como la causada por intimidación, el abuso de poder, la detención ilegal, entre otras.",
+        "initial": "V"
+    },
+    {
+        "idGlo": 271,
+        "nameGlo": "Violencia económica",
+        "descripGlo": "Cualquier acto que desconozca o restrinja el derecho a los ingresos, a la propiedad, el uso y disfrute de bienes y servicios, que tiene una persona, o que atenta contra otros derechos económicos de la víctima aprovechando las situaciones y condiciones de desigualdad; y las relaciones de poder existentes entre víctima y agresor.",
+        "initial": "V"
+    },
+    {
+        "idGlo": 272,
+        "nameGlo": "Violencia física",
+        "descripGlo": "es cualquier acto de agresión, mediante el uso de la fuerza o cualquier mecanismo, que pueda u ocasione daños físicos internos o externos a la persona agredida y pone en riesgo o disminuye su integridad corporal.",
+        "initial": "V"
+    },
+    {
+        "idGlo": 273,
+        "nameGlo": "Violencia psicológica",
+        "descripGlo": "entendida como toda acción u omisión destinada a degradar o controlar las acciones, comportamientos, creencias y decisiones de otras personas por medio de cualquier conducta que implique perjuicio, afectaciones en la salud psicológica, mental, la autodeterminación, la percepción de sí mismo o el desarrollo personal.",
+        "initial": "V"
+    }
+]}

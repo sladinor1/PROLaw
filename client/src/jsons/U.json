@@ -1,0 +1,21 @@
+{
+    "data":[
+    {
+        "idGlo": 265,
+        "nameGlo": "UAF Unidad agrícola familiar",
+        "descripGlo": "Son pequeñas extensiones de tierras entregadas a los pequeños agricultores con el fin de proporcionarles ingresos económicos. ",
+        "initial": "U"
+    },
+    {
+        "idGlo": 266,
+        "nameGlo": "Unión libre",
+        "descripGlo": "Es la relación que existe entre dos personas que sin estar casadas forman una comunidad de vida permanente y singular. ",
+        "initial": "U"
+    },
+    {
+        "idGlo": 267,
+        "nameGlo": "Usufructo",
+        "descripGlo": "Es el derecho por el que una persona puede usar los bienes de otra y disfrutar de sus beneficios, con la obligación de conservarlos y cuidarlos como si fueran propios.",
+        "initial": "U"
+    }
+]}

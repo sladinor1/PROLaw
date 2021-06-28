@@ -1,0 +1,93 @@
+{
+    "data":[
+    {
+        "idGlo": 219,
+        "nameGlo": "Recindir",
+        "descripGlo": "Dejar sin efecto un contrato o una obligación principal, cuando las personas convienen invalidar una obligación por muto consentimiento.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 220,
+        "nameGlo": "Reclamo directo",
+        "descripGlo": "Es una vía para interponer quejas contra entidades vigiladas por la Superfinanciera.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 221,
+        "nameGlo": "Recurso de reposicion.",
+        "descripGlo": "Posibilidad que se tiene dentro de un trámite o procedimiento para solicitar ante la misma autoridad o funcionario que emitió una decisión que me es desfavorable para que la revise y modifique a mi favor.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 222,
+        "nameGlo": "Recursos",
+        "descripGlo": "Los recursos son un procedimiento o medio que concede la ley para impugnar resoluciones administrativas o providencias judiciales, sirviendo de medio de defensa ante una inconformidad.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 223,
+        "nameGlo": "Recusación",
+        "descripGlo": "Consiste en un trámite para que el juez o funcionario que ha sido recusado, y que no se ha excusado, sea separado del conocimiento de ese asunto.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 224,
+        "nameGlo": "RIPI",
+        "descripGlo": "Son herramientas con un doble propósito: (i) sirven como guías de comportamiento y (ii) soportan la resolución de conflictos al interior de pueblos indígenas. En ellos, los pueblos, de manera autónoma, consignan los valores y principios culturales propios, con procedimientos y prácticas particulares que regulan la vida social en la comunidad y el territorio.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 225,
+        "nameGlo": "Reinvindicación",
+        "descripGlo": "La reivindicación o acción de dominio es la que tiene el dueño de una cosa singular, de que no está en posesión, para que el poseedor de ella sea condenado a restituirla.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 226,
+        "nameGlo": "Reposición",
+        "descripGlo": "Es un recurso que busca que el funcionario que profirió una decisión la revoque, revise, adicione, aclare o resuelva.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 227,
+        "nameGlo": "Representante legal",
+        "descripGlo": "Esta figura consiste en que una persona actúa en nombre de otra o de una entidad, como si aquella lo hiciera por su propia cuenta, para ejercer los actos confiados a su cargo.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 228,
+        "nameGlo": "Resguardo indígena",
+        "descripGlo": "Los resguardos son instituciones legales y sociopolíticas especiales, conformados por una o más comunidades indígenas que se organizan, de manera autónoma, para dirigir el territorio y la vida en comunidad, a través de sus sistemas normativos propios.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 229,
+        "nameGlo": "Responsabilidad Civil",
+        "descripGlo": "Es la obligación de reparar los daños o perjuicios causados a una persona o entidad, bien sea por causa de un contrato o por el desarrollo de la vida en sociedad.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 230,
+        "nameGlo": "Retroactividad",
+        "descripGlo": "Consiste en que una ley nueva tiene efectos jurídicos sobre situaciones sucedidas o consolidadas con anterioridad a la expedición de la nueva ley. De esta manera se pueden afectar derechos ya adquiridos o facultades que ya ejercidas bajo el imperio de la ley anterior.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 231,
+        "nameGlo": "Riesgo extraordinario",
+        "descripGlo": "Es aquel hecho o circunstancia específica, concreta, y clara que puede afectar de manera potencial la vida, integridad física, o seguridad de una persona.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 232,
+        "nameGlo": "Riesgo extremo",
+        "descripGlo": "Es aquel que, además de ser extraordinario, es también grave, inminente y dirigido contra la vida de una persona.",
+        "initial": "R"
+    },
+    {
+        "idGlo": 233,
+        "nameGlo": "Room o Gitano",
+        "descripGlo": "Pueblo étnico de Colombia con los siguientes rasgos culturales: Una antigua tradición itinerante y nómada (que se ha transformado en los últimos años), una lengua (la shib romaní), un sistema propio de justicia (la kriss romaní), un sistema de valores y creencias fuertemente arraigado y un especial sentido de la estética. El pueblo rom o gitano por mucho tiempo permaneció invisible para la sociedad mayoritaria porque buscó conservar sus tradiciones sin influencias externas. ",
+        "initial": "R"
+    }
+]}
