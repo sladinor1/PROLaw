@@ -20,8 +20,7 @@
 			<TabPanel header="Normatividad">
 				<ScrollPanel style="width: 100%; height: 300px">
 					<div v-for="item in procedures.normativity" :key="item">
-						<p class="p">{{item.nameNor}}</p>
-						<p><a href=item.link target="_blank" rel="noopener">{{item.link}}</a></p>
+                        <p class="p"><a :href="item.link" target="_blank" rel="noopener">{{item.nameNor}}</a></p>
 					</div>
 				</ScrollPanel>	
 			</TabPanel>

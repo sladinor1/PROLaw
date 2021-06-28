@@ -2,14 +2,14 @@
     <div>
         <br>
         <div class="tramite-container">
-            <Fieldset class="p" legend="Descripcion" :toggleable="true" :collapsed="false">
+            <Fieldset class="p" legend="Descripción" :toggleable="true" :collapsed="false">
                 {{datos.descripCate}}
             </Fieldset>
         </div>
         <div class="tramite-container">
             <Carousel :value="tramites" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
                 <template #header>
-                    <h5 style="text-align: centerr" >Tramites</h5>
+                    <h5 style="text-align: center" >Trámites</h5>
                     <br>
                 </template>
                 <template #item="slotProps">

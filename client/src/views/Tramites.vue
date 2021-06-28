@@ -3,7 +3,7 @@
         <div class="t-container">
             <Carousel :value="categorias" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
                 <template #header>
-                    <h5 style="text-align: centerr" >Categorias</h5>
+                    <h5 style="text-align: center" >Categorias</h5>
                     <br>
                 </template>
                 <template #item="slotProps">

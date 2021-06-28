@@ -2,7 +2,7 @@
   <div>
     <div>
       <div class="nav-container ">
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-dark">
           <!-- Navbar content -->
           <TabMenu :model="items" />
           <router-view />
@@ -97,7 +97,7 @@ export default{
       items: [
         { label: 'Tramites', icon: '', to: '/tramites'},
         { label: 'Entidades', icon: '', to: ''},
-        { label: 'Glosario', icon: '', to: ''},
+        { label: 'Glosario', icon: '', to: '/glosario'},
         { label: 'Contacto', icon: '', to: ''},
       ]
     }

@@ -9,6 +9,7 @@ import Tramite from "../views/Tramites.vue";
 import Details from  "../views/TramiteDetail.vue";
 import Sub from "../views/subCat.vue";
 import Prd from "../views/Procedures.vue";
+import Glosario from "../views/Glosario.vue";
 
 const routes = [
   {
@@ -67,6 +68,11 @@ const routes = [
     path: "/prd",
     name: "prd",
     component: Prd,
+  },
+  {
+    path: "/glosario",
+    name: "glosario",
+    component: Glosario,
     props: true
   },
 ];
