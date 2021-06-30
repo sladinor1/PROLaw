@@ -190,6 +190,11 @@ ul{
   text-align: justify
 }
 
+.pp{
+  text-align: justify;
+  width: 370px;
+}
+
 .menu-container{
   left: 50%;
 }

@@ -34,6 +34,8 @@ const app = createApp(App)
 app.use(PrimeVue);
 app.use(VueCookies);
 app.component("ScrollPanel", ScrollPanel);
+app.component("Column", Column);
+app.component("DataTable", DataTable);
 app.component("ScrollTop", ScrollTop);
 app.component("Fieldset", Fieldset);
 app.component("TabView", TabView);

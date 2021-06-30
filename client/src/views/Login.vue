@@ -64,8 +64,6 @@ export default{
                 if(data.data != null){
                     this.$root.inside = true;
                     this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
-                    console.log(typeof(data.data));
-                    console.log(data.data);
                     console.log(data.data.nameUser +' '+ data.data.lastNameUser);
                     console.log(this.$root.user);
                 }else{
