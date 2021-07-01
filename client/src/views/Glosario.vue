@@ -11,29 +11,41 @@
                     </ul>
                 </nav>
                 
-                <table class="table">
+                <!--<table class="table">
                     <tr v-for="item in palabrasA" :key="item">
                         <td><strong>{{item.nameGlo}}</strong></td>
                         <td>{{item.descripGlo}}</td>
                     </tr>
-                </table>   
-
-                <DataTable :value="data" :paginator="ture" :rows="10">
-                    <Column field="vin" header="Vin"></Column>
-                    <Column field="year" header="Year"></Column>
-                    <Column field="brand" header="Brand"></Column>
-                    <Column field="color" header="Color"></Column>
+                </table>-->   
+                <DataTable :value="palabrasA" :paginator="true" :rows="10"
+                paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+                :rowsPerPageOptions="[10,20,50]" responsiveLayout="scroll"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords}">
+                    <Column field="nameGlo" header="Palabra"></Column>
+                    <Column field="descripGlo" header="Descripcion"></Column>
+                    <template #paginatorLeft>
+                        <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+                    </template>
+                    <template #paginatorRight>
+                        <Button type="button" icon="pi pi-cloud" class="p-button-text" />
+                    </template>
                 </DataTable>
 
-                <Paginator :rows="10" :totalRecords="totalRecords2"></Paginator>
+                <!--<DataTable :value="data" :paginator="true" :rows="10">
+                    
+                    <Column field="brand" header="Brand"></Column>
+                    <Column field="color" header="Color"></Column>
+                </DataTable>-->
 
-                <nav aria-label="Page navigation example">
+                <!--<Paginator :rows="10" :totalRecords="totalRecords2"></Paginator>-->
+
+                <!--<nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
                         <li class="page-item" v-if="paginaActual != 1" v-on:click="getPreviosPage()"><a class="page-link outline-primary" href="#">Anterior</a></li>
                         <li v-for="pagina in totalPaginas()" :key="pagina" v-on:click="getDataPagina(pagina)" class="page-item" v-bind:class="isActive(pagina)"><a class="page-link" href="#">{{pagina}}</a></li>
                         <li class="page-item" v-on:click="getNextPage()"><a class="page-link" href="#">Siguiente</a></li>
                     </ul>
-                </nav>
+                </nav>-->
             </Fieldset>       
             
         </div>  
@@ -43,7 +55,6 @@
 
 <script>
 import GlossaryController from "../controller/GlossaryController.js";
-import GetData from "../controller/GetData.js";
 import A from "../jsons/A.json";
 import B from "../jsons/B.json";
 import C from "../jsons/C.json";
@@ -71,6 +82,7 @@ export default{
 	data() {   
         
         return{ 
+            pal: {},
             A: A.data,
             B : B.data,
             C: C.data,
@@ -105,17 +117,19 @@ export default{
         }	    
     },
     wordsA :A,
-    getData: null,
     glossaryController : null,
     created(){
         this.glossaryController = new GlossaryController();
-        this.getData = new GetData();
     },
     mounted(){
         this.getDataPagina(1);
     },
     methods:{
         getLetra(l){
+            
+            this.pal = this.glossaryController.getLetter(l);
+            console.log(this.pal);
+            
             if(l == "A") {this.palabrasA= this.A;}
             if(l == "B") {this.palabrasA= this.B;}
             if(l == "C") {this.palabrasA = this.C;}

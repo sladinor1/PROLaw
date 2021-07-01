@@ -13,7 +13,7 @@ export default class GlossaryController{
     }
 
     getData(letter){
-        return 'glossary/word/'+letter+'/';
+        return 'glossary/'+letter+'/';
     }
 
 }

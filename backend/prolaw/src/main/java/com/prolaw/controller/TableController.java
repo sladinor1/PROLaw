@@ -161,9 +161,11 @@ public class TableController {
 
     @ResponseBody
 	@GetMapping(path = "/glossary/{inicial_glo}")
-	public List<Glossary> getListGlossary(@PathVariable("inicial_glo") char inicial_glo){
+	public JSONObject getListGlossary(@PathVariable("inicial_glo") char inicial_glo){
 		List<Glossary> glo =gloRepository.findByInitial(inicial_glo);
-        return glo;
+        JSONObject res = new JSONObject();
+        res.put("data", glo);
+        return res;
 	}
 
     @ResponseBody
