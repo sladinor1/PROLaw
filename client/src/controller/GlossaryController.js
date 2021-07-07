@@ -9,7 +9,7 @@ const axiosI = axios.create({
 export default class GlossaryController{
 
     getLetter(letter){
-        axiosI.get(this.getData(letter));
+        return axiosI.get(this.getData(letter));
     }
 
     getData(letter){

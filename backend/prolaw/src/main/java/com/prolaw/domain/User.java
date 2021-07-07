@@ -31,7 +31,7 @@ public class User {
     @Column(name="auth_provider")
     private Provider provider;
 
-    //U -> Usuario  ; A -> Administrador
+    //U -> Usuario  ; A -> Administrador ; L -> Abogado
     @Column(name="rol")
     private String rol;
    

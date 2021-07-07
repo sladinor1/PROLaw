@@ -56,55 +56,11 @@
 <script>
 import GlossaryController from "../controller/GlossaryController.js";
 import A from "../jsons/A.json";
-import B from "../jsons/B.json";
-import C from "../jsons/C.json";
-import D from "../jsons/D.json";
-import E from "../jsons/E.json";
-import F from "../jsons/F.json";
-import G from "../jsons/G.json";
-import H from "../jsons/H.json";
-import I from "../jsons/I.json";
-import J from "../jsons/J.json";
-import K from "../jsons/K.json";
-import L from "../jsons/L.json";
-import M from "../jsons/M.json";
-import N from "../jsons/N.json";
-import O from "../jsons/O.json";
-import P from "../jsons/P.json";
-import Q from "../jsons/Q.json";
-import R from "../jsons/R.json";
-import S from "../jsons/S.json";
-import T from "../jsons/T.json";
-import U from "../jsons/U.json";
-import V from "../jsons/V.json";
 export default{
 	name: "Glosario",           
 	data() {   
         
         return{ 
-            pal: {},
-            A: A.data,
-            B : B.data,
-            C: C.data,
-            D: D.data,
-            E: E.data,
-            F :F.data,
-            G :G.data,
-            H:H.data,
-            I:I.data,
-            J:J.data,
-            K:K.data,
-            L:L.data,
-            M:M.data,
-            N:N.data,
-            O:O.data,
-            P:P.data,
-            Q:Q.data,
-            R:R.data,
-            S:S.data,
-            T:T.data,
-            U:U.data,
-            V:V.data,
             totalRecords: 120,
             totalRecords2: 12,
             paginaActual:1,          
@@ -126,32 +82,10 @@ export default{
     },
     methods:{
         getLetra(l){
-            
-            this.pal = this.glossaryController.getLetter(l);
-            console.log(this.pal);
-            
-            if(l == "A") {this.palabrasA= this.A;}
-            if(l == "B") {this.palabrasA= this.B;}
-            if(l == "C") {this.palabrasA = this.C;}
-            if(l == "D") {this.palabrasA= this.D;}
-            if(l == "E") {this.palabrasA= this.E;}
-            if(l == "F") {this.palabrasA = this.F;}
-            if(l == "G") {this.palabrasA= this.G;}
-            if(l == "H") {this.palabrasA= this.H;}
-            if(l == "I") {this.palabrasA = this.I;}
-            if(l == "J") {this.palabrasA= this.J;}
-            if(l == "K") {this.palabrasA= this.K;}
-            if(l == "L") {this.palabrasA = this.L;}
-            if(l == "M") {this.palabrasA= this.M;}
-            if(l == "N") {this.palabrasA= this.N;}
-            if(l == "O") {this.palabrasA = this.O;}
-            if(l == "P") {this.palabrasA= this.P;}
-            if(l == "Q") {this.palabrasA= this.Q;}
-            if(l == "R") {this.palabrasA = this.R;}
-            if(l == "S") {this.palabrasA= this.S;}
-            if(l == "T") {this.palabrasA= this.T;}
-            if(l == "U") {this.palabrasA = this.U;}
-            if(l == "V") {this.palabrasA = this.V;}
+            try{this.glossaryController.getLetter(l).then(data => {
+                var info = data.data.data
+                this.palabrasA = info;
+            })}catch{console.log("Error Connection");}
         },
         getLetter: function(letra) {
             console.log(letra);
