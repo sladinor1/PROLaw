@@ -1,26 +1,29 @@
 package com.prolaw.controller;
 
 
-
-import com.google.gson.Gson;
 import com.prolaw.domain.*;
 import com.prolaw.repository.*;
 
+import org.apache.pulsar.shade.org.apache.commons.codec.digest.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 //import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 //import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.minidev.json.JSONObject;
 
 import java.util.*;
+import java.util.concurrent.atomic.LongAccumulator;
 
 
 @RestController
@@ -43,6 +46,12 @@ public class TableController {
 
     @Autowired
 	private SubCategoryRepository subRepository;
+
+    @Autowired
+    private CaseRepository caseRepository;
+
+    @Autowired
+    private AnswersRepository answersRepository;
 
     public void llenar(){
         boolean terminado = false;
@@ -105,6 +114,26 @@ public class TableController {
             }
          
         }while(terminado == true);
+    }
+    public void llenarcasos(){
+            List<Case> casos = null;
+            for (int i = 4; i < 5; i++){
+                long j = i;
+                Case c = caseRepository.findByIdCase(j);
+                if (!c.equals(null)){casos.add(c);}                
+            }
+            if(!casos.equals(null)){
+            for(Case caso: casos){
+                String ids = caso.getIdsAns();
+                String[] parts = ids.split(",");
+                for(String part: parts){
+                    Answers ans = answersRepository.findByIdAns(Long.valueOf(part));
+                    List<Answers> res = caso.getAnswers();
+                    res.add(ans);
+                    caso.setAnswers(res);
+                }
+            }}
+        
     }
     @ResponseBody
 	@GetMapping(path = "/category/{nameCat}")
@@ -196,5 +225,52 @@ public class TableController {
         }
         
 	}
+
+    @ResponseBody
+    @GetMapping(path = "/cases")
+    public List<Case> getAllCases(){
+        //llenarcasos();
+        List<Case> casos = null;
+            for (int i = 4; i < 5; i++){
+                long j = i;
+                Case c = caseRepository.findByIdCase(j);
+                if (!c.equals(null)){casos.add(c);}                
+            }
+        return casos;
+    }
     
+    @ResponseBody
+    @GetMapping(path = "/cases/{idCase}")
+    public Case getOneCase(@PathVariable("idCase") Long idC){
+        //llenarcasos();
+        Case caso = caseRepository.findByIdCase(idC);
+        return caso;
+    }
+    
+    @ResponseBody
+    @RequestMapping(path = "/cases/new/{idUserC}/{topic_cas}/{descrip_case}/{subcat}", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createCase(@PathVariable("idUserC") String idU, @PathVariable("topic_cas") String topic, @PathVariable("descrip_case") String descrip,@PathVariable("subcat") String sub ){
+        String idSec = DigestUtils.sha256Hex(idU);
+        Date date = new Date();
+		Case savedCase = caseRepository.save(new Case(idSec,topic,descrip,sub,date));
+		LOG.info( savedCase.toString() + " successfully saved into DB.");
+    }
+
+    @ResponseBody
+    @RequestMapping(path = "/answer/new/{idCase}/{idUser}/{descrip_ans}", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createAnswer(@PathVariable("idCase") Long idC, @PathVariable("idUser") String idU, @PathVariable("descrip_ans") String descrip){
+        Case caso = getOneCase(idC);
+        String idSec = DigestUtils.sha256Hex(idU);
+        Date date = new Date();
+		Answers savedAns = answersRepository.save(new Answers(idSec,descrip,date));
+        String re = caso.getIdsAns();
+        if(re != null){caso.setIdsAns(re+","+idC);}
+        else{caso.setIdsAns(idC.toString());}
+        List<Answers> res = caso.getAnswers();
+        res.add(savedAns);
+        caso.setAnswers(res);
+		LOG.info( savedAns.toString() + " successfully saved into DB.");
+    }
 }
