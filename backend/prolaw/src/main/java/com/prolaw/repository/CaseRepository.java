@@ -9,6 +9,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface CaseRepository extends CrudRepository<Case,Long>{
     Case findByIdCase(@Param("id_case") long idCase);
-   
-
+    
 }

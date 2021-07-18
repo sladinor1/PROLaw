@@ -34,7 +34,7 @@ public class Case {
         this.descripCas = descripCas;
         this.subcatCas = subcatCas;
         this.dateAns = dateAns;
-        this.idsAns = null;
+        this.idsAns = "0";
     }
 
     public long getIdCase() {
@@ -101,7 +101,7 @@ public class Case {
     }
 
     @Id
-    @SequenceGenerator(name ="GRADE_IDS_GENERATOR", sequenceName = "public.grade_grade_id_seq", allocationSize = 1)
+    @SequenceGenerator(name ="GRADE_IDS_GENERATOR", sequenceName = "public.grade_grade_ids_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GRADE_IDS_GENERATOR")
     @Column(name = "id_case")
     private long idCase;

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.minidev.json.JSONObject;
 
+import java.lang.ProcessHandle.Info;
 import java.util.*;
 import java.util.concurrent.atomic.LongAccumulator;
 
@@ -116,21 +117,27 @@ public class TableController {
         }while(terminado == true);
     }
     public void llenarcasos(){
-            List<Case> casos = null;
-            for (int i = 4; i < 5; i++){
+            List<Case> casos = new ArrayList<Case>();;
+            for (int i = 1; i < 2; i++){
                 long j = i;
                 Case c = caseRepository.findByIdCase(j);
                 if (!c.equals(null)){casos.add(c);}                
             }
             if(!casos.equals(null)){
             for(Case caso: casos){
+                LOG.info("--------------------------");
+                LOG.info(caso.getIdsAns());
                 String ids = caso.getIdsAns();
-                String[] parts = ids.split(",");
-                for(String part: parts){
-                    Answers ans = answersRepository.findByIdAns(Long.valueOf(part));
-                    List<Answers> res = caso.getAnswers();
-                    res.add(ans);
-                    caso.setAnswers(res);
+                if(ids == "0"){
+                    LOG.info("Not answers");
+                }else {
+                    String[] parts = ids.split(",");
+                    for(String part: parts){
+                        Answers ans = answersRepository.findByIdAns(Long.valueOf(part));
+                        List<Answers> res = caso.getAnswers();
+                        res.add(ans);
+                        caso.setAnswers(res);
+                }
                 }
             }}
         
@@ -229,11 +236,12 @@ public class TableController {
     @ResponseBody
     @GetMapping(path = "/cases")
     public List<Case> getAllCases(){
-        //llenarcasos();
-        List<Case> casos = null;
-            for (int i = 4; i < 5; i++){
-                long j = i;
+        llenarcasos();
+        List<Case> casos = new ArrayList<Case>();
+            for (int i = 1; i < 2; i++){
+                Long j = Long.valueOf(i);
                 Case c = caseRepository.findByIdCase(j);
+                //Case c = caseRepository.findById(j);
                 if (!c.equals(null)){casos.add(c);}                
             }
         return casos;
@@ -242,7 +250,7 @@ public class TableController {
     @ResponseBody
     @GetMapping(path = "/cases/{idCase}")
     public Case getOneCase(@PathVariable("idCase") Long idC){
-        //llenarcasos();
+        llenarcasos();
         Case caso = caseRepository.findByIdCase(idC);
         return caso;
     }
@@ -261,16 +269,24 @@ public class TableController {
     @RequestMapping(path = "/answer/new/{idCase}/{idUser}/{descrip_ans}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void createAnswer(@PathVariable("idCase") Long idC, @PathVariable("idUser") String idU, @PathVariable("descrip_ans") String descrip){
-        Case caso = getOneCase(idC);
+        Case caso = caseRepository.findByIdCase(idC);
         String idSec = DigestUtils.sha256Hex(idU);
         Date date = new Date();
 		Answers savedAns = answersRepository.save(new Answers(idSec,descrip,date));
-        String re = caso.getIdsAns();
-        if(re != null){caso.setIdsAns(re+","+idC);}
-        else{caso.setIdsAns(idC.toString());}
-        List<Answers> res = caso.getAnswers();
-        res.add(savedAns);
-        caso.setAnswers(res);
+        String r = Long.toString(savedAns.getIdAns());
+        if(caso.getIdsAns().equals("0")){
+            LOG.info("--------------------");
+            LOG.info("Vacio");
+            caso.setIdsAns(r);
+        } else {
+            String re = caso.getIdsAns();
+            LOG.info("--------------------");
+            LOG.info("No vacio");
+            LOG.info(re);
+            caso.setIdsAns(re+","+r);
+        }
+        caseRepository.save(caso);
 		LOG.info( savedAns.toString() + " successfully saved into DB.");
     }
+   
 }

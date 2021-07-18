@@ -44,7 +44,7 @@ public class Answers {
         this.dateAns = dateAns;
     }
     @Id
-    @SequenceGenerator(name ="GRADE_ID_GENERATOR", sequenceName = "public.grade_grade_id_seq", allocationSize = 1)
+    @SequenceGenerator(name ="GRADE_ID_GENERATOR", sequenceName = "public.grade_grade_id_seqs", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GRADE_ID_GENERATOR")
     @Column(name = "id_ans")
     private long idAns;
