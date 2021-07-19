@@ -1,15 +1,11 @@
 package com.prolaw.controller;
 
 
-import com.prolaw.domain.Provider;
-import com.prolaw.domain.User;
-import com.prolaw.domain.Lawyer;
+import com.prolaw.domain.*;
 import com.prolaw.exception.UserNotFoundException;
-import com.prolaw.repository.UserRepository;
-import com.prolaw.repository.LawyerRepository;
+import com.prolaw.repository.*;
 
 import org.apache.pulsar.shade.org.apache.commons.codec.digest.*;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,22 +37,15 @@ public class BackendController {
 	@Autowired
 	private LawyerRepository lawyerRepository;
 
+
+    
 	@ResponseBody
 	@RequestMapping(path = "/hello")
 	public String sayHello(){
-		
 		LOG.info("GET called on /hello resource");
 		return HELLO_TEXT;
 	}
 
-	/* Atributos
-    private String nameUser;
-    private String lastNameUser;
-    private Integer celUser;
-    private String emailUser;
-    private String passUser;
-    */
-	//@CrossOrigin(origins = "http://localhost:8080")
 	@ResponseBody
 	@RequestMapping(path = "/user/{typeId}/{idUser}/{nameUser}/{lastNameUser}/{celUser}/{emailUser}/{passUser}/{idCity}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
@@ -77,7 +66,7 @@ public class BackendController {
 		String idSec = DigestUtils.sha256Hex(idUser);
 		String celSec = DigestUtils.sha256Hex(celUser);
 		User savedUser = userRepository.save(new User(idSec,typeId,nameUser, lastNameUser, celSec, emailUser, passSec,idCity, Provider.LOCAL,"U"));
-		Lawyer savedLaw = lawyerRepository.save( new Lawyer(espeLaw,idFirma,idUser));
+		Lawyer savedLaw = lawyerRepository.save( new Lawyer(espeLaw,idFirma,idSec));
 		LOG.info( savedUser.toString() + savedLaw.toString() + " successfully saved into DB.");
 	}
 
@@ -85,10 +74,13 @@ public class BackendController {
 	@GetMapping(path = "/user/{idUser}")
 	public User getUserById(@PathVariable("idUser") String idU){
 		String idUser = DigestUtils.sha256Hex(idU);
-		return userRepository.findById(idUser).map(user -> {
+		userRepository.findById(idUser).map(user -> {
 			LOG.info("Reading user with id " + idUser+ " from database.");
 			return user;
-		}).orElseThrow(() -> new UserNotFoundException("The user with the id "+idUser+ " couldn't be found in the database."));
+		});
+		LOG.info("The user with the id "+idUser+ " couldn't be found in the database.");
+        return null;
+		 
 	}
 
 	@ResponseBody
@@ -105,17 +97,6 @@ public class BackendController {
 			return null;
 		}).orElseThrow(() -> new UserNotFoundException("The email: "+emailUser+ " and password are not correct"));
 	}
-	/**
-	 passUser = DigestUtils.sha256Hex(passUser);
-		boolean result = userEmail.getPassUser().equals(passUser);
-		if(result){
-			LOG.info(LOGIN_DONE);
-			return userEmail;
-		}
-		LOG.warn(LOGIN_ERROR);
-		return null;	
-	 */
-
 
     @ResponseBody
 	@RequestMapping(path = "/secured", method = RequestMethod.GET)

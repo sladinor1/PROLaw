@@ -123,6 +123,23 @@ a{
     box-shadow: 0px 0px 5px 0px #000;
 }
 
+.search-container{
+  margin: auto;
+  width: 60%;
+  margin-top: 2%;
+}
+
+.forum-container{
+    margin: auto;
+    width: 50%;
+    margin-top: 2%;
+    background: #fff;
+}
+
+.boton{
+  width: 5px;
+}
+
 ul{
     font-weight: bold;
     font-size:larger;
@@ -201,7 +218,7 @@ ul{
 
 .nav-container{
   margin: auto;
-  width: 40%;
+  width: 44%;
   margin-top: 2%;
   top: 150vh;
   padding: 30px;

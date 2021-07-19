@@ -96,9 +96,9 @@ export default{
       image4: img4,
       items: [
         { label: 'Tramites', icon: '', to: '/tramites'},
-        { label: 'Entidades', icon: '', to: ''},
+        { label: 'Entidades', icon: '', to: '/perfil'},
         { label: 'Glosario', icon: '', to: '/glosario'},
-        { label: 'Contacto', icon: '', to: ''},
+        { label: 'Busqueda', icon: '', to: '/foros'},
       ]
     }
   }

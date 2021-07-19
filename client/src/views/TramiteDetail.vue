@@ -1,6 +1,5 @@
 <template>
     <div class="detail-container">
-		<div>{{id}}</div>
         <TabView ref="tabview1">
 			<TabPanel header="Descripcion">
 				<ScrollPanel style="width: 100%; height: 300px">
@@ -32,15 +31,21 @@
 import myjson from '../jsons/prueba.json';
 export default {
 	name: "TramiteDetail",
+	created() {
+        this.id = this.$route.params.id;
+    },
 	props:{
 		
 	},
 	data() {
 		return {
-			id: null,
+			id: '',
             procedures: myjson.subcategories[0].procedures[0]
 		}
 	}, 
+	mounted() {
+		console.log(this.id);
+	},
 }
 </script>
 

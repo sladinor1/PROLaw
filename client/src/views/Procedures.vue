@@ -1,7 +1,7 @@
 <template>
     <div class="detail-container">
-		<DataTable :value="procedures" selectionMode="single" dataKey="id"
-                @rowSelect="$router.push({name: 'details' })" responsiveLayout="scroll">
+		<DataTable :value="procedures" selectionMode="single" dataKey="idPro"
+                @rowSelect="selected" responsiveLayout="scroll">
             <Column field="namePro" header="Nombre"></Column>
         </DataTable>
     </div>
@@ -13,6 +13,11 @@ export default {
 	name: "TramiteDetail",
 	props:{
 		
+	},
+	methods: {
+		selected: function(event){
+			this.$router.push({name: 'details' , params:{ id: event.data.idPro }});
+		}
 	},
 	data() {
 		return {

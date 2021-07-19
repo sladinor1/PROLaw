@@ -1,0 +1,38 @@
+{
+    "data":[
+        {
+            "id": 1,
+            "pregunta": "pregunta 1",
+            "respuestas":[
+                "Rta 1 ergrtsbrttrrwhtrdsfgsdfbdsfbtrthwsrresdfv asgergwegegewreg awfrgweewr    ",
+                "Rta 2",
+                "Rta 3"
+            ]
+        },
+        {
+            "id": 2,
+            "pregunta": "pregunta 2",
+            "respuestas":[
+                "Rta 1"
+            ]
+        },
+        {
+            "id": 3,
+            "pregunta": "pregunta 3",
+            "respuestas":[
+                "Rta 1",
+                "Rta 2"
+            ]
+        },
+        {
+            "id": 4,
+            "pregunta": "pregunta 4",
+            "respuestas":{
+                "rta": "",
+                "fecha": "",
+                "usuarios_que_publica": "",
+                "calififcacion": ""
+            }
+        }
+    ]
+}

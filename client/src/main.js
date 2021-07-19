@@ -28,12 +28,18 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';  
 import Paginator from 'primevue/paginator';
+import Divider from 'primevue/divider';
+import Panel from 'primevue/panel';
+import Textarea from 'primevue/textarea';
 
 const app = createApp(App)
 
 app.use(PrimeVue);
 app.use(VueCookies);
 app.component("ScrollPanel", ScrollPanel);
+app.component("Textarea", Textarea);
+app.component("Panel", Panel);
+app.component("Divider", Divider);
 app.component("Column", Column);
 app.component("DataTable", DataTable);
 app.component("ScrollTop", ScrollTop);
