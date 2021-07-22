@@ -1,20 +1,32 @@
 <template>
     <div>
+        <Dialog header="Header" :visible="display" >
+            Usted no posee los permisos para responder a esta pregunta
+            <Button label="Ok" icon="pi pi-check" @click="acept" autofocus />
+        </Dialog>
         <div class="forum-container">
             <h3>{{pregunta}}</h3>
             <br>
             <div>
-                <Textarea v-model="respuesta" rows="5" cols="107" placeholder="Escriba aqui su respuesta..." />
+                <Textarea v-model="respuesta.descripAns" rows="5" cols="107" placeholder="Escriba aqui su respuesta..." />
                 <Button label="Responder" class="p-button-sm" @click="guardar"/> 
             </div>
             <br>
             <Panel header="Respuestas">
                 <div v-for="i in rtas" :key="i">
                     <div>
-                        {{i}}
+                        <div align="left">
+                            {{i.dateAns}}
+                        </div>
+                        <div align="right">
+                            {{i.dateAns}}
+                        </div>
                     </div>
-                    <Divider >
-                        <Button label="contactar" @click="$router.push('perfil')"/>
+                    <div>
+                        {{i.descripAns}}
+                    </div>
+                    <Divider align="right">
+                        <Button label="contactar" @click="$router.push({name: 'perfil' , params: {id : i.idUserA}})" align="right"/>
                     </Divider>
                 </div>
             </Panel>
@@ -24,13 +36,22 @@
 </template>
 
 <script>
-
+import ForumController from '../controller/ForumController.js'
 export default {
+    foroController: null,
+    created() {
+        this.foroController = new ForumController();
+    },
     data(){
         return{
             pregunta: '',
             rtas: [],
-            respuesta: ''
+            respuesta: {
+                idUserA: '',
+                descripAns: '',
+                dateAns: ''
+            },
+            display: false
         }
     }, 
     mounted() {
@@ -42,7 +63,7 @@ export default {
         }
         if (localStorage.rtas) {
             this.rtas = JSON.parse(localStorage.getItem("rtas"));
-            console.log(this.rtas);
+            //console.log(this.rtas);
         } else {
             localStorage.rtas = this.$route.params.rta;
             //this.rtas = this.$route.params.rta;
@@ -50,7 +71,18 @@ export default {
     },
     methods: {
         guardar: function(){
-            
+            if (this.$route.role == 'L'){
+                this.respuesta.idUserA = this.$root.id;
+                var today = new Date();
+                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                this.respuesta.dateAns = date;
+                this.foroController.saveAnswer(this.respuesta);
+            }else{
+                this.display = true;
+            }
+        },
+        acept: function(){
+            this.display = false;
         }
     },
 }

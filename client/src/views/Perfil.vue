@@ -25,14 +25,22 @@
 
 <script>
 import json from '../jsons/Perfiles.json';
+import UserController from "../controller/UserController.js";
 export default {
+    userController: null,
     created() {
-        
+        this.id = this.$route.params.id;
+        this.userController = new UserController();
+        this.user = this.userController.getFirst(this.id).then(data => {
+              console.log(data);
+            })
     },
     data(){
         return {
             l:"hola",
-            profile:json.data[0]
+            profile:json.data[0],
+            id: '',
+            user: null
         }
     }
 }

@@ -62,10 +62,11 @@ export default{
             try{ this.userController.login(this.usuario).then(data => {
                 //console.log(data.data);
                 if(data.data != null){
+                    this.$root.id = data.data.id;
                     this.$root.inside = true;
                     this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
-                    console.log(data.data.nameUser +' '+ data.data.lastNameUser);
-                    console.log(this.$root.user);
+                    //console.log(data.data.nameUser +' '+ data.data.lastNameUser);
+                    //console.log(this.$root.user);
                 }else{
                     this.display = true;
                 }

@@ -63,6 +63,7 @@ export default {
   name: 'App',
   data(){
     return {
+      id : '',
       inside: false,
       image: img,
       user: '',
@@ -237,6 +238,15 @@ ul{
 .detail-container{
   margin: auto;
   width: 70%;
+  margin-top: 2%;
+  top: 150vh;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.pregunta-container{
+  margin: auto;
+  width: 80%;
   margin-top: 2%;
   top: 150vh;
   padding: 30px;
