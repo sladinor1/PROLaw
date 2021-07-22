@@ -40,6 +40,7 @@ export default {
     foroController: null,
     created() {
         this.foroController = new ForumController();
+        //this.preguntas = this.foroController.getList();
     },
     data() {
 		return {
