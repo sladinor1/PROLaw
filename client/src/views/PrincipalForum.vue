@@ -1,5 +1,9 @@
 <template>
     <div>
+        <Dialog header="" :visible="display" >
+            Para preguntar por favor loguear
+            <Button label="Ok" icon="pi pi-check" @click="acept" autofocus />
+        </Dialog>
         <div class="search-container">
             <div class="p-formgroup-inline">
                 <div class="p-field">
@@ -47,6 +51,7 @@ export default {
                 },
             preguntas: myjson.data,
             nuevo: false,
+            display: true
 		}
 	},
     methods: {
@@ -60,12 +65,19 @@ export default {
             this.nuevo = true;
         },
         guardar: function(){
-            this.comentario.idUserC = this.$root.id;
-            var today = new Date();
-            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-            this.comentario.dateAns = date;
-            this.foroController.saveQuestion(this.comentario);
-            this.nuevo=false;
+            if (this.$root.inside){
+                this.comentario.idUserC = this.$root.id;
+                var today = new Date();
+                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                this.comentario.dateAns = date;
+                this.foroController.saveQuestion(this.comentario);
+                this.nuevo=false;
+            }else{
+                this.display = true;
+            }     
+        },
+        acept: function(){
+            this.display = false;
         }
 	},
 }

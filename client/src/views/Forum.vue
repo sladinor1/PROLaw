@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Dialog header="Header" :visible="display" >
+        <Dialog header="" :visible="display" >
             Usted no posee los permisos para responder a esta pregunta
             <Button label="Ok" icon="pi pi-check" @click="acept" autofocus />
         </Dialog>
