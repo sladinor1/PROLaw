@@ -9,16 +9,16 @@
             <br>
             <div>
                 <Textarea v-model="respuesta.descripAns" rows="5" cols="107" placeholder="Escriba aqui su respuesta..." />
-                <Button label="Responder" class="p-button-sm" @click="guardar"/> 
+                <Button label="Responder" class="p-button-sm" @click="guardar" style="font-weight: bold"/> 
             </div>
             <br>
             <Panel header="Respuestas">
                 <div v-for="i in rtas" :key="i">
-                    <div>
-                        <div align="left">
-                            {{i.dateAns}}
+                    <div style="display:flex; justify-content: space-between;">
+                        <div style="margin: 10px" align="left">
+                            <b>{{i.idUserA}}</b>
                         </div>
-                        <div align="right">
+                        <div align="right" style="color: gray; margin: 10px">
                             {{i.dateAns}}
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         {{i.descripAns}}
                     </div>
                     <Divider align="right">
-                        <Button label="contactar" @click="$router.push({name: 'perfil' , params: {id : i.idUserA}})" align="right"/>
+                        <Button label="Contactar a este abogado" @click="$router.push({name: 'perfil' , params: {id : i.idUserA}})" align="right" style="font-weight: bold"/>
                     </Divider>
                 </div>
             </Panel>
