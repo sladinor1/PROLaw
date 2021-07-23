@@ -1,0 +1,44 @@
+{
+    "data":[
+        {
+            "idCase": 1,
+            "idUserC": "d136e38f912baf2758af3c42de42e34a737c3b0bf7a59c2b6bd3033215429dda",
+            "topicCas": "Mi padre golpea a mi mama",
+            "descripCas": "Cada vez que mi papa toma, el llega a la casa con una actitud muy pesada y desea pelear por todo, mi madre intenta calmarlo pero no es posible, esto ha sucedido desde hace tres años",
+            "subcatCas": "Procedimiento especial abreviado",
+            "dateAns": "2021-07-18",
+            "idsAn  s": "1,2",
+            "answers": [
+                {
+                    "idAns": 1,
+                    "idUserA": "31de39e9d427558af37c9ede95ca7c8d9d766d56af3a71f54036ba5fe620ab17",
+                    "descripAns": "Debes acercarte a Medicina Legal para tener un dictamen medico, luego acercarte a la FIscalia para colocar el denuncio. Cualquier cosa me puedes contactar.",
+                    "dateAns": "2021-07-18"
+                },
+                {
+                    "idAns": 2,
+                    "idUserA": "d136e38f912baf2758af3c42de42e34a737c3b0bf7a59c2b6bd3033215429dda",
+                    "descripAns": "Debes acercarte a Medicina Legal para tener un dictamen medico, luego acercarte a la FIscalia para colocar el denuncio. Cualquier cosa me puedes contactar.",
+                    "dateAns": "2021-07-18"
+                }
+            ]
+        },
+        {
+            "idCase": 1,
+            "idUserC": "d136e38f912baf2758af3c42de42e34a737c3b0bf7a59c2b6bd3033215429dda",
+            "topicCas": "Mi padre golpea a mi mama",
+            "descripCas": "Cada vez que mi papa toma, el llega a la casa con una actitud muy pesada y desea pelear por todo, mi madre intenta calmarlo pero no es posible, esto ha sucedido desde hace tres años",
+            "subcatCas": "Procedimiento especial abreviado",
+            "dateAns": "2021-07-18",
+            "idsAns": "1,2",
+            "answers": [
+                {
+                    "idAns": 1,
+                    "idUserA": "31de39e9d427558af37c9ede95ca7c8d9d766d56af3a71f54036ba5fe620ab17",
+                    "descripAns": "Debes acercarte a Medicina Legal para tener un dictamen medico, luego acercarte a la FIscalia para colocar el denuncio. Cualquier cosa me puedes contactar.",
+                    "dateAns": "2021-07-18T05:05:42.533+00:00"
+                }
+            ]
+        }
+    ]
+}

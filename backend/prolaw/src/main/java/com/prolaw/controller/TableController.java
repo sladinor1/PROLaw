@@ -256,12 +256,12 @@ public class TableController {
     }
     
     @ResponseBody
-    @RequestMapping(path = "/cases/new/{idUserC}/{topic_cas}/{descrip_case}/{subcat}", method = RequestMethod.POST)
+    @RequestMapping(path = "/cases/new/{idUserC}/{topic_cas}/{descrip_case}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCase(@PathVariable("idUserC") String idU, @PathVariable("topic_cas") String topic, @PathVariable("descrip_case") String descrip,@PathVariable("subcat") String sub ){
+    public void createCase(@PathVariable("idUserC") String idU, @PathVariable("topic_cas") String topic, @PathVariable("descrip_case") String descrip ){
         String idSec = DigestUtils.sha256Hex(idU);
         Date date = new Date();
-		Case savedCase = caseRepository.save(new Case(idSec,topic,descrip,sub,date));
+		Case savedCase = caseRepository.save(new Case(idSec,topic,descrip,date));
 		LOG.info( savedCase.toString() + " successfully saved into DB.");
     }
 

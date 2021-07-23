@@ -9,13 +9,12 @@ public class Case {
     public Case() {
     }
 
-    public Case(long idCase, String idUserC, String topicCas, String descripCas, String subcatCas, Date dateAns,
+    public Case(long idCase, String idUserC, String topicCas, String descripCas, Date dateAns,
             String idsAns) {
         this.idCase = idCase;
         this.idUserC = idUserC;
         this.topicCas = topicCas;
         this.descripCas = descripCas;
-        this.subcatCas = subcatCas;
         this.dateAns = dateAns;
         this.idsAns = idsAns;
     }
@@ -28,11 +27,10 @@ public class Case {
         this.idsAns = idsAns;
     }
 
-    public Case(String idUserC, String topicCas, String descripCas, String subcatCas, Date dateAns) {
+    public Case(String idUserC, String topicCas, String descripCas, Date dateAns) {
         this.idUserC = idUserC;
         this.topicCas = topicCas;
         this.descripCas = descripCas;
-        this.subcatCas = subcatCas;
         this.dateAns = dateAns;
         this.idsAns = "0";
     }
@@ -69,13 +67,6 @@ public class Case {
         this.descripCas = descripCas;
     }
 
-    public String getSubcatCas() {
-        return subcatCas;
-    }
-
-    public void setSubcatCas(String subcatCas) {
-        this.subcatCas = subcatCas;
-    }
 
     public Date getDateAns() {
         return dateAns;
@@ -96,7 +87,7 @@ public class Case {
     @Override
     public String toString() {
         return "Case [answers=" + answers + ", dateAns=" + dateAns + ", descripCas=" + descripCas + ", idCase=" + idCase
-                + ", idUserC=" + idUserC + ", idsAns=" + idsAns + ", subcatCas=" + subcatCas + ", topicCas=" + topicCas
+                + ", idUserC=" + idUserC + ", idsAns=" + idsAns + ", topicCas=" + topicCas
                 + "]";
     }
 
@@ -111,8 +102,6 @@ public class Case {
     private String topicCas;
     @Column(name = "descripcion_cas")
     private String descripCas;
-    @Column(name = "subar_cas")
-    private String subcatCas;
     @Column(name = "date_ans")
     private Date dateAns;
     @Column(name = "idAns")

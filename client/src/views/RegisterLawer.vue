@@ -43,9 +43,9 @@
         optionGroupChildren="items" placeholder="Departamento y Ciudad"></Dropdown>
       </div>  
       <br>
-      <div class="p-field p-col-12 p-md-6">
-        <InputText id="esp" type="text" v-model="usuario.especialidad" placeholder="Especialidad"/>
-        <label></label>
+      <div>
+        <Dropdown v-model="usuario.especialidad" :options="Especialidad" optionLabel="label" optionGroupLabel="label" 
+        optionGroupChildren="items" placeholder="Especialidad"></Dropdown>
       </div>
       <br>
       <div class="p-field-checkbox">
@@ -126,6 +126,22 @@ export default {
         ]
       }
       ],
+      Especialidad:[{
+        label: 'Penal', code: 'Penal',
+        items: [
+          {
+            label:'Penal', value: 'Penal'
+          }
+        ]
+      },{
+        label: 'Civil', code: 'Civil',
+        items: [
+          {
+            label:'Familiar', value: 'Familiar'
+          }
+        ]
+      }
+      ],
       passc:'',
       checked: false,
       vid: false,
@@ -164,6 +180,7 @@ export default {
           //&& this.usuario.email && this.usuario.pass){
             this.usuario.typeId = this.usuario.typeId.code;
             this.usuario.city = this.usuario.city.value;
+            this.usuario.especialidad = this.usuario.especialidad.value;
             this.userController.insertLawyer(this.usuario).then(data => {
               console.log(data);
             });
