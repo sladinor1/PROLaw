@@ -51,7 +51,7 @@ export default {
                 descripAns: '',
                 dateAns: ''
             },
-            display: false
+            display: null
         }
     }, 
     mounted() {

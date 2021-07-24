@@ -35,7 +35,7 @@
                     </template>
                 </Column>-->
             <DataTable :value="preguntas" :paginator="true" :rows="10" selectionMode="single" dataKey="id"
-                    @rowSelect="selected" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
+                    @rowSelect="selected" :filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                     :globalFilterFields="['topicCas', 'subcatCas','idUserC']">
                     
                     <template #empty>
@@ -79,6 +79,8 @@ export default {
     created() {
         this.foroController = new ForumController();
         //this.preguntas = this.foroController.getList();
+        let p = this.foroController.getList();
+        console.log(p);
         this.initFilters1();
     },
     mounted() {        
@@ -95,7 +97,7 @@ export default {
                 },
             preguntas: myjson.data,
             nuevo: false,
-            display: true,
+            display: null,
             filters1: null,
             loading1: true,
 

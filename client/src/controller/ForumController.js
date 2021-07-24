@@ -7,29 +7,40 @@ const axiosI = axios.create({
 });
 
 export default class ForumController {
-        
-    //traer el json de todas las preguntas
+    
+    //Rutas
+    getOne(id){
+        return 'cases/'+id+'/';
+    }
+
+    getAll(){
+        return 'cases/';
+    }
+
+    //Funciones
+    getQuestion(id){
+        return axiosI.get(this.getOne(id));
+    }
+
     getList(){
-        return axiosI.get();
+        return axiosI.get(this.getAll());
     }
 
-    //Guardar pregunta
-    /*comment: {
-        idUserC: '', 
-        descripCas: '',
-        dateAns: ''
-        },*/
+    
+    //Funciones
     saveQuestion(comment){
-        return axiosI.post(comment);
+        return axiosI.post(this.addCase(comment));
     }
 
-    //guardar respuestas
-    /*respuesta: {
-                idUserA: '',
-                descripAns: '',
-                dateAns: ''
-            },*/
     saveAnswer(rta){
-        return axiosI.post(rta);
+        return axiosI.post(this.addAns(rta));
+    }
+
+    //Rutas
+    addCase(comment){
+        return 'cases/new/'+comment.id+'/'+comment.user+'/'+comment.tema+'/'+comment.description+'/'
+    }
+    addAns(rta){
+        return 'answer/new/'+rta.id+'/'+rta.user+'/'+rta.description+'/'
     }
 }

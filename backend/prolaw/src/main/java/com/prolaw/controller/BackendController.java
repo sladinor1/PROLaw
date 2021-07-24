@@ -65,7 +65,7 @@ public class BackendController {
 		String passSec = DigestUtils.sha256Hex(passUser);
 		String idSec = DigestUtils.sha256Hex(idUser);
 		String celSec = DigestUtils.sha256Hex(celUser);
-		User savedUser = userRepository.save(new User(idSec,typeId,nameUser, lastNameUser, celSec, emailUser, passSec,idCity, Provider.LOCAL,"U"));
+		User savedUser = userRepository.save(new User(idSec,typeId,nameUser, lastNameUser, celSec, emailUser, passSec,idCity, Provider.LOCAL,"L"));
 		Lawyer savedLaw = lawyerRepository.save( new Lawyer(espeLaw,idFirma,idSec));
 		LOG.info( savedUser.toString() + savedLaw.toString() + " successfully saved into DB.");
 	}
