@@ -20,7 +20,7 @@
                 <DataTable :value="palabrasA" :paginator="true" :rows="10"
                 paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                 :rowsPerPageOptions="[10,20,50]" responsiveLayout="scroll"
-                currentPageReportTemplate="Showing {first} to {last} of {totalRecords}">
+                currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords}">
                     <Column field="nameGlo" header="Palabra"></Column>
                     <Column field="descripGlo" header="Descripcion"></Column>
                     <template #paginatorLeft>

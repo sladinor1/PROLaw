@@ -1,4 +1,5 @@
 package com.prolaw.domain;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -7,10 +8,16 @@ import javax.persistence.*;
 @Table(name = "respuesta")
 public class Answers {
 
+    public String getNameUser() {
+        return nameUser;
+    }
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
+    }
     @Override
     public String toString() {
         return "Answers [dateAns=" + dateAns + ", descripAns=" + descripAns + ", idAns=" + idAns + ", idUserA="
-                + idUserA + "]";
+                + idUserA + ", nameUser=" + nameUser + "]";
     }
     public long getIdAns() {
         return idAns;
@@ -30,16 +37,17 @@ public class Answers {
     public void setDescripAns(String descripAns) {
         this.descripAns = descripAns;
     }
-    public Date getDateAns() {
+    public LocalDate getDateAns() {
         return dateAns;
     }
-    public void setDateAns(Date dateAns) {
+    public void setDateAns(LocalDate dateAns) {
         this.dateAns = dateAns;
     }
     public Answers() {
     }
-    public Answers(String idUserA, String descripAns, Date dateAns) {
+    public Answers(String idUserA, String nameUser, String descripAns, LocalDate dateAns) {
         this.idUserA = idUserA;
+        this.nameUser= nameUser;
         this.descripAns = descripAns;
         this.dateAns = dateAns;
     }
@@ -50,9 +58,11 @@ public class Answers {
     private long idAns;
     @Column(name = "id_ans_user")
     private String idUserA;
+    @Column(name = "name_user")
+    private String nameUser;
     @Column(name = "descripcion_ans")
     private String descripAns;
     @Column(name = "date_ans")
-    private Date dateAns;
+    private LocalDate dateAns;
 
 }

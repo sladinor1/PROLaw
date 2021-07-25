@@ -24,6 +24,8 @@ import net.minidev.json.JSONObject;
 
 import java.lang.ProcessHandle.Info;
 import java.util.*;
+import java.text.*;
+import java.time.LocalDate;
 import java.util.concurrent.atomic.LongAccumulator;
 
 
@@ -31,7 +33,9 @@ import java.util.concurrent.atomic.LongAccumulator;
 @RequestMapping("/api")
 public class TableController {
     private static final Logger LOG = LoggerFactory.getLogger(BackendController.class);
-	   
+	private int cont = 3;   
+    @Autowired
+    private UserRepository userRepository;
 
 	@Autowired
 	private CategoryRepository catRepository;
@@ -118,10 +122,12 @@ public class TableController {
     }
     public void llenarcasos(){
             List<Case> casos = new ArrayList<Case>();;
-            for (int i = 1; i < 2; i++){
+            try{for (int i = 1; i < 10; i++){
                 long j = i;
                 Case c = caseRepository.findByIdCase(j);
                 if (!c.equals(null)){casos.add(c);}                
+            }} catch(NullPointerException exception){
+                LOG.info(exception.toString());
             }
             if(!casos.equals(null)){
             for(Case caso: casos){
@@ -232,19 +238,23 @@ public class TableController {
         }
         
 	}
-
+    
     @ResponseBody
     @GetMapping(path = "/cases")
-    public List<Case> getAllCases(){
+    public JSONObject getAllCases(){
         llenarcasos();
         List<Case> casos = new ArrayList<Case>();
-            for (int i = 1; i < 2; i++){
+        try{   for (int i = 1; i < 10; i++){
                 Long j = Long.valueOf(i);
                 Case c = caseRepository.findByIdCase(j);
                 //Case c = caseRepository.findById(j);
                 if (!c.equals(null)){casos.add(c);}                
+            }}catch(NullPointerException exception){
+                LOG.info(exception.toString());
             }
-        return casos;
+        JSONObject res = new JSONObject();
+        res.put("data", casos);
+        return res;
     }
     
     @ResponseBody
@@ -256,23 +266,23 @@ public class TableController {
     }
     
     @ResponseBody
-    @RequestMapping(path = "/cases/new/{idUserC}/{topic_cas}/{descrip_case}", method = RequestMethod.POST)
+    @RequestMapping(path = "/cases/new/{idUserC}/{nameU}/{topic_cas}/{descrip_case}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCase(@PathVariable("idUserC") String idU, @PathVariable("topic_cas") String topic, @PathVariable("descrip_case") String descrip ){
+    public void createCase(@PathVariable("idUserC") String idU,@PathVariable("nameU") String name, @PathVariable("topic_cas") String topic, @PathVariable("descrip_case") String descrip ) {
         String idSec = DigestUtils.sha256Hex(idU);
-        Date date = new Date();
-		Case savedCase = caseRepository.save(new Case(idSec,topic,descrip,date));
+        LocalDate date = LocalDate.now();
+		Case savedCase = caseRepository.save(new Case(idSec,name,topic,descrip,date.toString()));
 		LOG.info( savedCase.toString() + " successfully saved into DB.");
     }
 
     @ResponseBody
-    @RequestMapping(path = "/answer/new/{idCase}/{idUser}/{descrip_ans}", method = RequestMethod.POST)
+    @RequestMapping(path = "/answer/new/{idCase}/{idUser}/{nameU}/{descrip_ans}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAnswer(@PathVariable("idCase") Long idC, @PathVariable("idUser") String idU, @PathVariable("descrip_ans") String descrip){
+    public void createAnswer(@PathVariable("idCase") Long idC, @PathVariable("idUser") String idU,@PathVariable("nameU") String name, @PathVariable("descrip_ans") String descrip) {
         Case caso = caseRepository.findByIdCase(idC);
         String idSec = DigestUtils.sha256Hex(idU);
-        Date date = new Date();
-		Answers savedAns = answersRepository.save(new Answers(idSec,descrip,date));
+        LocalDate date = LocalDate.now();
+		Answers savedAns = answersRepository.save(new Answers(idSec,name,descrip,date));
         String r = Long.toString(savedAns.getIdAns());
         if(caso.getIdsAns().equals("0")){
             LOG.info("--------------------");

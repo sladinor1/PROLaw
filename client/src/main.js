@@ -31,6 +31,7 @@ import Paginator from 'primevue/paginator';
 import Divider from 'primevue/divider';
 import Panel from 'primevue/panel';
 import Textarea from 'primevue/textarea';
+import {FilterService} from 'primevue/api';
 
 const app = createApp(App)
 
@@ -61,6 +62,7 @@ app.component("DataTable", DataTable);
 app.component("Column", Column);
 app.component("ColumnGroup", ColumnGroup);
 app.component("Paginator", Paginator);
+app.component("FilterService", FilterService);
 app.use(VueAxios, axios);
 app.use(router);
 //app.use($gAuth);

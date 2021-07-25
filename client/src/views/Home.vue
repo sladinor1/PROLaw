@@ -98,7 +98,7 @@ export default{
         { label: 'Tramites', icon: '', to: '/tramites'},
         { label: 'Entidades', icon: '', to: '/perfil'},
         { label: 'Glosario', icon: '', to: '/glosario'},
-        { label: 'Busqueda', icon: '', to: '/foros'},
+        { label: 'Foro', icon: '', to: '/foros'},
       ]
     }
   }

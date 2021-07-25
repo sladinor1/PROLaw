@@ -9,16 +9,16 @@
             <br>
             <div>
                 <Textarea v-model="respuesta.descripAns" rows="5" cols="107" placeholder="Escriba aqui su respuesta..." />
-                <Button label="Responder" class="p-button-sm" @click="guardar"/> 
+                <Button label="Responder" class="p-button-sm" @click="guardar" style="font-weight: bold"/> 
             </div>
             <br>
             <Panel header="Respuestas">
                 <div v-for="i in rtas" :key="i">
-                    <div>
-                        <div align="left">
-                            {{i.dateAns}}
+                    <div style="display:flex; justify-content: space-between;">
+                        <div style="margin: 10px" align="left">
+                            <b>{{i.nameUser}}</b>
                         </div>
-                        <div align="right">
+                        <div align="right" style="color: gray; margin: 10px">
                             {{i.dateAns}}
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         {{i.descripAns}}
                     </div>
                     <Divider align="right">
-                        <Button label="contactar" @click="$router.push({name: 'perfil' , params: {id : i.idUserA}})" align="right"/>
+                        <Button label="Contactar a este abogado" @click="$router.push({name: 'perfil' , params: {id : i.idUserA}})" align="right" style="font-weight: bold"/>
                     </Divider>
                 </div>
             </Panel>
@@ -47,11 +47,12 @@ export default {
             pregunta: '',
             rtas: [],
             respuesta: {
-                idUserA: '',
+                idC: '',
+                idUserA: this.$root.id,
                 descripAns: '',
-                dateAns: ''
+                nameUser: this.$root.user
             },
-            display: false
+            display: null
         }
     }, 
     mounted() {
@@ -68,14 +69,17 @@ export default {
             localStorage.rtas = this.$route.params.rta;
             //this.rtas = this.$route.params.rta;
         }
+        if (localStorage.idC) {
+            this.respuesta.idC = localStorage.idC;
+        } else {
+            localStorage.pregunta = this.$route.params.id;
+            //this.pregunta = this.$route.params.qtn;
+        }
     },
     methods: {
         guardar: function(){
-            if (this.$route.role == 'L'){
-                this.respuesta.idUserA = this.$root.id;
-                var today = new Date();
-                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                this.respuesta.dateAns = date;
+            if (this.$root.rol == "L"){
+                
                 this.foroController.saveAnswer(this.respuesta);
             }else{
                 this.display = true;

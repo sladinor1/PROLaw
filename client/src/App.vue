@@ -20,7 +20,7 @@
           <div>
             <div>
               <img alt="" src="../src/assets/user.png" width="70" class="p-mr-2">
-              bienvenido {{user}}
+              Bienvenido {{user}}
             </div>
           </div>
         </template>
@@ -66,6 +66,7 @@ export default {
       id : '',
       inside: false,
       image: img,
+      rol : '',
       user: '',
       items: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
@@ -246,7 +247,7 @@ ul{
 
 .pregunta-container{
   margin: auto;
-  width: 80%;
+  width: 90%;
   margin-top: 2%;
   top: 150vh;
   padding: 30px;

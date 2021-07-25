@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.minidev.json.JSONObject;
+
 
 
 @RestController
@@ -52,8 +54,8 @@ public class BackendController {
 	public String addNewUser(@PathVariable("typeId") String typeId,@PathVariable("idUser") String idUser,@PathVariable("idCity") String idCity,@PathVariable("nameUser") String nameUser, @PathVariable("lastNameUser") String lastNameUser, @PathVariable("celUser") String celUser,@PathVariable("emailUser") String emailUser, @PathVariable("passUser") String passUser){
 		String passSec = DigestUtils.sha256Hex(passUser);
 		String idSec = DigestUtils.sha256Hex(idUser);
-		String celSec = DigestUtils.sha256Hex(celUser);
-		User savedUser = userRepository.save(new User(idSec,typeId,nameUser, lastNameUser, celSec, emailUser, passSec,idCity, Provider.LOCAL,"U"));
+		//String celSec = DigestUtils.sha256Hex(celUser);
+		User savedUser = userRepository.save(new User(idSec,typeId,nameUser, lastNameUser, celUser, emailUser, passSec,idCity, Provider.LOCAL,"U"));
 		LOG.info(savedUser.toString() + " successfully saved into DB.");
 		return savedUser.getIdUser();
 	}
@@ -64,23 +66,23 @@ public class BackendController {
 	public void addNewLawyer(@PathVariable("typeId") String typeId,@PathVariable("idUser") String idUser,@PathVariable("idCity") String idCity,@PathVariable("nameUser") String nameUser, @PathVariable("lastNameUser") String lastNameUser, @PathVariable("celUser") String celUser,@PathVariable("emailUser") String emailUser, @PathVariable("passUser") String passUser,@PathVariable("espeLaw") String espeLaw,@PathVariable("idFirma") String idFirma){
 		String passSec = DigestUtils.sha256Hex(passUser);
 		String idSec = DigestUtils.sha256Hex(idUser);
-		String celSec = DigestUtils.sha256Hex(celUser);
-		User savedUser = userRepository.save(new User(idSec,typeId,nameUser, lastNameUser, celSec, emailUser, passSec,idCity, Provider.LOCAL,"L"));
+		//String celSec = DigestUtils.sha256Hex(celUser);
+		User savedUser = userRepository.save(new User(idSec,typeId,nameUser, lastNameUser, celUser, emailUser, passSec,idCity, Provider.LOCAL,"L"));
 		Lawyer savedLaw = lawyerRepository.save( new Lawyer(espeLaw,idFirma,idSec));
 		LOG.info( savedUser.toString() + savedLaw.toString() + " successfully saved into DB.");
 	}
 
 	@ResponseBody
 	@GetMapping(path = "/user/{idUser}")
-	public User getUserById(@PathVariable("idUser") String idU){
-		String idUser = DigestUtils.sha256Hex(idU);
-		userRepository.findById(idUser).map(user -> {
-			LOG.info("Reading user with id " + idUser+ " from database.");
-			return user;
-		});
-		LOG.info("The user with the id "+idUser+ " couldn't be found in the database.");
-        return null;
-		 
+	public JSONObject getUserById(@PathVariable("idUser") String idU){
+		JSONObject res = new JSONObject();
+        User u = userRepository.findByIdUser(idU);
+		Lawyer l = lawyerRepository.findByIdUser(idU);
+		LOG.info("----------------");
+		LOG.info(l.getIdUser());
+		res.put("user", u);
+		res.put("law", l);
+        return res;
 	}
 
 	@ResponseBody

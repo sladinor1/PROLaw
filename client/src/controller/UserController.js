@@ -10,7 +10,7 @@ export default class UserController {
     //ulr= "http://localhost:8080/api/";
 
     getFirst(id){
-        return axiosI.get('user/{'+id+'}');
+        return axiosI.get('user/'+id);
     }
 
     insert(usuario){

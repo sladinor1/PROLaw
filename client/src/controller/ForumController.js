@@ -38,9 +38,11 @@ export default class ForumController {
 
     //Rutas
     addCase(comment){
-        return 'cases/new/'+comment.id+'/'+comment.user+'/'+comment.tema+'/'+comment.description+'/'
+        return 'cases/new/'+comment.idUserC+'/'+comment.nameUser+'/'+comment.topicCas+'/'+comment.descripCas+'/'
     }
     addAns(rta){
-        return 'answer/new/'+rta.id+'/'+rta.user+'/'+rta.description+'/'
+        return 'answer/new/'+rta.idC+'/'+rta.idUserA+'/'+rta.nameUser+'/'+rta.descripAns+'/'
     }
+
+    
 }

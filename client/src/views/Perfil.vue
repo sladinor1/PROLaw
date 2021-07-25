@@ -4,17 +4,17 @@
             <img alt="" src="@/assets/user.png" width="10%" class="p-mr-2">
         </template>
         <template #title>
-            {{profile.names}} {{ profile.lastnames}}
+            {{profile.nameUser}} {{ profile.lastNameUser}}
         </template>
         <template #subtitle>
-            {{profile.especialidad}}
+            {{law.espeLaw}}
         </template>
         <template #content>
-            Telefono: {{profile.phone}}
+            Telefono: {{profile.celUser}}
             <br>
-            Email: {{profile.email}}
+            Email: {{profile.emailUser}}
             <br>
-            Ciudad: {{profile.city}}
+            Ciudad: {{profile.idCity}}
         </template>
         <template #footer>
             <Button icon="" label="Contactar" />
@@ -24,23 +24,25 @@
 </template>
 
 <script>
-import json from '../jsons/Perfiles.json';
+//import json from '../jsons/Perfiles.json';
 import UserController from "../controller/UserController.js";
 export default {
     userController: null,
     created() {
         this.id = this.$route.params.id;
         this.userController = new UserController();
-        this.user = this.userController.getFirst(this.id).then(data => {
-              console.log(data);
-            })
+        try{this.userController.getFirst(this.id).then(data => {
+              this.profile = data.data.user;
+              this.law = data.data.law;
+              console.log(this.profile);
+        })}catch{console.log("Error Connection");}
     },
     data(){
         return {
             l:"hola",
-            profile:json.data[0],
+            profile: null,
             id: '',
-            user: null
+            law: null
         }
     }
 }
