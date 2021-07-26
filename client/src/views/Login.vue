@@ -63,11 +63,14 @@ export default{
                 //console.log(data.data);
                 if(data.data != null){
                     this.$root.rol = data.data.rol;
-                    this.$root.id = data.data.id;
+                    this.$root.id = data.data.idUser;
                     this.$root.inside = true;
                     this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
                     //console.log(data.data.nameUser +' '+ data.data.lastNameUser);
+                    console.log(data.data.idUser);
                     console.log(this.$root.rol);
+                    //this.$root.actualizar();
+                    this.$router.push({name:'Home'});
                 }else{
                     this.display = true;
                 }

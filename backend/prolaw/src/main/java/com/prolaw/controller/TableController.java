@@ -122,7 +122,7 @@ public class TableController {
     }
     public void llenarcasos(){
             List<Case> casos = new ArrayList<Case>();;
-            try{for (int i = 1; i < 10; i++){
+            try{for (int i = 1; i < 30; i++){
                 long j = i;
                 Case c = caseRepository.findByIdCase(j);
                 if (!c.equals(null)){casos.add(c);}                
@@ -244,7 +244,7 @@ public class TableController {
     public JSONObject getAllCases(){
         llenarcasos();
         List<Case> casos = new ArrayList<Case>();
-        try{   for (int i = 1; i < 10; i++){
+        try{   for (int i = 1; i < 30; i++){
                 Long j = Long.valueOf(i);
                 Case c = caseRepository.findByIdCase(j);
                 //Case c = caseRepository.findById(j);
@@ -280,9 +280,9 @@ public class TableController {
     @ResponseStatus(HttpStatus.CREATED)
     public void createAnswer(@PathVariable("idCase") Long idC, @PathVariable("idUser") String idU,@PathVariable("nameU") String name, @PathVariable("descrip_ans") String descrip) {
         Case caso = caseRepository.findByIdCase(idC);
-        String idSec = DigestUtils.sha256Hex(idU);
+        //String idSec = DigestUtils.sha256Hex(idU);
         LocalDate date = LocalDate.now();
-		Answers savedAns = answersRepository.save(new Answers(idSec,name,descrip,date));
+		Answers savedAns = answersRepository.save(new Answers(idU,name,descrip,date));
         String r = Long.toString(savedAns.getIdAns());
         if(caso.getIdsAns().equals("0")){
             LOG.info("--------------------");

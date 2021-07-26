@@ -75,14 +75,19 @@ public class BackendController {
 	@ResponseBody
 	@GetMapping(path = "/user/{idUser}")
 	public JSONObject getUserById(@PathVariable("idUser") String idU){
+		LOG.info(idU);
 		JSONObject res = new JSONObject();
-        User u = userRepository.findByIdUser(idU);
-		Lawyer l = lawyerRepository.findByIdUser(idU);
-		LOG.info("----------------");
-		LOG.info(l.getIdUser());
-		res.put("user", u);
-		res.put("law", l);
-        return res;
+        try {User u = userRepository.findByIdUser(idU);
+			Lawyer l = lawyerRepository.findByIdUser(idU);
+			LOG.info("----------------");
+			LOG.info(l.getIdUser());
+			res.put("user", u);
+			res.put("law", l);
+			return res;
+		} catch( NullPointerException exception){
+			LOG.info(exception.toString());
+			return null;
+		}
 	}
 
 	@ResponseBody
@@ -93,7 +98,10 @@ public class BackendController {
 			String passSec = DigestUtils.sha256Hex(passUser);
 			boolean result = user.getPassUser().equals(passSec);
 			if(result){
+				int i = 10547808;
+				String idSec = DigestUtils.sha256Hex(Integer.toString(i));
 				LOG.info(LOGIN_DONE);
+				LOG.info(idSec);
 				return user;
 			}
 			return null;

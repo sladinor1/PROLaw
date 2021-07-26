@@ -1,26 +1,39 @@
 <template>
-  <div >
+  <div>
     <div v-if="!inside">
       <Menubar :model="items">
         <template #start>
-          <img alt="logo" src="../src/assets/log.png" height="40" class="p-mr-2">
+          <img
+            alt="logo"
+            src="../src/assets/log.png"
+            height="40"
+            class="p-mr-2"
+          />
         </template>
-        <template #end>
-          
-        </template>
+        <template #end> </template>
       </Menubar>
       <router-view />
     </div>
     <div v-else>
       <Menubar :model="itemins">
         <template #start>
-          <img alt="logo" src="../src/assets/logo.png" height="40" class="p-mr-2">
+          <img
+            alt="logo"
+            src="../src/assets/logo.png"
+            height="40"
+            class="p-mr-2"
+          />
         </template>
         <template #end>
           <div>
             <div>
-              <img alt="" src="../src/assets/user.png" width="70" class="p-mr-2">
-              Bienvenido {{user}}
+              <img
+                alt=""
+                src="../src/assets/user.png"
+                width="70"
+                class="p-mr-2"
+              />
+              Bienvenido {{ user }}
             </div>
           </div>
         </template>
@@ -28,7 +41,7 @@
       <router-view />
     </div>
     <v-footer>
-      <br>
+      <br />
       <div class="footer-container">
         <div class="row">
           <div class="col">
@@ -42,14 +55,16 @@
               <div class="col letter">
                 <div>Copyright 2021</div>
                 <div>Algunos derechos reservados</div>
-                <div><router-link to="">Acerca de esta pagina</router-link></div>
+                <div>
+                  <router-link to="">Acerca de esta pagina</router-link>
+                </div>
                 <div>Contacto: prolaw@unal.edu.co</div>
               </div>
             </div>
           </div>
           <div class="col">
-            <br>
-            <img v-bind:src="image" :style="{ width: '500px' }">
+            <br />
+            <img v-bind:src="image" :style="{ width: '500px' }" />
           </div>
         </div>
       </div>
@@ -58,103 +73,139 @@
 </template>
 
 <script>
-import img from'@/assets/log.png';
+import img from "@/assets/log.png";
 export default {
-  name: 'App',
-  data(){
+  name: "App",
+  created() {},
+  data() {
     return {
-      id : '',
+      id: "",
       inside: false,
       image: img,
-      rol : '',
-      user: '',
+      rol: "",
+      user: "",
       items: [
-        {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
-        {label: 'Registrarse', icon: 'pi pi-fw pi-user-plus', to: '/Register'},
-        {label: 'Registrarse como abogado', icon: 'pi pi-fw pi-user-plus', to: '/lawer'},
-        {label: 'Iniciar sesion', icon: 'pi pi-fw pi-sign-in', to: '/login'},
+        { label: "Home", icon: "pi pi-fw pi-home", to: "/" },
+        {
+          label: "Registrarse",
+          icon: "pi pi-fw pi-user-plus",
+          to: "/Register",
+        },
+        {
+          label: "Registrarse como abogado",
+          icon: "pi pi-fw pi-user-plus",
+          to: "/lawer",
+        },
+        { label: "Iniciar sesion", icon: "pi pi-fw pi-sign-in", to: "/login" },
       ],
       itemins: [
-        {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
-        {label: 'Edit' , icon: 'pi pi-fw pi-user', to: ''},
-        {label: 'Logout', icon: 'pi pi-fw pi-sign-out', command: () => {
-          this.user = '';
-          this.inside=false;}},
-      ]
-    }
+        { label: "Home", icon: "pi pi-fw pi-home", to: "/" },
+        { label: "Edit", icon: "pi pi-fw pi-user", to: "" },
+        {
+          label: "Logout",
+          icon: "pi pi-fw pi-sign-out",
+          command: () => {
+            this.user = "";
+            this.inside = false;
+          },
+        },
+      ],
+    };
   },
   methods: {
-
+    actualizar: function () {
+      if (localStorage.inside) {
+        this.inside = localStorage.inside;
+      } else {
+        localStorage.inside = this.inside;
+      }
+      if (localStorage.idU) {
+        this.id = localStorage.idU;
+      } else {
+        localStorage.idU = this.id;
+      }
+      if (localStorage.user) {
+        this.user = localStorage.user;
+      } else {
+        localStorage.user = this.user;
+      }
+      if (localStorage.rol) {
+        this.rol = localStorage.rol;
+      } else {
+        localStorage.rol = this.rol;
+      }
+    },
   },
-  components: {
-  }
-}
+  components: {},
+};
 </script>
 
 <style>
-.letter{
+.letter {
   color: white;
 }
 
-h2, label {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    margin-bottom: 0.83em;
-    font-weight: bold;
-  }
-
-a{
-    text-align: end;
-    font-size: medium;
+h2,
+label {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-bottom: 0.83em;
+  font-weight: bold;
 }
 
-.bg{    
-    width: 100%;
-    height: 100vh; 
-    background-size: 100%;
+a {
+  text-align: end;
+  font-size: medium;
 }
 
-.form-container{
-    margin: auto;
-    width: 40%;
-    margin-top: 2%;
-    top: 150vh;
-    background: #fff;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px #000;
+.bg {
+  width: 100%;
+  height: 100vh;
+  background-size: 100%;
 }
 
-.search-container{
+.form-container {
+  margin: auto;
+  width: 40%;
+  margin-top: 2%;
+  top: 150vh;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px #000;
+}
+
+.search-container {
   margin: auto;
   width: 60%;
   margin-top: 2%;
 }
 
-.forum-container{
-    margin: auto;
-    width: 50%;
-    margin-top: 2%;
-    background: #fff;
+.forum-container {
+  margin: auto;
+  width: 50%;
+  margin-top: 2%;
+  background: #fff;
 }
 
-.boton{
+.boton {
   width: 5px;
 }
 
-ul{
-    font-weight: bold;
-    font-size:larger;
+ul {
+  font-weight: bold;
+  font-size: larger;
 }
 
-.botonInicioSesion, .botonRegistro{
+.botonInicioSesion,
+.botonRegistro {
   color: white;
   padding: 16px 32px;
   text-align: center;
   font-weight: bold;
   display: block;
   font-size: 15px;
-  
+
   cursor: pointer;
 
   background-color: rgb(13, 110, 253);
@@ -164,7 +215,7 @@ ul{
   margin-right: auto;
 }
 
-.home-container{
+.home-container {
   margin: auto;
   width: 90%;
   height: 610px;
@@ -176,7 +227,7 @@ ul{
   box-shadow: 0px 0px 5px 0px #000;
 }
 
-.t-container{
+.t-container {
   margin: auto;
   width: 90%;
   height: 450px;
@@ -188,7 +239,7 @@ ul{
   box-shadow: 0px 0px 5px 0px #000;
 }
 
-.firma-container{
+.firma-container {
   margin: auto;
   width: 500px;
   height: 270px;
@@ -198,27 +249,27 @@ ul{
   border-radius: 5px;
 }
 
-.footer-container{
+.footer-container {
   width: 100%;
-  height: 200px;  
+  height: 200px;
   border-radius: 5px;
   background: linear-gradient(to bottom, rgb(89, 168, 241), rgb(64, 0, 240));
 }
 
-.p{
-  text-align: justify
+.p {
+  text-align: justify;
 }
 
-.pp{
+.pp {
   text-align: justify;
   width: 370px;
 }
 
-.menu-container{
+.menu-container {
   left: 50%;
 }
 
-.nav-container{
+.nav-container {
   margin: auto;
   width: 44%;
   margin-top: 2%;
@@ -227,7 +278,7 @@ ul{
   border-radius: 5px;
 }
 
-.tramite-container{
+.tramite-container {
   margin: auto;
   width: 85%;
   margin-top: 2%;
@@ -236,7 +287,7 @@ ul{
   border-radius: 5px;
 }
 
-.detail-container{
+.detail-container {
   margin: auto;
   width: 70%;
   margin-top: 2%;
@@ -245,7 +296,7 @@ ul{
   border-radius: 5px;
 }
 
-.pregunta-container{
+.pregunta-container {
   margin: auto;
   width: 90%;
   margin-top: 2%;
@@ -254,7 +305,7 @@ ul{
   border-radius: 5px;
 }
 
-.cuadro-container{
+.cuadro-container {
   margin: auto;
   width: 200px;
   height: 200px;
@@ -263,5 +314,4 @@ ul{
   padding: 30px;
   border-radius: 5px;
 }
-
 </style>

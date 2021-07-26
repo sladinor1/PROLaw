@@ -12,7 +12,7 @@
                 <Button label="Responder" class="p-button-sm" @click="guardar" style="font-weight: bold"/> 
             </div>
             <br>
-            <Panel header="Respuestas">
+            <Panel v-if="rtas.length > 0 " header="Respuestas">
                 <div v-for="i in rtas" :key="i">
                     <div style="display:flex; justify-content: space-between;">
                         <div style="margin: 10px" align="left">
@@ -41,11 +41,19 @@ export default {
     foroController: null,
     created() {
         this.foroController = new ForumController();
+        this.getCase();
+        console.log(this.$root.id);
     },
     data(){
         return{
             pregunta: '',
-            rtas: [],
+            rtas: [
+                {
+                    nameUser: '',
+                    dateAns: '',
+                    descripAns: ''
+                }
+            ],
             respuesta: {
                 idC: '',
                 idUserA: this.$root.id,
@@ -62,13 +70,13 @@ export default {
             localStorage.pregunta = this.$route.params.qtn;
             //this.pregunta = this.$route.params.qtn;
         }
-        if (localStorage.rtas) {
+        /*if (localStorage.rtas) {
             this.rtas = JSON.parse(localStorage.getItem("rtas"));
             //console.log(this.rtas);
         } else {
             localStorage.rtas = this.$route.params.rta;
             //this.rtas = this.$route.params.rta;
-        }
+        }*/
         if (localStorage.idC) {
             this.respuesta.idC = localStorage.idC;
         } else {
@@ -77,10 +85,22 @@ export default {
         }
     },
     methods: {
+        getCase: function(){
+            try{this.foroController.getQuestion(localStorage.idC).then(data => {
+              if(data.data.answers[0] != null){
+                this.rtas = data.data.answers;
+                console.log(this.rtas);
+              }
+        })}catch{console.log("Error Connection");}
+        },
         guardar: function(){
             if (this.$root.rol == "L"){
                 
-                this.foroController.saveAnswer(this.respuesta);
+                this.foroController.saveAnswer(this.respuesta).then( data => {
+                    this.getCase();
+                    this.respuesta.descripAns = '';
+                    console.log(data);
+                })
             }else{
                 this.display = true;
             }

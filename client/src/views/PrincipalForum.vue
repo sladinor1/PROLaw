@@ -79,6 +79,9 @@ export default {
         this.foroController = new ForumController();
         this.getList();
         this.initFilters1();
+        if(localStorage.inside == true ){
+            this.$root.inside = true;
+        }
     },
     mounted() {        
             this.loading1 = false;    
@@ -107,6 +110,11 @@ export default {
         //let p;
         try{this.foroController.getList().then(data => {
               this.preguntas = data.data.data;
+             /* for(let i in this.preguntas){
+                  console.log(i.idsAns);
+                  //let aux = i.idsAns.length;
+                  //i.idsAns = aux;
+              }*/
               console.log(this.preguntas);
         })}catch{console.log("Error Connection");}
         //let p = this.foroController.getList();
@@ -126,8 +134,13 @@ export default {
         guardar: function(){
             if (this.$root.inside){
                 
-                this.foroController.saveQuestion(this.comentario);
+                this.foroController.saveQuestion(this.comentario).then( data => {
+                    //this.$root.actualizar();
+                    this.getList();
+                    console.log(data);
+                })
                 this.nuevo=false;
+                
             }else{
                 this.display = true;
             }     

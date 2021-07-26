@@ -17,8 +17,8 @@
             Ciudad: {{profile.idCity}}
         </template>
         <template #footer>
-            <Button icon="" label="Contactar" />
-            <Button icon="" label="Cancelar" class="p-button-secondary" style="margin-left: .5em" />
+            <!--<Button icon="" label="Contactar" />
+            <Button icon="" label="Cancelar" class="p-button-secondary" style="margin-left: .5em" />-->
         </template>
     </Card>
 </template>
@@ -40,9 +40,17 @@ export default {
     data(){
         return {
             l:"hola",
-            profile: null,
+            profile: {
+                nameUser: '',
+                lastNameUser: '',
+                celUser: '',
+                emailUser: '',
+                idCity: ''
+            },
             id: '',
-            law: null
+            law: {
+                espeLaw: ''
+            }
         }
     }
 }
