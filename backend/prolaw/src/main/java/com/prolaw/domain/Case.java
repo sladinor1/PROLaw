@@ -18,15 +18,10 @@ public class Case {
     public Case() {
     }
 
-    public Case(long idCase, String idUserC, String nameUser, String topicCas, String descripCas, String dateAns,
-            String idsAns) {
+    public Case(long idCase, String topicCas, String descripCas) {
         this.idCase = idCase;
-        this.idUserC = idUserC;
-        this.nameUser = nameUser;
         this.topicCas = topicCas;
         this.descripCas = descripCas;
-        this.dateAns = dateAns;
-        this.idsAns = idsAns;
     }
 
     public String getIdsAns() {
