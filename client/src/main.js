@@ -34,6 +34,8 @@ import Textarea from 'primevue/textarea';
 import {FilterService} from 'primevue/api';
 import Badge from 'primevue/badge';
 import BadgeDirective from 'primevue/badgedirective';
+import Toolbar from 'primevue/toolbar';
+import SplitButton from 'primevue/splitbutton';
 
 const app = createApp(App)
 
@@ -41,6 +43,8 @@ app.directive('badge', BadgeDirective);
 app.use(PrimeVue);
 app.use(VueCookies);
 app.component("ScrollPanel", ScrollPanel);
+app.component("SplitButton", SplitButton);
+app.component("Toolbar", Toolbar);
 app.component("Badge", Badge);
 app.component("Textarea", Textarea);
 app.component("Panel", Panel);
