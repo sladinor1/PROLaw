@@ -57,12 +57,11 @@
                 </div>
 
                 <Column field="topicCas" header="Tema" style="font-weight: bold"></Column>
-                <Column field="subcatCas" header="Categoría Jurídica"></Column>
                 <Column field="dateAns"  dataType="date" style="min-width: 8rem" header="Fecha"></Column>
                 <Column field="idsAns" header="Respuestas"></Column>
 
                
-                <Column field="idUserC" header="Autor">Nombre</Column>
+                <Column field="nameUser" header="Autor">Nombre</Column>
             </DataTable>
     </div>
     </div>
@@ -70,7 +69,7 @@
 
 <script>
 //import FilterMatchMode from 'primevue/api';
-import myjson from '../jsons/Foro.json';
+//import myjson from '../jsons/Foro.json';
 import ForumController from '../controller/ForumController.js'
 import {FilterMatchMode,FilterOperator} from 'primevue/api';
 
@@ -78,8 +77,11 @@ export default {
     foroController: null,
     created() {
         this.foroController = new ForumController();
-        //this.preguntas = this.foroController.getList();
+        this.getList();
         this.initFilters1();
+        if(localStorage.inside == true ){
+            this.$root.inside = true;
+        }
     },
     mounted() {        
             this.loading1 = false;    
@@ -89,37 +91,56 @@ export default {
 		return {
 			busqueda: '',
             comentario: {
-                idUserC: '', 
+                idUserC: this.$root.id,
                 descripCas: '',
-                dateAns: ''
+                nameUser: this.$root.user,
+                topicCas: ''
                 },
-            preguntas: myjson.data,
+            preguntas: null,
             nuevo: false,
-            display: true,
+            display: null,
             filters1: null,
             loading1: true,
-
+            info: null
             
 		}
 	},
     methods: {
+        getList: function(){
+        //let p;
+        try{this.foroController.getList().then(data => {
+              this.preguntas = data.data.data;
+             /* for(let i in this.preguntas){
+                  console.log(i.idsAns);
+                  //let aux = i.idsAns.length;
+                  //i.idsAns = aux;
+              }*/
+              console.log(this.preguntas);
+        })}catch{console.log("Error Connection");}
+        //let p = this.foroController.getList();
+        
+        },
 		selected: function(event){
             //console.log(event.data);
             localStorage.pregunta = event.data.descripCas;
             localStorage.setItem("rtas", JSON.stringify(event.data.answers) );
+            localStorage.idC = event.data.idCase;
             this.$router.push({name: 'foro'});
+
 		},
         agregar: function(){
             this.nuevo = true;
         },
         guardar: function(){
             if (this.$root.inside){
-                this.comentario.idUserC = this.$root.id;
-                var today = new Date();
-                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                this.comentario.dateAns = date;
-                this.foroController.saveQuestion(this.comentario);
+                
+                this.foroController.saveQuestion(this.comentario).then( data => {
+                    //this.$root.actualizar();
+                    this.getList();
+                    console.log(data);
+                })
                 this.nuevo=false;
+                
             }else{
                 this.display = true;
             }     
