@@ -12,7 +12,7 @@
                 <Button label="Responder" class="p-button-sm" @click="guardar" style="font-weight: bold"/> 
             </div>
             <br>
-            <Panel v-if="rtas.length > 0 " header="Respuestas">
+            <Panel v-if="rtas.length > 0 && rtas[0].nameUser != ''" header="Respuestas">
                 <div v-for="i in rtas" :key="i">
                     <div style="display:flex; justify-content: space-between;">
                         <div style="margin: 10px" align="left">
@@ -37,6 +37,8 @@
 
 <script>
 import ForumController from '../controller/ForumController.js'
+import UserController from "../controller/UserController.js";
+import emailjs from 'emailjs-com';
 export default {
     foroController: null,
     created() {
@@ -60,7 +62,8 @@ export default {
                 descripAns: '',
                 nameUser: this.$root.user
             },
-            display: null
+            display: null,
+            correo: ''
         }
     }, 
     mounted() {
@@ -95,9 +98,9 @@ export default {
         },
         guardar: function(){
             if (this.$root.rol == "L"){
-                
                 this.foroController.saveAnswer(this.respuesta).then( data => {
                     this.getCase();
+                    this.sendEmail();
                     this.respuesta.descripAns = '';
                     console.log(data);
                 })
@@ -107,7 +110,24 @@ export default {
         },
         acept: function(){
             this.display = false;
-        }
+        },
+        sendEmail() {
+            emailjs.init('user_PuldBtDHzIERDbKP27eyT');
+            this.userController = new UserController();
+            try{this.userController.getFirst(this.$root.id).then(data => {
+                this.correo = data.data.user.email;
+                this.law = data.data.law;
+            })}catch{console.log("Error Connection");}
+            try {
+                emailjs.send("service_0e62a5b","template_nn1v3xc",{
+                from: this.$root.user,
+                to_name: localStorage.idUserC,
+                reply_to: this.correo,
+                message: '"' + this.pregunta + '"'
+        })
+        } catch(error) {
+            console.log({error})
+        }}
     },
 }
 </script>

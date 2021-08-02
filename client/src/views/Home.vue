@@ -94,6 +94,7 @@ export default{
       image2: img2,
       image3: img3,   
       image4: img4,
+      display: true,
       items: [
         { label: 'Tramites', icon: '', to: '/tramites'},
         { label: 'Entidades', icon: '', to: '/perfil'},

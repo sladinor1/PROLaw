@@ -10,7 +10,9 @@
             class="p-mr-2"
           />
         </template>
-        <template #end> </template>
+        <template #end> 
+          
+        </template>
       </Menubar>
       <router-view />
     </div>
@@ -34,6 +36,7 @@
                 class="p-mr-2"
               />
               Bienvenido {{ user }}
+              <i class="pi pi-bell p-mr-4 p-text-secondary" style="font-size: 1.5rem" v-badge="0"></i>
             </div>
           </div>
         </template>

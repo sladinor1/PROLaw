@@ -32,12 +32,16 @@ import Divider from 'primevue/divider';
 import Panel from 'primevue/panel';
 import Textarea from 'primevue/textarea';
 import {FilterService} from 'primevue/api';
+import Badge from 'primevue/badge';
+import BadgeDirective from 'primevue/badgedirective';
 
 const app = createApp(App)
 
+app.directive('badge', BadgeDirective);
 app.use(PrimeVue);
 app.use(VueCookies);
 app.component("ScrollPanel", ScrollPanel);
+app.component("Badge", Badge);
 app.component("Textarea", Textarea);
 app.component("Panel", Panel);
 app.component("Divider", Divider);

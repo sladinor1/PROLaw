@@ -123,6 +123,7 @@ export default {
 		selected: function(event){
             //console.log(event.data);
             localStorage.pregunta = event.data.descripCas;
+            localStorage.idUserC = event.data.idUserC;
             localStorage.setItem("rtas", JSON.stringify(event.data.answers) );
             localStorage.idC = event.data.idCase;
             this.$router.push({name: 'foro'});
