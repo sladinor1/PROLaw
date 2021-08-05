@@ -16,7 +16,7 @@
     "postcss": "^8.2.9",
     "postcss-reporter": "^7.0.2",
     "primeicons": "^4.1.0",
-    "primevue": "^3.3.5",
+    "primevue": "^3.5.1",
     "vue": "^3.0.0",
     "vue-axios": "^3.2.4",
     "vue-cookies": "^1.7.4",

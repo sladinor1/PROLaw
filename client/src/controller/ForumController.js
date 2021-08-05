@@ -44,5 +44,31 @@ export default class ForumController {
         return 'answer/new/'+rta.idC+'/'+rta.idUserA+'/'+rta.nameUser+'/'+rta.descripAns+'/'
     }
 
+    //Rutas
+    delCase(comment){
+        return 'cases/deleted/'+comment.idC+'/'
+    }
+    delAns(rta){
+        return 'answer/deleted/'+rta.id+'/'+rta.idC+'/'
+    }
+    ediCase(comment){
+        return 'cases/edited/'+comment.idC+'/'+comment.topicCas+'/'+comment.descripCas+'/'
+    }
+    ediAns(rta){
+        return 'answer/edited/'+rta.id+'/'+rta.descripAns+'/'
+    }
     
+    //Funciones
+    deletedCase(comment){
+        return axiosI.delete(this.delCase(comment));
+    }
+    deletedAns(rta){
+        return axiosI.delete(this.delAns(rta));
+    }
+    editedCase(comment){
+        return axiosI.post(this.ediCase(comment));
+    }
+    editedAns(rta){
+        return axiosI.post(this.ediAns(rta));
+    }
 }

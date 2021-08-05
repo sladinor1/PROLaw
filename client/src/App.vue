@@ -10,7 +10,8 @@
             class="p-mr-2"
           />
         </template>
-        <template #end> </template>
+        <template #end> 
+        </template>
       </Menubar>
       <router-view />
     </div>
@@ -34,6 +35,7 @@
                 class="p-mr-2"
               />
               Bienvenido {{ user }}
+              <SplitButton class="p-button-outlined p-button-success" icon="pi pi-bell" style="font-size: 1.5rem" v-badge="0" :model="items4"></SplitButton>
             </div>
           </div>
         </template>
@@ -73,10 +75,13 @@
 </template>
 
 <script>
+import myjson from "@/jsons/notif.json";
 import img from "@/assets/log.png";
 export default {
   name: "App",
-  created() {},
+  created() {
+    this.items4 = myjson.data;
+  },
   data() {
     return {
       id: "",
@@ -84,8 +89,16 @@ export default {
       image: img,
       rol: "",
       user: "",
+      items4: [
+        { 
+          label: "Ver todas las notificaciones",
+          to: "/"
+        }
+      ],
       items: [
-        { label: "Home", icon: "pi pi-fw pi-home", to: "/" },
+        { 
+          label: "Home", icon: "pi pi-fw pi-home", to: "/" 
+        },
         {
           label: "Registrarse",
           icon: "pi pi-fw pi-user-plus",
@@ -141,6 +154,7 @@ export default {
 </script>
 
 <style>
+
 .letter {
   color: white;
 }
