@@ -75,6 +75,7 @@
 </template>
 
 <script>
+
 import myjson from "@/jsons/notif.json";
 import img from "@/assets/log.png";
 export default {
