@@ -69,9 +69,9 @@ export default {
       user: '',
       items: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
-        {label: 'Registrarse', icon: 'pi pi-fw pi-user-plus', to: '/Register'},
-        {label: 'Registrarse como abogado', icon: 'pi pi-fw pi-user-plus', to: '/lawer'},
         {label: 'Iniciar sesion', icon: 'pi pi-fw pi-sign-in', to: '/login'},
+        {label: 'Registrarse', icon: 'pi pi-fw pi-user-plus', to: '/Register'},
+        {label: 'Registrarse como abogado', icon: 'pi pi-fw pi-user-plus', to: '/lawer'}        
       ],
       itemins: [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},

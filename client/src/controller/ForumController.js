@@ -32,7 +32,23 @@ export default class ForumController {
         return axiosI.post(this.addCase(comment));
     }
 
+    editQuestion(comment){
+        return axiosI.post(this.addCase(comment));
+    }
+
+    deleteQuestion(comment){
+        return axiosI.post(this.addCase(comment));
+    }
+
     saveAnswer(rta){
+        return axiosI.post(this.addAns(rta));
+    }
+
+    editAnswer(rta){
+        return axiosI.post(this.addAns(rta));
+    }
+
+    deleteAnswer(rta){
         return axiosI.post(this.addAns(rta));
     }
 

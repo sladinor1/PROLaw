@@ -5,49 +5,31 @@
             <Button icon="pi pi-check" label="Ok" @click="acept" autofocus />
         </Dialog>
         
-        <div class="pregunta-container">
-                      
+        <div class="pregunta-container">                      
             
             <div v-if="nuevo">
                 <br>
                 <Textarea v-model="comentario.topicCas" rows="1" cols="150" placeholder="Asunto" />
                 <Textarea v-model="comentario.descripCas" rows="5" cols="150" placeholder="Escriba aquí su pregunta..." />
-                <Button label="Publicar" class="p-button-sm" @click="guardar" style="font-weight: bold"/>
-                <Button label="Cancelar" class="p-button-danger p-button-sm" @click="{ this.nuevo=false;}" style="font-weight: bold"/>
+                <Button label="Preguntar" class="p-button-success p-button-sm" @click="guardar" style="font-weight: bold" icon="pi pi-send"/>
+                <Button label="Cancelar" class="p-button-danger p-button-sm" @click="{ this.nuevo=false;}" style="font-weight: bold" icon="pi pi-times-circle"/>
             </div>
             <br>
-            <!-- Caja de búsqueda por tema
-            <DataTable :value="preguntas" :paginator="true" :rows="10" selectionMode="single" dataKey="id"
-                    @rowSelect="selected" responsiveLayout="scroll" v-model:filters="filters" filterDisplay="row" :loading="loading">
-                <template #empty>
-                    No customers found.
-                </template>
-                <template #loading>
-                    Loading customers data. Please wait.
-                </template>
-
-                <Column filterField="topicCas" :filterMatchModeOptions="matchModeOptions">
-                    <template #body="{data}">
-                        <span class="">{{data.country.name}}</span>
-                    </template>
-                    <template #filter="{filterModel,filterCallback}">
-                        <InputText type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" :placeholder="`Search by country - ${filterModel.matchMode}`" />
-                    </template>
-                </Column>-->
+            
             <DataTable :value="preguntas" :paginator="true" :rows="10" selectionMode="single" dataKey="id"
                     @rowSelect="selected" :filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                     :globalFilterFields="['topicCas', 'subcatCas','idUserC']">
                     
                     <template #empty>
-                        No customers found.
+                        Aún no hay respuestas.
                     </template>
                     <template #loading>
-                        Loading customers data. Please wait.
+                        Cargando respuestas, por favor espere.
                     </template>
 
                 <div style=" display:flex; justify-content: space-between;">
                     <div style="margin: 10px">                
-                        <Button label="Hacer una pregunta" icon="pi pi-plus" class="p-button-raised p-button-rounded p-button-secondary" @click="agregar" style="font-weight: bold"/>
+                        <Button label="Hacer una pregunta" icon="pi pi-question-circle" class="p-button p-button-rounded p-button-primary" @click="agregar" style="font-weight: bold"/>
                     </div>
                     <div style="margin: 10px">
                         <!--<InputText id="busqueda" type="text" v-model="busqueda" placeholder="Nueva Búsqueda"/>-->
@@ -59,9 +41,7 @@
                 <Column field="topicCas" header="Tema" style="font-weight: bold"></Column>
                 <Column field="subcatCas" header="Categoría Jurídica"></Column>
                 <Column field="dateAns"  dataType="date" style="min-width: 8rem" header="Fecha"></Column>
-                <Column field="idsAns" header="Respuestas"></Column>
-
-               
+                <Column field="idsAns" header="Respuestas"></Column>               
                 <Column field="idUserC" header="Autor">Nombre</Column>
             </DataTable>
     </div>
@@ -69,7 +49,6 @@
 </template>
 
 <script>
-//import FilterMatchMode from 'primevue/api';
 import myjson from '../jsons/Foro.json';
 import ForumController from '../controller/ForumController.js'
 import {FilterMatchMode,FilterOperator} from 'primevue/api';
@@ -84,7 +63,7 @@ export default {
         this.initFilters1();
     },
     mounted() {        
-            this.loading1 = false;    
+        this.loading1 = false;    
         
     },
     data() {
@@ -99,9 +78,7 @@ export default {
             nuevo: false,
             display: null,
             filters1: null,
-            loading1: true,
-
-            
+            loading1: true,            
 		}
 	},
     methods: {
@@ -121,7 +98,7 @@ export default {
                 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
                 this.comentario.dateAns = date;
                 this.foroController.saveQuestion(this.comentario);
-                this.nuevo=false;
+                this.nuevo = false;
             }else{
                 this.display = true;
             }     

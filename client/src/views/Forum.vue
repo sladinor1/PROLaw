@@ -1,15 +1,21 @@
 <template>
     <div>
         <Dialog header="" :visible="display" >
-            Usted no posee los permisos para responder a esta pregunta
-            <Button label="Ok" icon="pi pi-check" @click="acept" autofocus />
+            Usted no posee los permisos para responder a esta pregunta. <br>
+            <Button label="OK" icon="pi pi-check" @click="acept" autofocus />
         </Dialog>
         <div class="forum-container">
             <h3>{{pregunta}}</h3>
             <br>
-            <div>
-                <Textarea v-model="respuesta.descripAns" rows="5" cols="107" placeholder="Escriba aqui su respuesta..." />
-                <Button label="Responder" class="p-button-sm" @click="guardar" style="font-weight: bold"/> 
+            <div style="text-align: right">                
+                <Button label="Editar" class="p-button-sm" @click="editar" style="font-weight: bold" icon="pi pi-pencil"/> 
+                <Button label="Eliminar" class="p-button-danger p-button-sm" @click="eliminar" style="font-weight: bold" icon="pi pi-trash" /> 
+            </div>
+            <br>
+            <div style="text-align: right">
+                <Textarea v-model="respuesta.descripAns" rows="5" cols="90" placeholder="Escriba aqui su respuesta..." />
+                <Button label="Responder" class="p-button-success p-button-sm" @click="guardar" style="font-weight: bold" icon="pi pi-send" /> 
+
             </div>
             <br>
             <Panel header="Respuestas">
@@ -22,11 +28,14 @@
                             {{i.dateAns}}
                         </div>
                     </div>
-                    <div>
-                        {{i.descripAns}}
+                    {{i.descripAns}} <br>
+                    <div style="text-align: right">
+                        
+                        <Button label="Editar" class="p-button-sm" @click="editarL" style="font-weight: bold" icon="pi pi-pencil"/> 
+                        <Button label="Eliminar" class="p-button-danger p-button-sm" @click="eliminarL" style="font-weight: bold" icon="pi pi-trash" />
                     </div>
                     <Divider align="right">
-                        <Button label="Contactar a este abogado" @click="$router.push({name: 'perfil' , params: {id : i.idUserA}})" align="right" style="font-weight: bold"/>
+                        <Button label="Contactar a este abogado" @click="$router.push({name: 'perfil' , params: {id : i.idUserA}})" align="right" style="font-weight: bold" icon="pi pi-info-circle"/>
                     </Divider>
                 </div>
             </Panel>
@@ -77,6 +86,28 @@ export default {
                 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
                 this.respuesta.dateAns = date;
                 this.foroController.saveAnswer(this.respuesta);
+            }else{
+                this.display = true;
+            }
+        },
+        editar: function(){
+            if (this.$route.role == 'U'){
+                this.respuesta.idUserA = this.$root.id;
+                var today = new Date();
+                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                this.respuesta.dateAns = date;
+                this.foroController.editQuestion(this.respuesta);
+            }else{
+                this.display = true;
+            }
+        },
+        eliminar: function(){
+            if (this.$route.role == 'U'){
+                this.respuesta.idUserA = this.$root.id;
+                var today = new Date();
+                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                this.respuesta.dateAns = date;
+                this.foroController.deleteQuestion(this.respuesta);
             }else{
                 this.display = true;
             }

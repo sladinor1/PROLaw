@@ -1,7 +1,7 @@
 <template>
     <Card class="form-container">
         <template #header>
-            <img alt="" src="@/assets/user.png" width="10%" class="p-mr-2">
+            <img alt="" src="@/assets/user.png" width="8%" class="p-mr-2">
         </template>
         <template #title>
             {{profile.names}} {{ profile.lastnames}}
@@ -17,8 +17,8 @@
             Ciudad: {{profile.city}}
         </template>
         <template #footer>
-            <Button icon="" label="Contactar" />
-            <Button icon="" label="Cancelar" class="p-button-secondary" style="margin-left: .5em" />
+            <Button icon="pi pi-send" label="Contactar" class="p-button-primary p-button-sm" style="margin-left: .5em ; font-weight: bold"/>
+            <Button label="Cancelar" class="p-button-danger p-button-sm" style="margin-left: .5em ; font-weight: bold" icon="pi pi-times-circle" />
         </template>
     </Card>
 </template>

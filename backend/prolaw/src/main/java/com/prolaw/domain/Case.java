@@ -1,4 +1,5 @@
 package com.prolaw.domain;
+import java.time.LocalDate;
 import java.util.*;
 
 import javax.persistence.*;
@@ -6,17 +7,21 @@ import javax.persistence.*;
 @Entity
 @Table(name = "caso")
 public class Case {
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
+    }
+
     public Case() {
     }
 
-    public Case(long idCase, String idUserC, String topicCas, String descripCas, Date dateAns,
-            String idsAns) {
+    public Case(long idCase, String topicCas, String descripCas) {
         this.idCase = idCase;
-        this.idUserC = idUserC;
         this.topicCas = topicCas;
         this.descripCas = descripCas;
-        this.dateAns = dateAns;
-        this.idsAns = idsAns;
     }
 
     public String getIdsAns() {
@@ -27,8 +32,9 @@ public class Case {
         this.idsAns = idsAns;
     }
 
-    public Case(String idUserC, String topicCas, String descripCas, Date dateAns) {
+    public Case(String idUserC,String name , String topicCas, String descripCas, String dateAns) {
         this.idUserC = idUserC;
+        this.nameUser = name;
         this.topicCas = topicCas;
         this.descripCas = descripCas;
         this.dateAns = dateAns;
@@ -68,11 +74,11 @@ public class Case {
     }
 
 
-    public Date getDateAns() {
+    public String getDateAns() {
         return dateAns;
     }
 
-    public void setDateAns(Date dateAns) {
+    public void setDateAns(String dateAns) {
         this.dateAns = dateAns;
     }
 
@@ -86,9 +92,8 @@ public class Case {
 
     @Override
     public String toString() {
-        return "Case [answers=" + answers + ", dateAns=" + dateAns + ", descripCas=" + descripCas + ", idCase=" + idCase
-                + ", idUserC=" + idUserC + ", idsAns=" + idsAns + ", topicCas=" + topicCas
-                + "]";
+        return "Case [dateAns=" + dateAns + ", descripCas=" + descripCas + ", idCase=" + idCase + ", idUserC=" + idUserC
+                + ", idsAns=" + idsAns + ", nameUser=" + nameUser + ", topicCas=" + topicCas + "]";
     }
 
     @Id
@@ -98,12 +103,14 @@ public class Case {
     private long idCase;
     @Column(name = "id_cas_user")
     private String idUserC;
+    @Column(name = "name_user")
+    private String nameUser;
     @Column(name = "topic_cas")
     private String topicCas;
     @Column(name = "descripcion_cas")
     private String descripCas;
     @Column(name = "date_ans")
-    private Date dateAns;
+    private String dateAns;
     @Column(name = "idAns")
     private String idsAns;
     @OneToMany
