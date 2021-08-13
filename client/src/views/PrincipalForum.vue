@@ -59,8 +59,6 @@
                 <Column field="topicCas" header="Tema" style="font-weight: bold"></Column>
                 <Column field="dateAns"  dataType="date" style="min-width: 8rem" header="Fecha"></Column>
                 <Column field="idsAns" header="Respuestas"></Column>
-
-               
                 <Column field="nameUser" header="Autor">Nombre</Column>
             </DataTable>
     </div>
@@ -96,7 +94,9 @@ export default {
                 nameUser: this.$root.user,
                 topicCas: ''
                 },
-            preguntas: null,
+            preguntas: {
+                data: []
+            },
             nuevo: false,
             display: null,
             filters1: null,
@@ -107,15 +107,11 @@ export default {
 	},
     methods: {
         getList: function(){
-        //let p;
+            
         try{this.foroController.getList().then(data => {
-              this.preguntas = data.data.data;
-             /* for(let i in this.preguntas){
-                  console.log(i.idsAns);
-                  //let aux = i.idsAns.length;
-                  //i.idsAns = aux;
-              }*/
-              console.log(this.preguntas);
+            console.log(data.data.data);
+            this.preguntas = data.data.data;
+            //console.log(this.preguntas);
         })}catch{console.log("Error Connection");}
         //let p = this.foroController.getList();
         
