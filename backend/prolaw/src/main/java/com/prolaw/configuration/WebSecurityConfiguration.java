@@ -38,25 +38,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().permitAll()
                 .and()
-                .oauth2Login()
-                   .loginPage("/login")
-                   .userInfoEndpoint()
-                        .userService(oauth2UserService)
-                   .and()
-                   .successHandler(new AuthenticationSuccessHandler() {
-                       @Override
-                       public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
-
-                           CustomOAuth2User oAuthUser = (CustomOAuth2User) authentication.getPrincipal();
-                           UserService.processOAuthPostLogin(oAuthUser.getEmail());
-                           response.sendRedirect("/list");
-                       }
-                   })
-                .and()
                 .csrf().disable();
     }
 
-    @Autowired
-    private CustomOAuth2UserService oauth2UserService;
+
 
 }
