@@ -22,8 +22,8 @@
                                 <h4 class="p-mb-1">{{slotProps.data.nameSubcat}}</h4>
                                 <p class="pp">{{slotProps.data.descripSubcat}}</p>
                                 <div class="">
-                                    <Button icon="pi pi-info-circle" label="Detalles" class="p-button-info" @click="$router.push({name: 'prd' })"/>
-                                    <Button icon="pi pi-list" label="Abogados" class="p-button-help" @click="$router.push('')"/>
+                                    <Button icon="pi pi-info-circle" label="Detalles" class="p-button-info" @click="$router.push({name: 'prd', params:{ ct: this.$route.params.cat} })"/>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -36,16 +36,14 @@
 
 <script>
 import myjson from '../jsons/prueba.json';
+import myjsonc from '../jsons/Civil.json';
 export default {
     created() {
         let trm = [];
         for (let i in this.datos.subcategories){
             trm.push(this.datos.subcategories[i]);
         }
-        trm.push({idSubcat: 2,
-                  nameSubcat: "",
-                  descripSubcat: "",
-                  idsProcedu: ""});
+        
         this.tramites=trm;
         console.log(trm);
     },
@@ -54,10 +52,23 @@ export default {
     },
     data (){
         return{
-            datos: myjson,
+            datos: this.getdata(),
             tramites: [{},
             {}]
         }
-    }    
+    },
+    methods: {
+        getdata: function(){
+            //let c = this.$route.params.cat;
+            let c = localStorage.tramite;
+            if (c ==  "Penal"){
+                return myjson
+            } else  if (c == "Civil"){
+                return myjsonc
+            } else {
+                return myjson
+            }
+        }
+    },   
 }
 </script>

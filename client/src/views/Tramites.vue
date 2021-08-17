@@ -16,8 +16,7 @@
                                 <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
                                 
                                 <div class="">
-                                    <Button icon="pi pi-info-circle" label="Tramites" class="p-button-info" @click="$router.push('/sub')"/>
-                                    <Button icon="pi pi-list" label="Abogados" class="p-button-help" @click="$router.push('')"/>
+                                   <Button icon="pi pi-info-circle" label="Tramites" class="p-button-info" @click="newtramite(slotProps.data.name)"/>
                                 </div>
                             </div>
                         </div>
@@ -36,6 +35,10 @@ export default {
         
     },
     methods: {
+        newtramite: function(t){
+            localStorage.tramite = t;
+            this.$router.push({name: 'sub' , params:{ cat: t }});
+        }
     },
     data(){
         return{
