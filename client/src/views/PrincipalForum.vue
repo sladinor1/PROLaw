@@ -5,49 +5,20 @@
             <Button icon="pi pi-check" label="Ok" @click="acept" autofocus />
         </Dialog>
         
-        <div class="pregunta-container">
-                      
+        <div class="pregunta-container">                      
             
             <div v-if="nuevo">
                 <br>
                 <Textarea v-model="comentario.topicCas" rows="1" cols="150" placeholder="Asunto" />
                 <Textarea v-model="comentario.descripCas" rows="5" cols="150" placeholder="Escriba aquí su pregunta..." />
-                <Button label="Publicar" class="p-button-sm" @click="guardar" style="font-weight: bold"/>
-                <Button label="Cancelar" class="p-button-danger p-button-sm" @click="{ this.nuevo=false;}" style="font-weight: bold"/>
+                <Button label="Preguntar" class="p-button-success p-button-sm" @click="guardar" style="font-weight: bold" icon="pi pi-send"/>
+                <Button label="Cancelar" class="p-button-danger p-button-sm" @click="{ this.nuevo=false;}" style="font-weight: bold" icon="pi pi-times-circle"/>
             </div>
             <br>
-            <!-- Caja de búsqueda por tema
-            <DataTable :value="preguntas" :paginator="true" :rows="10" selectionMode="single" dataKey="id"
-                    @rowSelect="selected" responsiveLayout="scroll" v-model:filters="filters" filterDisplay="row" :loading="loading">
-                <template #empty>
-                    No customers found.
-                </template>
-                <template #loading>
-                    Loading customers data. Please wait.
-                </template>
-
-                <Column filterField="topicCas" :filterMatchModeOptions="matchModeOptions">
-                    <template #body="{data}">
-                        <span class="">{{data.country.name}}</span>
-                    </template>
-                    <template #filter="{filterModel,filterCallback}">
-                        <InputText type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" :placeholder="`Search by country - ${filterModel.matchMode}`" />
-                    </template>
-                </Column>-->
-            <DataTable :value="preguntas" :paginator="true" :rows="10" selectionMode="single" dataKey="id"
-                    @rowSelect="selected" :filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
-                    :globalFilterFields="['topicCas', 'subcatCas','idUserC']">
-                    
-                    <template #empty>
-                        No customers found.
-                    </template>
-                    <template #loading>
-                        Loading customers data. Please wait.
-                    </template>
-
-                <div style=" display:flex; justify-content: space-between;">
+            
+            <div style=" display:flex; justify-content: space-between;">
                     <div style="margin: 10px">                
-                        <Button label="Hacer una pregunta" icon="pi pi-plus" class="p-button-raised p-button-rounded p-button-secondary" @click="agregar" style="font-weight: bold"/>
+                        <Button label="Hacer una pregunta" icon="pi pi-question-circle" class="p-button p-button-rounded p-button-primary" @click="agregar" style="font-weight: bold"/>
                     </div>
                     <div style="margin: 10px">
                         <!--<InputText id="busqueda" type="text" v-model="busqueda" placeholder="Nueva Búsqueda"/>-->
@@ -55,6 +26,17 @@
                         <Button icon="pi pi-search" />  
                     </div>         
                 </div>
+
+            <DataTable :value="preguntas" :paginator="true" :rows="10" selectionMode="single" dataKey="id"
+                    @rowSelect="selected" :filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
+                    :globalFilterFields="['topicCas', 'subcatCas','idUserC']">
+                    
+                    <template #empty>
+                        Aún no hay respuestas.
+                    </template>
+                    <template #loading>
+                        Cargando respuestas, por favor espere.
+                    </template>
 
                 <Column field="topicCas" header="Tema" style="font-weight: bold"></Column>
                 <Column field="dateAns"  dataType="date" style="min-width: 8rem" header="Fecha"></Column>
@@ -94,9 +76,7 @@ export default {
                 nameUser: this.$root.user,
                 topicCas: ''
                 },
-            preguntas: {
-                data: []
-            },
+            preguntas: [],
             nuevo: false,
             display: null,
             filters1: null,
@@ -109,9 +89,10 @@ export default {
         getList: function(){
             
         try{this.foroController.getList().then(data => {
-            console.log(data.data.data);
-            this.preguntas = data.data.data;
-            //console.log(this.preguntas);
+            console.log(JSON.parse(JSON.stringify(data.data)));
+            this.preguntas = data.data;
+            console.log(typeof(this.preguntas));
+            console.log(this.preguntas);
         })}catch{console.log("Error Connection");}
         //let p = this.foroController.getList();
         
@@ -122,6 +103,8 @@ export default {
             localStorage.idUserC = event.data.idUserC;
             localStorage.setItem("rtas", JSON.stringify(event.data.answers) );
             localStorage.idC = event.data.idCase;
+            localStorage.topic = event.data.topicCas;
+            console.log(localStorage.topic);
             this.$router.push({name: 'foro'});
 
 		},

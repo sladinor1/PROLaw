@@ -91,6 +91,21 @@ public class BackendController {
 	}
 
 	@ResponseBody
+	@GetMapping(path = "/user/U/{idUser}")
+	public JSONObject getUserId(@PathVariable("idUser") String idU){
+		LOG.info(idU);
+		JSONObject res = new JSONObject();
+        try {User u = userRepository.findByIdUser(idU);
+			LOG.info("----------------");
+			res.put("user", u);
+			return res;
+		} catch( NullPointerException exception){
+			LOG.info(exception.toString());
+			return null;
+		}
+	}
+
+	@ResponseBody
 	@RequestMapping(path = "/user/login/{emailUser}/{passUser}", method = RequestMethod.GET)
 	public User loginConfirmation(@PathVariable("emailUser") String emailUser,@PathVariable("passUser")  String passUser ){
 		String idUser = userRepository.findByEmailUser(emailUser).getIdUser();

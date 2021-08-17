@@ -1,18 +1,31 @@
 <template>
     <div>
         <Dialog header="" :visible="display" >
-            Usted no posee los permisos para responder a esta pregunta
-            <Button label="Ok" icon="pi pi-check" @click="acept" autofocus />
+            Usted no posee los permisos para responder a esta pregunta. <br>
+            <Button label="OK" icon="pi pi-check" @click="acept" autofocus />
+        </Dialog>
+        <Dialog position="top" header=" EDITA TU PREGUNTA" :visible="display2" :style="{width: '40vw'}" >
+            Asunto. <br>
+            <Textarea v-model="comment.topicCas" :style="{width: '37vw'}" /> <br>
+            Descripcion. <br>
+            <Textarea v-model="comment.descripCas" :style="{width: '37vw'}" />  <br>
+            <Button label="OK" icon="pi pi-check" @click="editar" autofocus />
         </Dialog>
         <div class="forum-container">
             <h3>{{pregunta}}</h3>
             <br>
-            <div>
-                <Textarea v-model="respuesta.descripAns" rows="5" cols="107" placeholder="Escriba aqui su respuesta..." />
-                <Button label="Responder" class="p-button-sm" @click="guardar" style="font-weight: bold"/> 
+            <div style="text-align: right">                
+                <Button label="Editar" class="p-button-sm" @click="mostrar" style="font-weight: bold" icon="pi pi-pencil"/> 
+                <Button label="Eliminar" class="p-button-danger p-button-sm" @click="eliminar" style="font-weight: bold" icon="pi pi-trash" /> 
             </div>
             <br>
-            <Panel v-if="rtas.length > 0 && rtas[0].nameUser != ''" header="Respuestas">
+            <div style="text-align: right">
+                <Textarea v-model="respuesta.descripAns" rows="5" cols="90" placeholder="Escriba aqui su respuesta..." />
+                <Button label="Responder" class="p-button-success p-button-sm" @click="guardar" style="font-weight: bold" icon="pi pi-send" /> 
+
+            </div>
+            <br>
+            <Panel  v-if="show"  header="Respuestas" >
                 <div v-for="i in rtas" :key="i">
                     <div style="display:flex; justify-content: space-between;">
                         <div style="margin: 10px" align="left">
@@ -22,11 +35,14 @@
                             {{i.dateAns}}
                         </div>
                     </div>
-                    <div>
-                        {{i.descripAns}}
+                    {{i.descripAns}} <br>
+                    <div style="text-align: right">
+                        
+                        <!--<Button label="Editar" class="p-button-sm" @click="editarL" style="font-weight: bold" icon="pi pi-pencil"/> 
+                        <Button label="Eliminar" class="p-button-danger p-button-sm" @click="eliminarL" style="font-weight: bold" icon="pi pi-trash" />-->
                     </div>
                     <Divider align="right">
-                        <Button label="Contactar a este abogado" @click="$router.push({name: 'perfil' , params: {id : i.idUserA}})" align="right" style="font-weight: bold"/>
+                        <Button label="Contactar a este abogado" @click="$router.push({name: 'perfil' , params: {id : i.idUserA}})" align="right" style="font-weight: bold" icon="pi pi-info-circle"/>
                     </Divider>
                 </div>
             </Panel>
@@ -44,7 +60,6 @@ export default {
     created() {
         this.foroController = new ForumController();
         this.getCase();
-        console.log(this.$root.id);
     },
     data(){
         return{
@@ -63,8 +78,17 @@ export default {
                 descripAns: '',
                 nameUser: this.$root.user
             },
+            comment :{
+                idC : localStorage.idC,
+                topicCas : localStorage.topic,
+                descripCas: localStorage.pregunta
+            },
             display: null,
-            correo: ''
+            display2: null,
+            correo: '',
+            idAuthor: '',
+            nombre: '',
+            show: false
         }
     }, 
     mounted() {
@@ -89,8 +113,39 @@ export default {
         }
     },
     methods: {
+        mostrar: function(){
+            this.display2 = true;
+        },
+        eliminar: function(){
+            let comment = {
+                idC : localStorage.idC
+            }
+            if (this.$root.rol == "U"){
+                this.foroController.deletedCase(comment);
+                //console.log(comment);
+                 this.$router.push('/foros');
+            }
+           
+        },
+        editar: function(){
+            if (this.$root.rol == "U"){
+                this.foroController.editedCase(this.comment);
+                console.log(this.comment);
+                this.display2 = null;
+                this.$router.push('/foros');
+            }
+           
+        },
         getCase: function(){
             try{this.foroController.getQuestion(localStorage.idC).then(data => {
+                if(data.data.idsAns == '0'){
+                    this.show = false;
+                } else{
+                    this.show = true;
+                }
+                this.idAuthor = data.data.idUserC;
+                this.nombre = data.data.nameUser;
+                //console.log(data.data);
               if(data.data.answers[0] != null){
                 this.rtas = data.data.answers;
                 console.log(this.rtas);
@@ -115,16 +170,18 @@ export default {
         sendEmail() {
             emailjs.init('user_PuldBtDHzIERDbKP27eyT');
             this.userController = new UserController();
-            try{this.userController.getFirst(this.$root.id).then(data => {
-                this.correo = data.data.user.email;
-                this.law = data.data.law;
+            try{this.userController.getUser(this.idAuthor).then(data => {
+                this.correo = data.data.user.emailUser.trim();
+                console.log("---------------EMAIL---------------")
+                console.log(this.correo);
             })}catch{console.log("Error Connection");}
             try {
+                const email = this.correo;
                 emailjs.send("service_0e62a5b","template_nn1v3xc",{
-                from: this.$root.user,
-                to_name: localStorage.idUserC,
-                reply_to: this.correo,
-                message: '"' + this.pregunta + '"'
+                from: this.$root.user, //Nombre abogado
+                to_name: this.nombre, //A quien va
+                reply_to: email, //"gmojica@unal.edu.co",//this.correo, //,Correo
+                message: '"' + this.pregunta + '"' //Pregunta
         })
         } catch(error) {
             console.log({error})

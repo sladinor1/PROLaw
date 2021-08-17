@@ -13,6 +13,10 @@ export default class UserController {
         return axiosI.get('user/'+id);
     }
 
+    getUser(id){
+        return axiosI.get('user/U/'+id);
+    }
+
     insert(usuario){
         //console.log(this.getData(usuario))
         return axiosI.post(this.getData(usuario));

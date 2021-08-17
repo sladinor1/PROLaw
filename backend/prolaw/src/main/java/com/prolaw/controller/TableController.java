@@ -56,6 +56,9 @@ public class TableController {
     @Autowired
     private AnswersRepository answersRepository;
 
+    @Autowired
+    private NotificationRepository notificationRepository;
+
     public void llenar() {
         boolean terminado = false;
         LOG.info("HOLA");
@@ -250,7 +253,7 @@ public class TableController {
 
     @ResponseBody
     @GetMapping(path = "/cases")
-    public JSONObject getAllCases() {
+    public List<Case> getAllCases() {
         llenarcasos();
         List<Case> casos = new ArrayList<Case>();
         for (int i = 1; i < 30; i++) {
@@ -277,7 +280,7 @@ public class TableController {
         }
         JSONObject res = new JSONObject();
         res.put("data", casos);
-        return res;
+        return casos;
     }
 
     @ResponseBody
@@ -302,7 +305,7 @@ public class TableController {
     @ResponseStatus(HttpStatus.CREATED)
     public void createCase(@PathVariable("idUserC") String idU, @PathVariable("nameU") String name,
             @PathVariable("topic_cas") String topic, @PathVariable("descrip_case") String descrip) {
-        String idSec = DigestUtils.sha256Hex(idU);
+        String idSec = idU;
         LocalDate date = LocalDate.now();
         Case savedCase = caseRepository.save(new Case(idSec, name, topic, descrip, date.toString()));
         LOG.info(savedCase.toString() + " successfully saved into DB.");
@@ -388,4 +391,36 @@ public class TableController {
 
     }
 
+    @ResponseBody
+    @GetMapping(path = "/notification/{id_not}")
+    public JSONObject getNotifications(@PathVariable("id_not") Long id_not) {
+        List<Notification> casos = new ArrayList<Notification>();
+        for (int i = 1; i < 30; i++) {
+            try {
+                Long j = Long.valueOf(i);
+                Notification c = notificationRepository.findByIdNots(j);
+                String id = c.getIdUser();
+                // Case c = caseRepository.findById(j);
+                if (c.equals(id)) {
+                    casos.add(c);
+                }
+
+            } catch (NullPointerException exception) {
+                LOG.info(exception.toString());
+            }
+        }
+        JSONObject res = new JSONObject();
+        res.put("data", casos);
+        return res;
+    }
+
+    @ResponseBody
+    @RequestMapping(path = "/notification/new/{email}/{descrip}", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void newNotification(@PathVariable("email") String email,@PathVariable("descrip") String descrip) {
+        User user = userRepository.findByEmailUser(email);
+        String id = user.getIdUser();
+        Notification not = notificationRepository.save(new Notification(id,descrip));
+        LOG.info(not.toString() + " successfully saved into DB.");
+    }
 }

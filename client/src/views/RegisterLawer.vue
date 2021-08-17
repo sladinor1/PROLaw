@@ -48,17 +48,8 @@
         optionGroupChildren="items" placeholder="Especialidad"></Dropdown>
       </div>
       <br>
-      <div class="p-field-checkbox">
-        <label for="fr">¿Pertene a alguna firma asociada?</label>
-        <Checkbox id="fr" v-model="checked" :binary="true" />
-      </div>
-      <div class="p-field p-col-12 p-md-6" v-if="checked">
-        <Dropdown v-model="usuario.firma" :options="firmas" optionLabel="label" placeholder="Escoja su firma"></Dropdown>
-        <label></label>
-      </div>
-      <br>
       <div class="p-field p-col-12 p-md-6">
-          <label>Adjunte su diploma</label>
+          <label>Adjunte su tarjeta profesional</label>
           <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
       </div>
       <br>

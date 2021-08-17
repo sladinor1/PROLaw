@@ -20,7 +20,7 @@
         <template #start>
           <img
             alt="logo"
-            src="../src/assets/logo.png"
+            src="../src/assets/log.png"
             height="40"
             class="p-mr-2"
           />

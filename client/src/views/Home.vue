@@ -4,7 +4,7 @@
       <div class="nav-container ">
         <nav class="navbar navbar-dark">
           <!-- Navbar content -->
-          <TabMenu :model="items" />
+          <TabMenu :model="items" :style="{align: 'middle'}" />
           <router-view />
         </nav>
       </div>
@@ -97,7 +97,7 @@ export default{
       display: true,
       items: [
         { label: 'Tramites', icon: '', to: '/tramites'},
-        { label: 'Entidades', icon: '', to: '/perfil'},
+        //{ label: 'Entidades', icon: '', to: '/perfil'},
         { label: 'Glosario', icon: '', to: '/glosario'},
         { label: 'Foro', icon: '', to: '/foros'},
       ]

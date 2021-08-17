@@ -40,7 +40,7 @@ export default {
     data(){
         return{
             categorias: [
-                {src: 'violencia.jpg', name: 'Violencia intrafamiliar', description:'' },
+                //{src: 'violencia.jpg', name: 'Violencia intrafamiliar', description:'' },
                 {src: 'penal.jpg', name: 'Penal', description:''},
                 {src: 'fondo.jpg', name: 'Civil', description:''},
                 {src: 'fondo.jpg', name: 'NA', description:''},

@@ -14,7 +14,7 @@
         </div>
         <br>
 
-            <p><router-link to="/Register" tag="button" class="btn btn-primary" type="submit">¿Olvidaste tu contraseña?</router-link></p>
+            <p><router-link to="/Register" tag="button" class="btn btn-primary" type="submit">¿No tienes una cuenta?</router-link></p>
 
         <div class="d-grid gap-2">
             <button class="botonInicioSesion" v-on:click="getLogin">Iniciar Sesión</button>
@@ -28,7 +28,7 @@
         </Dialog>
       </div>
 
-        <a href="{@/oauth2/authorization/google}">Login with Google</a>
+        <!--<a href="{@/oauth2/authorization/google}">Login with Google</a>-->
       
     </div>
   </div>
