@@ -35,7 +35,7 @@
                 class="p-mr-2"
               />
               Bienvenido {{ user }}
-              <SplitButton class="p-button-outlined p-button-success" icon="pi pi-bell" style="font-size: 1.5rem" v-badge="0" :model="items4"></SplitButton>
+              <!--<SplitButton class="p-button-outlined p-button-success" icon="pi pi-bell" style="font-size: 1.5rem" v-badge="0" :model="items4"></SplitButton>-->
             </div>
           </div>
         </template>

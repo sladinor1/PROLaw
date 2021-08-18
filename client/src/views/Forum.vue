@@ -156,7 +156,7 @@ export default {
             if (this.$root.rol == "L"){
                 this.foroController.saveAnswer(this.respuesta).then( data => {
                     this.getCase();
-                    this.sendEmail();
+                    this.getEmail();
                     this.respuesta.descripAns = '';
                     console.log(data);
                 })
@@ -167,25 +167,32 @@ export default {
         acept: function(){
             this.display = false;
         },
-        sendEmail() {
+        sendEmail(email) {
             emailjs.init('user_PuldBtDHzIERDbKP27eyT');
+            try {
+                console.log("Entro:" + email);
+                emailjs.send("service_0e62a5b","template_nn1v3xc",{
+                reply_to: email, //"gmojica@unal.edu.co",// //,Correo
+                from: this.$root.user, //Nombre abogado
+                to_name: this.nombre, //A quien va
+                message: '"' + this.pregunta + '"', //Pregunta
+                to_email: email
+        })
+        } catch(error) {
+            const email = this.correo;
+            console.log(email);
+            console.log({error})
+            
+        }},
+        getEmail: function(){
             this.userController = new UserController();
             try{this.userController.getUser(this.idAuthor).then(data => {
                 this.correo = data.data.user.emailUser.trim();
                 console.log("---------------EMAIL---------------")
                 console.log(this.correo);
+                this.sendEmail(this.correo);
             })}catch{console.log("Error Connection");}
-            try {
-                const email = this.correo;
-                emailjs.send("service_0e62a5b","template_nn1v3xc",{
-                from: this.$root.user, //Nombre abogado
-                to_name: this.nombre, //A quien va
-                reply_to: email, //"gmojica@unal.edu.co",//this.correo, //,Correo
-                message: '"' + this.pregunta + '"' //Pregunta
-        })
-        } catch(error) {
-            console.log({error})
-        }}
+        }
     },
 }
 </script>
