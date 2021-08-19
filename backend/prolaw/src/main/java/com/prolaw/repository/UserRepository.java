@@ -6,22 +6,17 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 //import antlr.collections.List;
-import java.util.*;
+//import java.util.*;
 
-/* Atributos
-private String nameUser;
-    private String lastNameUser;
-    private Integer celUser;
-    private String emailUser;
-    private String passUser;
-*/
+
 
 public interface UserRepository extends CrudRepository<User,String> {
 
-    List<User> findByIdUser(@Param("idUser") String idUser);
-    List<User> findByNameUser(@Param("nameUser") String nameUser);
-    List<User> findByLastNameUser(@Param("lastNameUser") String lastNameUser); 
-    List<User> findByCelUser(@Param("celUser") String celUser);
-    List<User> findByEmailUser(@Param("emailUser") String emailUser);   
-    List<User> findByPassUser(@Param("passUser") String passUser); 
+    User findByIdUser(@Param("idUser") String idUser);
+    User findByNameUser(@Param("nameUser") String nameUser);
+    User findByLastNameUser(@Param("lastNameUser") String lastNameUser);
+    User findByCelUser(@Param("celUser") String celUser);
+    User findByEmailUser(@Param("emailUser") String emailUser);
+    User findByPassUser(@Param("passUser") String passUser);
+
 }

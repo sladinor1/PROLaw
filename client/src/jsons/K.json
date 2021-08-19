@@ -1,0 +1,21 @@
+{
+    "data":[
+    {
+        "idGlo": 157,
+        "nameGlo": "Kriss Romaní",
+        "descripGlo": "Es el sistema propio del grupo étnico Rom o Gitano, el cual está compuesto por una serie de normas y valores culturales que todos los miembros del grupo étnico deben acatar y hacer cumplir.",
+        "initial": "K"
+    },
+    {
+        "idGlo": 158,
+        "nameGlo": "Kriss",
+        "descripGlo": "Es un tribunal en el que se reúnen los gitanos mayores (Seré Romengue) de determinada Kumpania, con el propósito de resolver una controversia y tratar asuntos internos.",
+        "initial": "K"
+    },
+    {
+        "idGlo": 159,
+        "nameGlo": "Kumpania",
+        "descripGlo": "(Kumpañy (plural)) Es el conjunto de grupos familiares liderados por hombres que, a partir de alianzas de diverso orden, optan por compartir espacios para vivir cerca y para desarrollarse de manera conjunta. En Colombia se ubican generalmente en sitios específicos de centros urbanos (Decreto 2957 de 2010, artículo 4).",
+        "initial": "K"
+    }
+]}

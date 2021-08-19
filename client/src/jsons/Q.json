@@ -1,0 +1,15 @@
+{
+    "data":[
+    {
+        "idGlo": 217,
+        "nameGlo": "Queja",
+        "descripGlo": "Es la manifestación por medio de la cual se ponen en conocimiento de una entidad, conductas irregulares o comportamientos contrarios a derecho, cometidos por los funcionarios públicos, en el ejercicio de sus funciones.",
+        "initial": "Q"
+    },
+    {
+        "idGlo": 218,
+        "nameGlo": "Querella",
+        "descripGlo": "Es la actividad de poner en conocimiento de la autoridad competente una conducta que se considera un delito, la cual solo puede ser presentada por la victima directa del delito. En caso de que la víctima no pueda presentarla, deberá hacerlo por intermedio de su representante legal. ",
+        "initial": "Q"
+    }
+]}

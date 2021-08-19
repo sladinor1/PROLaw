@@ -1,0 +1,93 @@
+{
+    "data":[
+    {
+        "idGlo": 107,
+        "nameGlo": "Edicto",
+        "descripGlo": "Corresponde a un medio de notificación procesal, que consiste en un escrito, el cual se indica la información correspondiente al proceso, que se fija en lugares públicos, en los estrados de los juzgados o tribunales y/o en periódicos de alta circulación nacional para dar conocimiento de una actuación procesal respectiva.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 108,
+        "nameGlo": "Efecto Devolutivo",
+        "descripGlo": "Es un efecto que se da al interponer un recurso procesal en virtud del cual, sin suspenderse la ejecución de la resolución o providencia recurrida, se devuelve el proceso al despacho anterior.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 109,
+        "nameGlo": "Efecto Suspensivo",
+        "descripGlo": "Es un efecto que se da al interponer un recurso procesal contra una resolución o providencia en virtud del cual, la competencia del inferior se suspende y por ende la ejecución del fallo o providencia hasta que decida en el tribunal superior.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 110,
+        "nameGlo": "Embargo",
+        "descripGlo": "Es una medida preventiva impuesta por un juez, cuando una persona tiene una deuda y no tiene como pagarla o no tiene intención de hacerlo, y así evitar que venda o regale el bien.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 111,
+        "nameGlo": "Emplazar",
+        "descripGlo": "Es la acción por parte de una autoridad judicial de citar o convocar en un proceso.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 112,
+        "nameGlo": "Endoso",
+        "descripGlo": "Es un modo de transmisión de un título valor (letra de cambio, cheque, pagaré, entre otros). Consiste en la firma que se coloca al respaldo de un título valor con el ánimo e intención de transmitir su propiedad a otro.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 113,
+        "nameGlo": "Englobe.",
+        "descripGlo": "Es la unión de varios inmuebles en un mismo lindero o pedazo de tierra.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 114,
+        "nameGlo": "Erga Omnes",
+        "descripGlo": "Significa que una norma, resolución, sentencia o un derecho, tiene efectos contra todos o respecto de todos. Es decir que tiene aplicación a todos los ciudadanos.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 115,
+        "nameGlo": "Escritura pública",
+        "descripGlo": "Documento público en el que se hace constar ante un notario un determinado hecho o un derecho autorizado, tiene plena eficacia, desde el momento que se autoriza por el funcionario.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 116,
+        "nameGlo": "Estado Civil",
+        "descripGlo": "Corresponde a la calidad de un individuo que le habilita para ejercer ciertos derechos o contraer ciertas obligaciones. Estado en cual se encuentra una persona respecto con otros. (Soltero, Casado, Divorciado, Viudo).",
+        "initial": "E"
+    },
+    {
+        "idGlo": 117,
+        "nameGlo": "Eutanasia",
+        "descripGlo": "Práctica mediante la cual una persona accede a facilitar la muerte o deceso de un individuo, para poner fin a su dolor y sufrimiento. Dicho procedimiento debe solicitarse de manera libre y voluntaria por quien lo requiera.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 118,
+        "nameGlo": "Excepción",
+        "descripGlo": "Contradicción con la cual el demandado procura destruir o desestimar las pretensiones del demandante en un proceso o juicio, a fin de evitar la continuación del proceso.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 119,
+        "nameGlo": "Exención",
+        "descripGlo": " Situación de privilegio que goza una persona o entidad para no tener cierta obligación, o para regirse por leyes especiales.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 120,
+        "nameGlo": "Exequatur",
+        "descripGlo": "Procedimiento mediante el cual se valida providencias judiciales proferidas en el extranjero, para ser aplicadas en Colombia.",
+        "initial": "E"
+    },
+    {
+        "idGlo": 121,
+        "nameGlo": "Exquibilidad",
+        "descripGlo": "Es el efecto de una sentencia emitida por la Corte Constitucional en la que se manifiesta que una ley  NO es contraria a la Constitución Nacional.",
+        "initial": "E"
+    }
+]}

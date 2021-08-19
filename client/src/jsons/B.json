@@ -1,0 +1,45 @@
+{
+    "data":[
+    {
+        "idGlo": 44,
+        "nameGlo": "Baldío",
+        "descripGlo": "Terreno rural que forma parte de los bienes del Estado porque se encuentra dentro de sus límites territoriales y no ha tenido un dueño particular.  ",
+        "initial": "B"
+    },
+    {
+        "idGlo": 45,
+        "nameGlo": "Beneficio de inventario",
+        "descripGlo": "Es un beneficio que tienen los herederos a la hora de aceptar la herencia que consiste en pagar las deudas de la sucesión  que dejo el causante con los bienes que dejo y nunca con los bienes propios.",
+        "initial": "B"
+    },
+    {
+        "idGlo": 46,
+        "nameGlo": "Bien inmueble",
+        "descripGlo": " Es un bien, considerado como bien raíz, se encuentra ligado al suelo o terreno en el cual se halla, de modo que resultará imposible de separar tanto en lo físico como en lo jurídico. Son ejemplos de inmuebles, las casas, las fincas, los departamentos.",
+        "initial": "B"
+    },
+    {
+        "idGlo": 47,
+        "nameGlo": "Bien mueble",
+        "descripGlo": "Son aquellos elementos de la naturaleza, materiales o inmateriales, que pueden desplazarse de forma inmediata y trasladarse fácilmente de un lugar a otro, ya sea por sus propios medios o por una fuerza extraña y manteniendo su integridad.",
+        "initial": "B"
+    },
+    {
+        "idGlo": 48,
+        "nameGlo": "Bienes",
+        "descripGlo": "Son todas las cosas muebles o inmuebles que son o pueden ser objeto de apropiación.",
+        "initial": "B"
+    },
+    {
+        "idGlo": 49,
+        "nameGlo": "Bisexual",
+        "descripGlo": "Persona cuya atracción afectiva, erótica o sexual se dirige o materializa con personas de ambos sexos.",
+        "initial": "B"
+    },
+    {
+        "idGlo": 50,
+        "nameGlo": "Buena Fe",
+        "descripGlo": "En materia jurídica corresponde a un principio universal del derecho que implica un comportamiento sincero ajustado a la confianza, la honestidad y la buena intención en nuestros actos y en el ejercicio de nuestros derechos.",
+        "initial": "B"
+    }]
+}

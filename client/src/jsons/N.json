@@ -1,0 +1,27 @@
+{
+    "data":[
+    {
+        "idGlo": 175,
+        "nameGlo": "Norma",
+        "descripGlo": "Las normas consisten en reglas, expedidas por la autoridad competente, que reglamentan el comportamiento de los miembros de la comunidad y cuya inobservancia o incumplimiento podría implicar efectos jurídicos negativos.",
+        "initial": "N"
+    },
+    {
+        "idGlo": 176,
+        "nameGlo": "Notario",
+        "descripGlo": "Es un profesional del derecho especialmente habilitado para recepcionar, autorizar y dar fe de los actos y contratos que otorguen o celebren las personas voluntariamente o conforme a la ley.",
+        "initial": "N"
+    },
+    {
+        "idGlo": 177,
+        "nameGlo": "Notificación",
+        "descripGlo": "Es el medio por el cual se comunica a las partes o a los apoderados de estas, las decisiones que se toman por parte del Juez.",
+        "initial": "N"
+    },
+    {
+        "idGlo": 178,
+        "nameGlo": "Nulidad",
+        "descripGlo": "Invalidez de un acto jurídico (por ejemplo: un contrato).",
+        "initial": "N"
+    }
+]}

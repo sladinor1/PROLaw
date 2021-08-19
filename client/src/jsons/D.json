@@ -1,0 +1,159 @@
+{
+    "data":[
+    {
+        "idGlo": 81,
+        "nameGlo": "Dación en pago",
+        "descripGlo": " Es una clase de pago en donde el acreedor acepta que el deudor o un tercero pague o extinga su obligación mediante una prestación (medio de pago) diferente a la pactada inicialmente.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 82,
+        "nameGlo": "Daño Antijurídico",
+        "descripGlo": "se ha señalado como aquel daño que la víctima no está en el deber jurídico de soportar, y que lesiona injustificadamente su patrimonio. Este daño puede ser causado por la acción o la omisión de las autoridades públicas. En tal caso el Estado quien debe responder patrimonialmente.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 83,
+        "nameGlo": "Daño emergente",
+        "descripGlo": "Corresponde al daño cuantificable en dinero, por concepto del perjuicio, deterioro o detrimento que ha sufrido un bien por causa de otro. Este perjuicio o pérdida puede ser obtenido por acción u omisión o por el incumplimiento total o parcial de una obligación.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 84,
+        "nameGlo": "Daño",
+        "descripGlo": "Hace referencia al detrimento o perjuicio, material o moral, sufrido por una persona o en sus bienes.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 85,
+        "nameGlo": "Debido proceso",
+        "descripGlo": "Es una garantía y principio jurídico procesal, que busca asegurar que toda persona pueda ser investigada, acusada o juzgada en un proceso ante las autoridades judiciales o administrativas, en condiciones de plena igualdad e imparcialidad, conforme a los procedimientos legalmente establecidos.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 86,
+        "nameGlo": "Declaración de pertenencia",
+        "descripGlo": "Proceso judicial mediante el cual una persona que lleva tiempo (más de 10 años)  en un predio y que ejerza todas las actividades propias de un dueño, busca que lo declaren formalmente como propietario del inmueble.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 87,
+        "nameGlo": "Deducción",
+        "descripGlo": "Es disminuir ciertos gastos a los ingresos acumulables para obtener la utilidad fiscal - restar un monto de una cierta cantidad o cuota.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 88,
+        "nameGlo": "Defensor Público",
+        "descripGlo": "El imputado tendrá derecho a una defensa técnica que estará a cargo del abogado principal que libremente aquel designe. Sin embargo, cuando no quiera designar voluntariamente un defensor o carezca de medios para hacerlo, la defensa será ejercida por un profesional del Sistema Nacional de Defensoría Pública. La defensa podrá ejercer todos los derechos y facultades que los tratados internacionales relativos a Derechos Humanos, que forman parte del bloque de constitucionalidad, la Constitución Política y la ley reconocen a favor del imputado.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 89,
+        "nameGlo": "Delito",
+        "descripGlo": "Conducta humana que viola sin justa causa un bien jurídico. Se puede realizar a dolo, es decir, con la conciencia y la voluntad de efectuar la conducta, o por culpa, o sea, por imprudencia, negligencia, imprudencia, impericia o violación de reglamentos.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 90,
+        "nameGlo": "Demanda",
+        "descripGlo": "escrito que contiene una descripción de unos hechos, los fundamentos de derecho, la identificación de las partes, las pretensiones, e identifica la clase de acción con la cual se da inicio a un proceso judicial o administrativo con funciones jurisdiccionales (Superintendencia de Industria y Comercio, Superintendencia de Sociedades, etc).",
+        "initial": "D"
+    },
+    {
+        "idGlo": 91,
+        "nameGlo": "Demandado",
+        "descripGlo": "Persona contra quien se actúa y a quien se le reclama algo o se pide una cosa en juicio.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 92,
+        "nameGlo": "Demandante",
+        "descripGlo": "Persona que ejercita una acción y formula una demanda en juicio, en reclamación de una cosa o reconocimiento de un derecho.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 93,
+        "nameGlo": "Denuncia",
+        "descripGlo": "Corresponde al medio por el cual se pone en conocimiento de la Policía Nacional o Fiscalía General de la Nación respectiva la ocurrencia de ciertos hechos, a fin de que se investigue la comisión de un delito.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 94,
+        "nameGlo": "Departamento",
+        "descripGlo": "entidad territorial que goza de autonomía para la administración de los asuntos seccionales y la planificación y promoción del desarrollo económico y social dentro de su territorio en los términos establecidos por la Constitución y las leyes. Los departamentos ejercen funciones administrativas, de coordinación, de complementariedad de la acción municipal, de intermediación entre la Nación y los municipios y de prestación de los servicios que determinen la Constitución y las leyes.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 95,
+        "nameGlo": "Derecho de petición",
+        "descripGlo": "Es la manera que tiene todo ciudadanos de obtener información, solicitar documentos, presentar quejas, recursos o hacer valer sus derechos, ante autoridades públicas o instituciones privadas.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 96,
+        "nameGlo": "Derechos fundamentales",
+        "descripGlo": "Son aquellos que tiene toda persona sin importar su raza, religión u orientación sexual, los cuales están protegidos por el Estado y no pueden ser desconocidos (vida, integridad, igualdad, entre otros). ",
+        "initial": "D"
+    },
+    {
+        "idGlo": 97,
+        "nameGlo": "Desacato",
+        "descripGlo": "No tener en cuenta y/o desobedecer una orden de una autoridad judicial, o de un superior.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 98,
+        "nameGlo": "Desistimiento",
+        "descripGlo": "Cuando se abandona o renuncia voluntariamente a un derecho, una ventaja o una pretensión.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 99,
+        "nameGlo": "Deslinde",
+        "descripGlo": "Procedimiento que se adelanta con el fin de delimitar las tierras de propiedad de la nación y de los particulares. ",
+        "initial": "D"
+    },
+    {
+        "idGlo": 100,
+        "nameGlo": "Desmovilizado",
+        "descripGlo": "Persona mayor de 18 años que por decisión individual o colectiva abandone voluntariamente sus actividades como miembro de grupos armados al margen de la ley ante las entidades del Estado.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 101,
+        "nameGlo": "Despojo",
+        "descripGlo": "Sacar o expulsar a alguien que tiene posesión sobre algo sin un permiso previo de un Juez o autoridad.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 102,
+        "nameGlo": "Deudor",
+        "descripGlo": "Persona que debe algo (dinero, trabajo manual, ganado, entre otras) a otra persona.",
+        "initial": "D"
+    },
+    {
+        "idGlo": 103,
+        "nameGlo": "Discriminación",
+        "descripGlo": "Es aquella conducta, actitud o trato que pretende,  anular, dominar o ignorar a una persona o grupo de personas por motivos arbitrarios como la raza, el sexo, la orientación sexual, el nivel socioeconómico, ideología, religión, entre otras. ",
+        "initial": "D"
+    },
+    {
+        "idGlo": 104,
+        "nameGlo": "Dolo",
+        "descripGlo": "Voluntad o intención de cometer un delito, con el pleno conocimiento de que es una acción prohibida por la ley  y del daño que puede causar. ",
+        "initial": "D"
+    },
+    {
+        "idGlo": 105,
+        "nameGlo": "Dominio",
+        "descripGlo": " Es el poder o autoridad que tiene una persona para disponer ejerce o disponer sobre cosa (tierras, casa, lote, entre otras).",
+        "initial": "D"
+    },
+    {
+        "idGlo": 106,
+        "nameGlo": "Donación",
+        "descripGlo": "Acto por medio del cual una persona se obliga con otra a entregar voluntaria y gratuitamente la propiedad de una cosa.",
+        "initial": "D"
+    }
+]}
