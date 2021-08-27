@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import myjsonc from '../jsons/Civil.json';
 import myjson from '../jsons/prueba.json';
 export default {
 	name: "TramiteDetail",
@@ -40,12 +41,24 @@ export default {
 	data() {
 		return {
 			id: '',
-            procedures: myjson.subcategories[0].procedures[0]
+            procedures: this.getdata()
 		}
 	}, 
 	mounted() {
 		console.log(this.id);
 	},
+	methods: {
+        getdata: function(){
+            let c = localStorage.tramite;
+            if (c ==  "Penal"){
+                return myjson.subcategories[0].procedures[0];
+            } else  if (c == "Civil"){
+                return myjsonc.subcategories[0].procedures[0];
+            } else {
+                return myjson.subcategories[0].procedures[0];
+            }
+        }
+    },
 }
 </script>
 

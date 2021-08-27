@@ -14,7 +14,7 @@
         </div>
         <br>
 
-            <p><router-link to="/Register" tag="button" class="btn btn-primary" type="submit">¿Olvidaste tu contraseña?</router-link></p>
+            <p><router-link to="/Register" tag="button" class="btn btn-primary" type="submit">¿No tienes una cuenta?</router-link></p>
 
         <div class="d-grid gap-2">
             <button class="botonInicioSesion" v-on:click="getLogin">Iniciar Sesión</button>
@@ -28,7 +28,7 @@
         </Dialog>
       </div>
 
-        <a href="{@/oauth2/authorization/google}">Login with Google</a>
+        <!--<a href="{@/oauth2/authorization/google}">Login with Google</a>-->
       
     </div>
   </div>
@@ -62,11 +62,15 @@ export default{
             try{ this.userController.login(this.usuario).then(data => {
                 //console.log(data.data);
                 if(data.data != null){
-                    this.$root.id = data.data.id;
+                    this.$root.rol = data.data.rol;
+                    this.$root.id = data.data.idUser;
                     this.$root.inside = true;
                     this.$root.user = data.data.nameUser +' '+ data.data.lastNameUser;
                     //console.log(data.data.nameUser +' '+ data.data.lastNameUser);
-                    //console.log(this.$root.user);
+                    console.log(data.data.idUser);
+                    console.log(this.$root.rol);
+                    //this.$root.actualizar();
+                    this.$router.push({name:'Home'});
                 }else{
                     this.display = true;
                 }

@@ -16,6 +16,17 @@
             </div>
             <br>
             
+            <div style=" display:flex; justify-content: space-between;">
+                    <div style="margin: 10px">                
+                        <Button label="Hacer una pregunta" icon="pi pi-question-circle" class="p-button p-button-rounded p-button-primary" @click="agregar" style="font-weight: bold"/>
+                    </div>
+                    <div style="margin: 10px">
+                        <!--<InputText id="busqueda" type="text" v-model="busqueda" placeholder="Nueva Búsqueda"/>-->
+                        <InputText v-model="filters1['global'].value" placeholder="Nueva Búsqueda" />
+                        <Button icon="pi pi-search" />  
+                    </div>         
+                </div>
+
             <DataTable :value="preguntas" :paginator="true" :rows="10" selectionMode="single" dataKey="id"
                     @rowSelect="selected" :filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                     :globalFilterFields="['topicCas', 'subcatCas','idUserC']">
@@ -27,29 +38,18 @@
                         Cargando respuestas, por favor espere.
                     </template>
 
-                <div style=" display:flex; justify-content: space-between;">
-                    <div style="margin: 10px">                
-                        <Button label="Hacer una pregunta" icon="pi pi-question-circle" class="p-button p-button-rounded p-button-primary" @click="agregar" style="font-weight: bold"/>
-                    </div>
-                    <div style="margin: 10px">
-                        <!--<InputText id="busqueda" type="text" v-model="busqueda" placeholder="Nueva Búsqueda"/>-->
-                        <InputText v-model="filters1['global'].value" placeholder="Nueva Búsqueda" />
-                        <Button icon="pi pi-search" />  
-                    </div>         
-                </div>
-
                 <Column field="topicCas" header="Tema" style="font-weight: bold"></Column>
-                <Column field="subcatCas" header="Categoría Jurídica"></Column>
                 <Column field="dateAns"  dataType="date" style="min-width: 8rem" header="Fecha"></Column>
-                <Column field="idsAns" header="Respuestas"></Column>               
-                <Column field="idUserC" header="Autor">Nombre</Column>
+                <Column field="idsAns" header="Respuestas"></Column>
+                <Column field="nameUser" header="Autor">Nombre</Column>
             </DataTable>
     </div>
     </div>
 </template>
 
 <script>
-import myjson from '../jsons/Foro.json';
+//import FilterMatchMode from 'primevue/api';
+//import myjson from '../jsons/Foro.json';
 import ForumController from '../controller/ForumController.js'
 import {FilterMatchMode,FilterOperator} from 'primevue/api';
 
@@ -57,48 +57,70 @@ export default {
     foroController: null,
     created() {
         this.foroController = new ForumController();
-        //this.preguntas = this.foroController.getList();
-        let p = this.foroController.getList();
-        console.log(p);
+        this.getList();
         this.initFilters1();
+        if(localStorage.inside == true ){
+            this.$root.inside = true;
+        }
     },
     mounted() {        
-        this.loading1 = false;    
+            this.loading1 = false;    
         
     },
     data() {
 		return {
 			busqueda: '',
             comentario: {
-                idUserC: '', 
+                idUserC: this.$root.id,
                 descripCas: '',
-                dateAns: ''
+                nameUser: this.$root.user,
+                topicCas: ''
                 },
-            preguntas: myjson.data,
+            preguntas: [],
             nuevo: false,
             display: null,
             filters1: null,
-            loading1: true,            
+            loading1: true,
+            info: null
+            
 		}
 	},
     methods: {
+        getList: function(){
+            
+        try{this.foroController.getList().then(data => {
+            console.log(JSON.parse(JSON.stringify(data.data)));
+            this.preguntas = data.data;
+            console.log(typeof(this.preguntas));
+            console.log(this.preguntas);
+        })}catch{console.log("Error Connection");}
+        //let p = this.foroController.getList();
+        
+        },
 		selected: function(event){
             //console.log(event.data);
             localStorage.pregunta = event.data.descripCas;
+            localStorage.idUserC = event.data.idUserC;
             localStorage.setItem("rtas", JSON.stringify(event.data.answers) );
+            localStorage.idC = event.data.idCase;
+            localStorage.topic = event.data.topicCas;
+            console.log(localStorage.topic);
             this.$router.push({name: 'foro'});
+
 		},
         agregar: function(){
             this.nuevo = true;
         },
         guardar: function(){
             if (this.$root.inside){
-                this.comentario.idUserC = this.$root.id;
-                var today = new Date();
-                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                this.comentario.dateAns = date;
-                this.foroController.saveQuestion(this.comentario);
-                this.nuevo = false;
+                
+                this.foroController.saveQuestion(this.comentario).then( data => {
+                    //this.$root.actualizar();
+                    this.getList();
+                    console.log(data);
+                })
+                this.nuevo=false;
+                
             }else{
                 this.display = true;
             }     
