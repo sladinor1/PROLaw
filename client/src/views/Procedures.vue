@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import myjsonc from '../jsons/Civil.json';
 import myjson from '../jsons/prueba.json';
+import myjsonc from '../jsons/Civil.json';
+
 export default {
 	name: "TramiteDetail",
 	props:{
@@ -17,10 +18,18 @@ export default {
 	},
 	methods: {
 		selected: function(event){
-			this.$router.push({name: 'details' , params:{ c: this.$route.params.ct, id: event.data.idPro }});
-		}, 
-		getdata: function(){
-            let c = localStorage.tramite;
+			this.$router.push({name: 'details' , params:{ id: event.data.idPro }});
+		}
+	},
+	data() {
+		return {
+			id: null,
+            procedures: myjson.subcategories[0].procedures
+		}
+	}, 
+	methods: {
+        getdata: function(){
+            let c = this.$route.params.ct;
             if (c ==  "Penal"){
                 return myjson.subcategories[0].procedures
             } else  if (c == "Civil"){
@@ -29,13 +38,7 @@ export default {
                 return myjson.subcategories[0].procedures
             }
         }
-	},
-	data() {
-		return {
-			id: null,
-            procedures: this.getdata()
-		}
-	}
+    },
 }
 </script>
 
