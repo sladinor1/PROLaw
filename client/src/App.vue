@@ -11,6 +11,7 @@
           />
         </template>
         <template #end> 
+            <SplitButton class="p-button-outlined p-button-success" icon="pi pi-bell" style="font-size: 1.5rem" v-badge="num" :model="items4"></SplitButton>
         </template>
       </Menubar>
       <router-view />
@@ -85,6 +86,7 @@ export default {
   },
   data() {
     return {
+      num: 3,
       id: "",
       inside: false,
       image: img,

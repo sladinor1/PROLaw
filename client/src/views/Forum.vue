@@ -19,13 +19,7 @@
                 <Button label="Eliminar" class="p-button-danger p-button-sm" @click="eliminar" style="font-weight: bold" icon="pi pi-trash" /> 
             </div>
             <br>
-            <div style="text-align: right">
-                <Textarea v-model="respuesta.descripAns" rows="5" cols="90" placeholder="Escriba aqui su respuesta..." />
-                <Button label="Responder" class="p-button-success p-button-sm" @click="guardar" style="font-weight: bold" icon="pi pi-send" /> 
-
-            </div>
-            <br>
-            <Panel  v-if="show"  header="Respuestas" >
+            <Panel v-if="show" header="Respuestas">
                 <div v-for="i in rtas" :key="i">
                     <div style="display:flex; justify-content: space-between;">
                         <div style="margin: 10px" align="left">
@@ -59,10 +53,16 @@ export default {
     foroController: null,
     created() {
         this.foroController = new ForumController();
-        this.getCase();
+        //this.getCase();
+        console.log(this.rtas.length);
+        if (this.rtas.length == 1 && this.rtas[0].nameUser == ''){
+            console.log("ñññ");
+            this.show = false;
+        }
     },
     data(){
         return{
+            show: true,
             pregunta: '',
             rtas: [
                 {

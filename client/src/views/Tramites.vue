@@ -16,7 +16,8 @@
                                 <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
                                 
                                 <div class="">
-                                   <Button icon="pi pi-info-circle" label="Tramites" class="p-button-info" @click="newtramite(slotProps.data.name)"/>
+                                    <Button icon="pi pi-info-circle" label="Tramites" class="p-button-info" @click="$router.push({name: 'sub' , params:{ cat: slotProps.data.name }})"/>
+                                    <Button icon="pi pi-list" label="Abogados" class="p-button-help" @click="$router.push('')"/>
                                 </div>
                             </div>
                         </div>

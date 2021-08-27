@@ -2,60 +2,12 @@
     "data":[
         {
             "idCase": 1,
-            "idUserC": "Pedro Pérez",
+            "nameUser": "Pedro Pérez",
             "topicCas": "Mi padre golpea a mi mama",
             "descripCas": "Cada vez que mi papa toma, el llega a la casa con una actitud muy pesada y desea pelear por todo, mi madre intenta calmarlo pero no es posible, esto ha sucedido desde hace tres años",
             "subcatCas": "Procedimiento especial abreviado",
             "dateAns": "2021-07-18",
-            "idsAns": "1,2",
-            "answers": [
-                {
-                    "idAns": 1,
-                    "idUserA": "Santiago Ladino",
-                    "descripAns": "Debes acercarte a Medicina Legal para tener un dictamen medico, luego acercarte a la FIscalia para colocar el denuncio. Cualquier cosa me puedes contactar.",
-                    "dateAns": "2021-07-18"
-                },
-                {
-                    "idAns": 2,
-                    "idUserA": "Juan López",
-                    "descripAns": "Debes acercarte a Medicina Legal para tener un dictamen medico, luego acercarte a la FIscalia para colocar el denuncio. Cualquier cosa me puedes contactar.",
-                    "dateAns": "2021-07-18"
-                }
-            ]
-        },
-        {
-            "idCase": 2,
-            "idUserC": "Andrés Torres",
-            "topicCas": "Mi padre golpea a mi mama",
-            "descripCas": "Cada vez que mi papa toma, el llega a la casa con una actitud muy pesada y desea pelear por todo, mi madre intenta calmarlo pero no es posible, esto ha sucedido desde hace tres años",
-            "subcatCas": "Procedimiento especial abreviado",
-            "dateAns": "2021-07-18",
-            "idsAns": "1",
-            "answers": [
-                {
-                    "idAns": 1,
-                    "idUserA": "Santiago Ladino",
-                    "descripAns": "Debes acercarte a Medicina Legal para tener un dictamen medico, luego acercarte a la FIscalia para colocar el denuncio. Cualquier cosa me puedes contactar.",
-                    "dateAns": "2021-07-18"
-                }
-            ]
-        },
-        {
-            "idCase": 3,
-            "idUserC": "Andrés Torres",
-            "topicCas": "Mi mamá me grita",
-            "descripCas": "Cada vez que mi papa toma, el llega a la casa con una actitud muy pesada y desea pelear por todo, mi madre intenta calmarlo pero no es posible, esto ha sucedido desde hace tres años",
-            "subcatCas": "Penal",
-            "dateAns": "2021-07-18",
-            "idsAns": "1",
-            "answers": [
-                {
-                    "idAns": 1,
-                    "idUserA": "Santiago Ladino",
-                    "descripAns": "Debes acercarte a Medicina Legal para tener un dictamen medico, luego acercarte a la FIscalia para colocar el denuncio. Cualquier cosa me puedes contactar.",
-                    "dateAns": "2021-07-18"
-                }
-            ]
+            "idsAns": "1,2"
         }
     ]
 }
